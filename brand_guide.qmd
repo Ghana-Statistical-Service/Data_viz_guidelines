@@ -1,0 +1,76 @@
+---
+title: "data visualization brand guide"
+---
+
+This page set some of the 'rules' for the publications by GSS.
+
+## Fonts and use of text
+
+Century Gothic Bold should be used for the labels and values on the graph. All axes should be labelled and where possible, the values for data points should be indicated on the graph.
+
+## Colour codes
+
+If there is no colour disaggregation present in the data, for example in a bar chart in which all bars have the same colour, a single blue colour should be used. 
+
+```{=html}
+   <div class="multi-group-container">
+                    <div class="color one">
+                         <p style="text-align: center">Standard colour/p>  
+                        <div class="swatch groupcolor national dark">
+                         <div class="color-code"><br><br>Hex: #27A0CC <br>.</div>
+                        </div>
+                    <svg width="30" height="30" class="print-swatch"><rect width="30" height="30" fill="#1696d2"></rect></svg></div>
+                    
+   </div>
+```
+
+
+### Locality type
+
+To show the difference between Urban Rural and the national, please use these colours
+
+```{=html}
+   <div class="multi-group-container">
+                    <div class="color three">
+                         <p style="text-align: center">National</p>  
+                        <div class="swatch groupcolor national dark">
+                         <div class="color-code"><br><br>Hex: #27A0CC <br>.</div>
+                        </div>
+                    <svg width="30" height="30" class="print-swatch"><rect width="30" height="30" fill="#1696d2"></rect></svg></div>
+                    <div class="color three">
+                        <p style="text-align: center">Urban</p>
+                        <div class="swatch groupcolor urban dark">
+                            <div class="color-code"><br><br>Hex: #871A5B <br>.</div>
+                        </div>
+                    <svg width="30" height="30" class="print-swatch"><rect width="30" height="30" fill="#000000"></rect></svg></div>
+                            <div class="color three">
+                                <p style="text-align: center">Rural</p>
+                        <div class="swatch groupcolor rural">
+                            
+                            <div class="color-code"><br><br>Hex: #22D0B6 <br>.</div>
+                        </div>
+                    <svg width="30" height="30" class="print-swatch"><rect width="30" height="30" fill="#000000"></rect></svg></div>
+    </div>
+```
+
+### Sex
+
+To show the difference between male and female, please use these colours
+
+```{=html}
+    <div class="multi-group-container">
+                    <div class="color two">
+                    <p style="text-align:center">Male</p>
+                        <div class="swatch groupcolor male dark">
+                            <div class="color-code"><br><br>Hex: #206095 <br>rgb(32, 96, 149)<br>.</div>
+                        </div>
+                    <svg width="30" height="30" class="print-swatch"><rect width="30" height="30" fill="#1696d2"></rect></svg></div>
+                    <div class="color two">
+                        <p style="text-align: center">Female</p>
+                        <div class="swatch groupcolor female dark">
+                            <div class="color-code"><br><br>Hex: #F66068 <br>rgb(246, 96,104)<br>.</div>
+                        </div>
+                    <svg width="30" height="30" class="print-swatch"><rect width="30" height="30" fill="#000000"></rect></svg></div>
+                </div>
+ 
+```

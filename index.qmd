@@ -1,0 +1,7 @@
+---
+title: "GSS Data Visualisation Guide"
+---
+
+This is a Quarto website.
+
+bla bla bla (PLEASE KEEP IT SHORT)
