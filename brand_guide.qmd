@@ -1,5 +1,5 @@
 ---
-title: "data visualization brand guide"
+title: "brand guide"
 ---
 
 This page set some of the 'rules' for the publications by GSS.
