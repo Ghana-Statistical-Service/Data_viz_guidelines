@@ -1,76 +1,377 @@
 ---
-title: "data visualization brand guide"
+title: "Brand Guide"
 ---
 
-This page set some of the 'rules' for the publications by GSS.
+![](images/cover.png)
 
-## Fonts and use of text
+## 1. Report Design
 
-Century Gothic Bold should be used for the labels and values on the graph. All axes should be labelled and where possible, the values for data points should be indicated on the graph.
+#### [Cover Design]{.underline}
 
-## Colour codes
+::: {style="text-align:justify"}
+The front cover design of the report must have the logos, the name of the census/survey/routine or administrative data report, the volume number of the report if applicable, the name of the report, images which reflect the content of the report, and the month and year of publication.
 
-If there is no colour disaggregation present in the data, for example in a bar chart in which all bars have the same colour, a single blue colour should be used. 
+All text on the cover page should be in **UPPER CASE**.
 
-```{=html}
-   <div class="multi-group-container">
-                    <div class="color one">
-                         <p style="text-align: center">Standard colour/p>  
-                        <div class="swatch groupcolor national dark">
-                         <div class="color-code"><br><br>Hex: #27A0CC <br>.</div>
-                        </div>
-                    <svg width="30" height="30" class="print-swatch"><rect width="30" height="30" fill="#1696d2"></rect></svg></div>
-                    
-   </div>
-```
+The back cover of the report should have the logo of the Statistical Service and the link to the GSS website.
 
+<br>
 
-### Locality type
+**Use of Images**
 
-To show the difference between Urban Rural and the national, please use these colours
+The use of images on the cover page must reflect the content and themes of the report.
 
-```{=html}
-   <div class="multi-group-container">
-                    <div class="color three">
-                         <p style="text-align: center">National</p>  
-                        <div class="swatch groupcolor national dark">
-                         <div class="color-code"><br><br>Hex: #27A0CC <br>.</div>
-                        </div>
-                    <svg width="30" height="30" class="print-swatch"><rect width="30" height="30" fill="#1696d2"></rect></svg></div>
-                    <div class="color three">
-                        <p style="text-align: center">Urban</p>
-                        <div class="swatch groupcolor urban dark">
-                            <div class="color-code"><br><br>Hex: #871A5B <br>.</div>
-                        </div>
-                    <svg width="30" height="30" class="print-swatch"><rect width="30" height="30" fill="#000000"></rect></svg></div>
-                            <div class="color three">
-                                <p style="text-align: center">Rural</p>
-                        <div class="swatch groupcolor rural">
-                            
-                            <div class="color-code"><br><br>Hex: #22D0B6 <br>.</div>
-                        </div>
-                    <svg width="30" height="30" class="print-swatch"><rect width="30" height="30" fill="#000000"></rect></svg></div>
-    </div>
-```
+The images should be semi-transparent and placed behind the title of the report underneath the logos and the name of the census/survey/routine or administrative data report.
 
-### Sex
+<br>
 
-To show the difference between male and female, please use these colours
+**Use of logos**
+
+The cover design of the report should have Ghana's Coat of Arms and the Statistical Service logo at the top of the page, with the Coat of Arms on the left, and the GSS logo on the right.
+
+When available, census/survey/routine or administrative data report logos must be placed between the Coat of Arms and the GSS logo as illustrated below.
+
+<br>
+
+![](images/logouse.png){width="80%"}
+
+<br>
+
+The logos of the organisations involved, or programmes associated with the project should be placed at the bottom part of the cover page.
+
+Writers should ensure that the correct GSS logo (shown below) is used. Logos should not be resized or reshaped.
+
+<br>
+
+![](images/logo.png)
+
+<br>
+
+**Use of Colour**
+
+The recommended primary colours utilised in report designs should be inspired by the GSS logo.
+:::
 
 ```{=html}
-    <div class="multi-group-container">
-                    <div class="color two">
-                    <p style="text-align:center">Male</p>
-                        <div class="swatch groupcolor male dark">
-                            <div class="color-code"><br><br>Hex: #206095 <br>rgb(32, 96, 149)<br>.</div>
-                        </div>
-                    <svg width="30" height="30" class="print-swatch"><rect width="30" height="30" fill="#1696d2"></rect></svg></div>
-                    <div class="color two">
-                        <p style="text-align: center">Female</p>
-                        <div class="swatch groupcolor female dark">
-                            <div class="color-code"><br><br>Hex: #F66068 <br>rgb(246, 96,104)<br>.</div>
-                        </div>
-                    <svg width="30" height="30" class="print-swatch"><rect width="30" height="30" fill="#000000"></rect></svg></div>
-                </div>
- 
+<div class="multi-group-container">
+<svg width="30" height="30" class="print-swatch"><rect width="30" height="30" fill="#210d69"></rect></svg>
+
+<div class="color  four">
+<div class="swatch groupcolor statsblue dark ">
+<div class="color-code"><br>Minks<br>~<br>Hex: #210D69<br>rgb: 210,210,210<br>.</div></div>
+<svg width="30" height="30" class="print-swatch"><rect width="30" height="30" fill="#000000"></rect></svg></div>
+
+<div class="color  four">
+<div class="swatch groupcolor statspink dark ">
+<div class="color-code"><br>Highlighter Lilac<br>~<br>Hex: #DB2E76<br>rgb: 219,46,118<br>.</div></div>
+<svg width="30" height="30" class="print-swatch"><rect width="30" height="30" fill="#d2d2d2"></rect></svg></div>
+
+<div class="color  four">
+<div class="swatch groupcolor statsgray dark ">
+<div class="color-code"><br>Allegiance<br>~<br>Hex: #586889<br>rgb: 88,104,137<br>.</div></div>
+<svg width="30" height="30" class="print-swatch"><rect width="30" height="30" fill="#fdbf11"></rect></svg></div>
+
+<div class="color four">
+<div class="swatch groupcolor statsgreen dark ">
+<div class="color-code"><br>Rich Green<br>~<br>Hex: #227C42<br>rgb: 34,124,66<br>.</div></div>
+<svg width="30" height="30" class="print-swatch"><rect width="30" height="30" fill="#227c42"></rect></svg></div>
+
+</div>
+
+<br>
 ```
+<br>
+
+<br>
+
+#### [Page Margins]{.underline}
+
+::: {style="text-align:justify"}
+The orientation of reports should be in portrait for pages with text and charts. Pages with wide tables can be presented in landscape orientation. The following page margins should be used:
+
+-   
+
+          Top: 2.00 cm and Bottom: 1.25 cm
+
+-   
+
+          Left: 2.30 cm and Right: 2.30 cm
+
+<br>
+:::
+
+#### [Header and Footer]{.underline}
+
+::: {style="text-align:justify"}
+Pages should have a footer *(The retrospect option for footers should be selected in Word)*.
+
+All pages should be numbered. Page numbers should be placed on the *bottom right corner* of all pages. Page numbers should be in *Century Gothic font size 11*.
+
+A footer with the name *GHANA STATISTICAL SERVICE* (in upper case) placed on the bottom left corner of ALL pages. Report pages should not have headers.
+
+<br>
+:::
+
+::: {style="text-align:justify"}
+#### [Section numbering]{.underline}
+
+The style for numbering chapters and sections within reports is shown below
+
+-   
+
+          Main chapter: 1
+
+-   
+
+          First level sub-section: 1.1
+
+-   
+
+          Second level sub-section: 1.1.1
+
+-   
+
+          Third level sub-section: 1.1.1.1
+
+<br>
+:::
+
+#### [Font]{.underline}
+
+::: {style="text-align:justify"}
+**Size, Style, Colour and Capitalisation of Text**
+
+The font type Century Gothic (Body) should be used for text. Below are the font sizes, styles, colours, and indentation for the different levels of text:
+
+Heading one should be used for chapter or section headings numbered 1, 2, 3 etc. The subsequent heading styles should be used for the different sub-section levels.
+
+```{=html}
+<h3>HEADING ONE (FONT SIZE 16; BOLD; UPPER CASE; BLACK)</h3>
+<h4>Heading Two (font size 14; bold; black; capitalise each word)</h4>
+<br>
+<h5>&emsp;&emsp;Heading Three (font size 13; bold; black; capitalise each word)</h5>
+<br>
+<h6>&emsp;&emsp;Heading Four (font size 12; bold; italics; black; capitalise each word)</h6><br>
+```
+Text within paragraph
+
+-   
+
+          (Font size 11; black; capitalise first word of sentence and proper nouns) 
+
+Figure title
+
+-   
+
+          (font size 11; bold; small caps case; black, lighter 35%)
+
+Table title
+
+-   
+
+          (font size 11; bold; small caps case; black, lighter 35%)
+
+FOOTER
+
+-   
+
+          (FONT SIZE 9; UPPER CASE; WHITE, DARKER 50%) 
+
+<br>
+
+**Tables**
+
+The font type Arial Narrow, font size 11 should be used for tables in the reports. In cases where tables have too many columns to fit the font size 11, a smaller size can be used.
+
+<br>
+
+**Charts**
+
+Century Gothic Bold, font size 11 should be used for the labels on graphs.
+
+<br>
+
+<br>
+:::
+
+#### [Paragraph and Spacing]{.underline}
+
+::: {style="text-align:justify"}
+Text within paragraphs should be justified paragraphs. The following should be the line spacing used for text:
+
+-   
+
+          Paragraph spacing: Before: 12pt and After: 8pt
+
+-   
+
+          Line spacing: 1.15
+
+<br>
+:::
+
+#### [Bullets and Numbering]{.underline}
+
+::: {style="text-align:justify"}
+-   
+
+          Round bullets (shown) should be used.
+
+For lists with five or more items, numbers should be used instead of bullets.\]
+
+When listing items ensure that there is consistency in the listed (verbs items as illustrated below:
+:::
+
+::: {style="text-align:justify"}
++--------------------------------+-----------------------------+
+| Consistent                     | Inconsistent                |
++================================+=============================+
+| -   Training of field officers | -   Trained field officers; |
++--------------------------------+-----------------------------+
+| -   Validation of data; and    | -   Data validation; and    |
++--------------------------------+-----------------------------+
+| -   Writing of reports.        | -   Writing of reports      |
++--------------------------------+-----------------------------+
+
+Bullet items should be limited to single words, phrases or one sentence.
+
+When listing items that are complete sentences, each item should start with a capital letter and end with a full stop.
+
+When listing items that are single words or short phrases, items should start with small letters (except when the first word is a proper noun. The subsequent items should start with a small letter. Each item apart from the last should end with a semicolon. The penultimate item should have "and" or "or" after the semicolon. The last item should end with a full stop. An example is shown below:
+
+-   
+
+          Worked at least one hour in their paid job or business activity;
+
+-   
+
+          Engaged in a family business for payment in cash or in kind; or
+
+-   
+
+          Had a paid job or business activity but were on temporary absence.
+
+<br>
+
+<br>
+:::
+
+## 2. Writing Style
+
+#### [Grammar and Style]{.underline}
+
+::: {style="text-align:justify"}
+All reports should be written in a formal professional style and free of grammatical and typographical errors. Writers are encouraged to utilise the word processing software or online editing tools to review their drafts before submission.
+:::
+
+::: {style="text-align:justify"}
+**Language**
+
+GSS produces publications for diverse users including policy makers, civil society organisations, development partners and the private sector. As such reports should be written in clear non-technical language. Writers should use more common words and restrict usage of jargon to increase the readability of reports. When technical terms are used, they should be properly explained.
+
+Reports should exclude:
+
+-   
+
+          contractions (e.g., can’t, don’t)
+
+-   
+
+          shorthand (e.g., &, cont’d,)
+
+-   
+
+          shortened word forms (e.g., org., dept.)
+
+-   
+
+          colloquial expressions (e.g., kids, folks, a bunch of, lots of)
+
+-   
+
+          idioms (e.g., deal with, on the flip side, boils down to)
+
+Writers should also avoid the use of local slang such as dumsor (persistent power outages). Local slang can be used when there is no formal alternative, but should be italicised example, trotro, or chop bar. Where there is a formal but less recognised alternative, the slang can be inserted in parentheses e.g., female porters *(kayayei)*.
+
+Reports should be written in the third person and avoid the use of personal pronouns such as, **I** and **we**.
+:::
+
+::: {style="text-align:justify"}
+**Clarity**
+
+As much as possible, reports should use the active voice (e.g., the Statistical Service conducted a three-day training for five enumerators) and avoid the passive voice (e.g., five enumerators were trained for three days).
+
+Writers should use specific figures and avoid subjective quantifiers such as many, a few, and most.
+
+Writers should similarly avoid using adverbs such as very, really, and quite as descriptive words and rather use one fitting word e.g., rapidly (very quickly), sizeable (really large), moderately (quite slowly).
+:::
+
+::: {style="text-align:justify"}
+**Verbosity**
+
+While there are no strict limits to sentence lengths, writers are advised to have an average of 12 to 15 words per sentence in their reports.
+
+Similarly, writers are advised to average three to five sentences per paragraph.
+
+Writers should aim for short succinct sentences. For instance, "The purpose of the pre-test was to assess the questionnaire" (10 words) can be "The pre-test assessed the questionnaire" (five words).
+
+Phrases should be replaced with single words whenever possible. Some suggestions are provided below: .
+
+<br>
+
+| One word                 | Phrase                                    |
+|--------------------------|-------------------------------------------|
+| Because                  | As a consequence of, due to the fact that |
+| For                      | For the purpose of                        |
+| Despite, although        | In spite of the fact that                 |
+| Without                  | In the absence of                         |
+| While, during            | In the course of                          |
+| Examine, explore, assess | Look closely at, to find out whether      |
+| Daily                    | On a daily basis                          |
+| Comprises                | Consists of                               |
+| Considering              | In view of                                |
+| Excludes                 | Does not include                          |
+| Equivalent, similar      | The same as                               |
+:::
+
+::: {style="text-align:justify"}
+**Tenses**
+
+Verb tenses should be consistent throughout. The recommended tenses are presented below:
+
++---------------------------------------------------------------------------------------------+---------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| **Section**                                                                                 | **Tense**                                         | **Example**                                                                                                                                                         |
++=============================================================================================+===================================================+=====================================================================================================================================================================+
+| Overview including field operations, and other activities completed prior to report writing | Past                                              | GSS developed two categories of instruments for the 2021 PHC: the listing form and the enumeration instruments.                                                     |
++---------------------------------------------------------------------------------------------+---------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| Literature review                                                                           | Present perfect                                   | Being behind grade for age has been shown to negatively influence students' academic and socio-emotional outcomes.                                                  |
++---------------------------------------------------------------------------------------------+---------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+|                                                                                             | Past                                              | Anarfi, Awusabo-Asare, and Nsowah-Nuamah (2000) estimated that there were 500,000 to 800,000 Ghanaians in Côte d'Ivoire in 1986.                                    |
++---------------------------------------------------------------------------------------------+---------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| Data and methodology                                                                        | Present                                           | The statistics presented in this thematic brief are generated from the 2021 PHC and on trends are complemented with data from the 2000 and 2010 censuses.           |
++---------------------------------------------------------------------------------------------+---------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| Findings and highlights                                                                     | Present                                           | Three in ten (30.2%) persons 6 years and older are not literate in any language.                                                                                    |
++---------------------------------------------------------------------------------------------+---------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+|                                                                                             | Past tense can be used for historical comparisons | Urban and rural populations increased in all regions between 2010 and 2021 except Eastern and Ahafo regions where rural population decreased.                       |
++---------------------------------------------------------------------------------------------+---------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| Conclusions                                                                                 | Present                                           | The findings indicate that a substantial share of children is being deprived of their rights as outlined in the 1992 Constitution and the 1998 Children's Act.      |
++---------------------------------------------------------------------------------------------+---------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| Recommendations                                                                             | Present                                           | Given the observed protective influence of schooling on girls, it is particularly important for a coordinated effort to ensure that girls start and stay in school. |
++---------------------------------------------------------------------------------------------+---------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+:::
+
+::: **Punctuation**
+
+When a list within a sentence contains three or more items, a comma must be used after all items except the last one as shown below :
+
+`
+This report presents data on literacy, current school attendance, and educational attainment.
+`
+
+When items in the list contain commas, semicolons should be used to separate items as shown below:
+
+`
+This publication targets Ministries, Departments, and Agencies (MDAs); Metropolitan, Municipal and District Assemblies (MMDAs); development partners; civil society organisations (CSOs); private sector; research and academia; and the public.
+`
+
+One space should separate sentences within a paragraph.

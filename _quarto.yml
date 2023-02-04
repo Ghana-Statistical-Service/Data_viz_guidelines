@@ -4,16 +4,20 @@ project:
 
 
 website:
-  title: "Data_viz_guidelines"
+  title: "Ghana Statistical Service"
   navbar:
     left:
       - href: index.qmd
         text: Home
       - brand_guide.qmd
       - graphics-guide.qmd
+      
 
 format:
   html:
     css: styles.css
     toc: true
     
+theme:
+  light: flatly
+  dark: darkly

@@ -1,7 +1,33 @@
 ---
-title: "GSS Data Visualisation Guide"
+title: "Data Visualisation Guide"
 ---
 
-This is a Quarto website.
 
-bla bla bla (PLEASE KEEP IT SHORT)
+
+<div style="text-align:justify">
+The **Ghana Statistical Service (GSS)** produces census and survey reports per its mandates to provide comprehensive, reliable, quality, relevant, accurate and timely statistical information to guide national development as stipulated in Section 3 of the Statistical Service Act, 2019 (Act 1003). 
+
+This document is a guide for staff and collaborators that analyse data and write reports. Its use will ensure that all GSS publications conform with its professional standards. The contents include instructions on design, formatting, writing style and data visualisation. 
+
+The guide sets out a distinct style for reports from the Statistical Service. A consistent style of publishing reports is necessary to deliver this mandate. It will also support the institutional vision to be a trusted provider of official statistics.
+
+</div>
+
+### Functions of Data
+<div style="text-align:justify">
+Data when ready for visualization can have the following functions as relation between variables
+
+-		Compassion
+-		Correlation
+-		Distribution
+-		Trend over time
+-		Part of a whole
+-		Geolocation
+
+</div>
+
+### Number of variables
+<div style="text-align:justify">
+Data can be represented on large number of variables but for easy comprehension it is advised to present a maximum of **five (5)** variables or categories of variables at a time
+
+</div>
