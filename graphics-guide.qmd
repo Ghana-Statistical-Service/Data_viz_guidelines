@@ -137,8 +137,8 @@ mtcars %>%
   gssthemes() +
 	# use coord_flip() instead of coord_cartesian()
   coord_flip(clip = "off") +
-	theme(panel.grid.major.x=element_line(color="gray", size=0.25),
-				panel.grid.major.y=element_blank(),)
+	theme(panel.grid.major.x=element_line(color = "gray", size=0.25),
+				panel.grid.major.y=element_blank())
 ```
 
 ### Three Colors

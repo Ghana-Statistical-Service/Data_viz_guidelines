@@ -1,76 +1,976 @@
 ---
-title: "brand guide"
+title: "Brand Guide"
 ---
 
-This page set some of the 'rules' for the publications by GSS.
+![](images/cover.png)
 
-## Fonts and use of text
+# 1. REPORT DESIGN
 
-Century Gothic Bold should be used for the labels and values on the graph. All axes should be labelled and where possible, the values for data points should be indicated on the graph.
+## [1.1 Cover Design]{.underline}
 
-## Colour codes
+::: {style="text-align:justify"}
+The front cover design of the report must have the logos, the name of the census/survey/routine or administrative data report, the volume number of the report if applicable, the name of the report, images which reflect the content of the report, and the month and year of publication.
 
-If there is no colour disaggregation present in the data, for example in a bar chart in which all bars have the same colour, a single blue colour should be used. 
+All text on the cover page should be in **UPPER CASE**.
 
-```{=html}
-   <div class="multi-group-container">
-                    <div class="color one">
-                         <p style="text-align: center">Standard colour/p>  
-                        <div class="swatch groupcolor national dark">
-                         <div class="color-code"><br><br>Hex: #27A0CC <br>.</div>
-                        </div>
-                    <svg width="30" height="30" class="print-swatch"><rect width="30" height="30" fill="#1696d2"></rect></svg></div>
-                    
-   </div>
-```
+The back cover of the report should have the logo of the Statistical Service and the link to the GSS website.
 
+### 1.1.1 Use of Images
 
-### Locality type
+The use of images on the cover page must reflect the content and themes of the report.
 
-To show the difference between Urban Rural and the national, please use these colours
+The images should be semi-transparent and placed behind the title of the report underneath the logos and the name of the census/survey/routine or administrative data report.
 
-```{=html}
-   <div class="multi-group-container">
-                    <div class="color three">
-                         <p style="text-align: center">National</p>  
-                        <div class="swatch groupcolor national dark">
-                         <div class="color-code"><br><br>Hex: #27A0CC <br>.</div>
-                        </div>
-                    <svg width="30" height="30" class="print-swatch"><rect width="30" height="30" fill="#1696d2"></rect></svg></div>
-                    <div class="color three">
-                        <p style="text-align: center">Urban</p>
-                        <div class="swatch groupcolor urban dark">
-                            <div class="color-code"><br><br>Hex: #871A5B <br>.</div>
-                        </div>
-                    <svg width="30" height="30" class="print-swatch"><rect width="30" height="30" fill="#000000"></rect></svg></div>
-                            <div class="color three">
-                                <p style="text-align: center">Rural</p>
-                        <div class="swatch groupcolor rural">
-                            
-                            <div class="color-code"><br><br>Hex: #22D0B6 <br>.</div>
-                        </div>
-                    <svg width="30" height="30" class="print-swatch"><rect width="30" height="30" fill="#000000"></rect></svg></div>
-    </div>
-```
+### 1.1.2 Use of logos
 
-### Sex
+The cover design of the report should have Ghana's Coat of Arms and the Statistical Service logo at the top of the page, with the Coat of Arms on the left, and the GSS logo on the right.
 
-To show the difference between male and female, please use these colours
+When available, census/survey/routine or administrative data report logos must be placed between the Coat of Arms and the GSS logo as illustrated below.
+
+![](images/logouse.png){width="80%"}
+
+The logos of the organisations involved, or programmes associated with the project should be placed at the bottom part of the cover page.
+
+Writers should ensure that the correct GSS logo (shown below) is used. Logos should not be resized or reshaped.
+
+![](images/logo.png)
+
+### 1.1.3 Use of Colour
+
+The recommended primary colours utilised in report designs should be inspired by the GSS logo.
+:::
 
 ```{=html}
-    <div class="multi-group-container">
-                    <div class="color two">
-                    <p style="text-align:center">Male</p>
-                        <div class="swatch groupcolor male dark">
-                            <div class="color-code"><br><br>Hex: #206095 <br>rgb(32, 96, 149)<br>.</div>
-                        </div>
-                    <svg width="30" height="30" class="print-swatch"><rect width="30" height="30" fill="#1696d2"></rect></svg></div>
-                    <div class="color two">
-                        <p style="text-align: center">Female</p>
-                        <div class="swatch groupcolor female dark">
-                            <div class="color-code"><br><br>Hex: #F66068 <br>rgb(246, 96,104)<br>.</div>
-                        </div>
-                    <svg width="30" height="30" class="print-swatch"><rect width="30" height="30" fill="#000000"></rect></svg></div>
-                </div>
- 
+<div class="multi-group-container">
+<svg width="30" height="30" class="print-swatch"><rect width="30" height="30" fill="#210d69"></rect></svg>
+
+<div class="color  four">
+<div class="swatch groupcolor statsblue dark ">
+<div class="color-code"><br>Minks<br>~<br>Hex: #210D69<br>rgb: 210,210,210<br>.</div></div>
+<svg width="30" height="30" class="print-swatch"><rect width="30" height="30" fill="#000000"></rect></svg></div>
+
+<div class="color  four">
+<div class="swatch groupcolor statspink dark ">
+<div class="color-code"><br>Highlighter Lilac<br>~<br>Hex: #DB2E76<br>rgb: 219,46,118<br>.</div></div>
+<svg width="30" height="30" class="print-swatch"><rect width="30" height="30" fill="#d2d2d2"></rect></svg></div>
+
+<div class="color  four">
+<div class="swatch groupcolor statsgray dark ">
+<div class="color-code"><br>Allegiance<br>~<br>Hex: #586889<br>rgb: 88,104,137<br>.</div></div>
+<svg width="30" height="30" class="print-swatch"><rect width="30" height="30" fill="#fdbf11"></rect></svg></div>
+
+<div class="color four">
+<div class="swatch groupcolor statsgreen dark ">
+<div class="color-code"><br>Rich Green<br>~<br>Hex: #227C42<br>rgb: 34,124,66<br>.</div></div>
+<svg width="30" height="30" class="print-swatch"><rect width="30" height="30" fill="#227c42"></rect></svg></div>
+
+</div>
+
+
+<br>
 ```
+
+::: {style="text-align:justify"}
+## [1.2 Page Margins]{.underline}
+
+The orientation of reports should be in portrait for pages with text and charts. Pages with wide tables can be presented in landscape orientation. The following page margins should be used:
+
+-   
+
+          Top: 2.00 cm and Bottom: 1.25 cm
+
+-   
+
+          Left: 2.30 cm and Right: 2.30 cm
+
+<br>
+:::
+
+::: {style="text-align:justify"}
+## [1.3 Header and Footer]{.underline}
+
+Pages should have a footer *(The retrospect option for footers should be selected in Word)*.
+
+All pages should be numbered. Page numbers should be placed on the *bottom right corner* of all pages. Page numbers should be in *Century Gothic font size 11*.
+
+A footer with the name *GHANA STATISTICAL SERVICE* (in upper case) placed on the bottom left corner of ALL pages. Report pages should not have headers.
+
+<br>
+:::
+
+::: {style="text-align:justify"}
+## [1.4 Section numbering]{.underline}
+
+The style for numbering chapters and sections within reports is shown below
+
+-   
+
+          Main chapter: 1
+
+-   
+
+          First level sub-section: 1.1
+
+-   
+
+          Second level sub-section: 1.1.1
+
+-   
+
+          Third level sub-section: 1.1.1.1
+
+\]
+:::
+
+::: {style="text-align:justify"}
+## [1.5 Font]{.underline}
+
+### 1.5.1 Size, Style, Colour and Capitalisation of Text
+
+The font type Century Gothic (Body) should be used for text. Below are the font sizes, styles, colours, and indentation for the different levels of text:
+
+Heading one should be used for chapter or section headings numbered 1, 2, 3 etc. The subsequent heading styles should be used for the different sub-section levels.
+
+```{=html}
+<h3>HEADING ONE (FONT SIZE 16; BOLD; UPPER CASE; BLACK)</h3>
+<h4>Heading Two (font size 14; bold; black; capitalise each word)</h4>
+<br>
+<h5>&emsp;&emsp;Heading Three (font size 13; bold; black; capitalise each word)</h5>
+<br>
+<h6>&emsp;&emsp;Heading Four (font size 12; bold; italics; black; capitalise each word)</h6><br>
+```
+Text within paragraph
+
+-   
+
+          (Font size 11; black; capitalise first word of sentence and proper nouns) 
+
+Figure title
+
+-   
+
+          (font size 11; bold; small caps case; black, lighter 35%)
+
+Table title
+
+-   
+
+          (font size 11; bold; small caps case; black, lighter 35%)
+
+FOOTER
+
+-   
+
+          (FONT SIZE 9; UPPER CASE; WHITE, DARKER 50%) 
+
+<br>
+
+### 1.5.2 Tables
+
+The font type Arial Narrow, font size 11 should be used for tables in the reports. In cases where tables have too many columns to fit the font size 11, a smaller size can be used.
+
+<br>
+
+### 1.5.3 Charts
+
+Century Gothic Bold, font size 11 should be used for the labels on graphs.
+
+<br>
+:::
+
+## [1.6 Paragraph and Spacing]{.underline}
+
+::: {style="text-align:justify"}
+Text within paragraphs should be justified paragraphs. The following should be the line spacing used for text:
+
+-   
+
+          Paragraph spacing: Before: 12pt and After: 8pt
+
+-   
+
+          Line spacing: 1.15
+
+<br>
+:::
+
+## [1.7 Bullets and Numbering]{.underline}
+
+::: {style="text-align:justify"}
+-   
+
+          Round bullets (shown) should be used.
+
+For lists with five or more items, numbers should be used instead of bullets.\]
+
+When listing items ensure that there is consistency in the listed (verbs items as illustrated below:
+:::
+
+::: {style="text-align:justify"}
++--------------------------------+-----------------------------+
+| Consistent                     | Inconsistent                |
++================================+=============================+
+| -   Training of field officers | -   Trained field officers; |
++--------------------------------+-----------------------------+
+| -   Validation of data; and    | -   Data validation; and    |
++--------------------------------+-----------------------------+
+| -   Writing of reports.        | -   Writing of reports      |
++--------------------------------+-----------------------------+
+
+Bullet items should be limited to single words, phrases or one sentence.
+
+When listing items that are complete sentences, each item should start with a capital letter and end with a full stop.
+
+When listing items that are single words or short phrases, items should start with small letters (except when the first word is a proper noun. The subsequent items should start with a small letter. Each item apart from the last should end with a semicolon. The penultimate item should have "and" or "or" after the semicolon. The last item should end with a full stop. An example is shown below:
+
+-   
+
+          Worked at least one hour in their paid job or business activity;
+
+-   
+
+          Engaged in a family business for payment in cash or in kind; or
+
+-   
+
+          Had a paid job or business activity but were on temporary absence.
+
+<br>
+:::
+
+# 2. WRITING STYLE
+
+## [2.1 Grammar and Style]{.underline}
+
+::: {style="text-align:justify"}
+All reports should be written in a formal professional style and free of grammatical and typographical errors. Writers are encouraged to utilise the word processing software or online editing tools to review their drafts before submission.
+:::
+
+::: {style="text-align:justify"}
+### 2.1.1 Language
+
+GSS produces publications for diverse users including policy makers, civil society organisations, development partners and the private sector. As such reports should be written in clear non-technical language. Writers should use more common words and restrict usage of jargon to increase the readability of reports. When technical terms are used, they should be properly explained.
+
+Reports should exclude:
+
+-   
+
+          contractions (e.g., can’t, don’t)
+
+-   
+
+          shorthand (e.g., &, cont’d,)
+
+-   
+
+          shortened word forms (e.g., org., dept.)
+
+-   
+
+          colloquial expressions (e.g., kids, folks, a bunch of, lots of)
+
+-   
+
+          idioms (e.g., deal with, on the flip side, boils down to)
+
+Writers should also avoid the use of local slang such as dumsor (persistent power outages). Local slang can be used when there is no formal alternative, but should be italicised example, trotro, or chop bar. Where there is a formal but less recognised alternative, the slang can be inserted in parentheses e.g., female porters *(kayayei)*.
+
+Reports should be written in the third person and avoid the use of personal pronouns such as, **I** and **we**.
+:::
+
+::: {style="text-align:justify"}
+### 1.1.2 Clarity
+
+As much as possible, reports should use the active voice (e.g., the Statistical Service conducted a three-day training for five enumerators) and avoid the passive voice (e.g., five enumerators were trained for three days).
+
+Writers should use specific figures and avoid subjective quantifiers such as many, a few, and most.
+
+Writers should similarly avoid using adverbs such as very, really, and quite as descriptive words and rather use one fitting word e.g., rapidly (very quickly), sizeable (really large), moderately (quite slowly).
+:::
+
+::: {style="text-align:justify"}
+### 2.1.3 Verbosity
+
+While there are no strict limits to sentence lengths, writers are advised to have an average of 12 to 15 words per sentence in their reports.
+
+Similarly, writers are advised to average three to five sentences per paragraph.
+
+Writers should aim for short succinct sentences. For instance, "The purpose of the pre-test was to assess the questionnaire" (10 words) can be "The pre-test assessed the questionnaire" (five words).
+
+Phrases should be replaced with single words whenever possible. Some suggestions are provided below: .
+
+<br>
+
+| One word                 | Phrase                                    |
+|--------------------------|-------------------------------------------|
+| Because                  | As a consequence of, due to the fact that |
+| For                      | For the purpose of                        |
+| Despite, although        | In spite of the fact that                 |
+| Without                  | In the absence of                         |
+| While, during            | In the course of                          |
+| Examine, explore, assess | Look closely at, to find out whether      |
+| Daily                    | On a daily basis                          |
+| Comprises                | Consists of                               |
+| Considering              | In view of                                |
+| Excludes                 | Does not include                          |
+| Equivalent, similar      | The same as                               |
+:::
+
+::: {style="text-align:justify"}
+### 2.1.4 Tenses
+
+Verb tenses should be consistent throughout. The recommended tenses are presented below:
+
+| **Section**                                                                                 | **Tense**                                         | **Example**                                                                                                                                                         |
+|---------------------------------------------------------------------------------------------|---------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Overview including field operations, and other activities completed prior to report writing | Past                                              | GSS developed two categories of instruments for the 2021 PHC: the listing form and the enumeration instruments.                                                     |
+| Literature review                                                                           | Present perfect                                   | Being behind grade for age has been shown to negatively influence students' academic and socio-emotional outcomes.                                                  |
+|                                                                                             | Past                                              | Anarfi, Awusabo-Asare, and Nsowah-Nuamah (2000) estimated that there were 500,000 to 800,000 Ghanaians in Côte d'Ivoire in 1986.                                    |
+| Data and methodology                                                                        | Present                                           | The statistics presented in this thematic brief are generated from the 2021 PHC and on trends are complemented with data from the 2000 and 2010 censuses.           |
+| Findings and highlights                                                                     | Present                                           | Three in ten (30.2%) persons 6 years and older are not literate in any language.                                                                                    |
+|                                                                                             | Past tense can be used for historical comparisons | Urban and rural populations increased in all regions between 2010 and 2021 except Eastern and Ahafo regions where rural population decreased.                       |
+| Conclusions                                                                                 | Present                                           | The findings indicate that a substantial share of children is being deprived of their rights as outlined in the 1992 Constitution and the 1998 Children's Act.      |
+| Recommendations                                                                             | Present                                           | Given the observed protective influence of schooling on girls, it is particularly important for a coordinated effort to ensure that girls start and stay in school. |
+:::
+
+::: {style="text-align:justify"}
+### 2.1.5 Punctuation
+
+When a list within a sentence contains three or more items, a comma must be used after all items except the last one as shown below :
+
+`This report presents data on literacy, current school attendance, and educational attainment.`
+
+When items in the list contain commas, semicolons should be used to separate items as shown below:
+
+`This publication targets Ministries, Departments, and Agencies (MDAs); Metropolitan, Municipal and District Assemblies (MMDAs); development partners; civil society organisations (CSOs); private sector; research and academia; and the public.`
+
+One space should separate sentences within a paragraph.
+
+<br>
+:::
+
+::: {style="text-align:justify"}
+### 2.1.6 Subject verb agreement
+
+Institutions are singular e.g., GSS produces quality data.
+
+Data should be considered a collective noun e.g., the data shows fertility has declined overtime.
+
+Statistics should be referred to in the plural e.g., statistics indicate that fertility has declined overtime.
+
+<br>
+:::
+
+::: {style="text-align:justify"}
+### 2.1.7 Capitalisation of Words
+
+Capital letters should be used for the first words in sentences and for proper nouns. Proper nouns refer to specific persons, or places. Common nouns, which are general, should not be capitalised. An example is shown below:
+
+`We are also indebted to the universities for their technical support, particularly the University of Ghana and the University of Cape Coast.`
+
+The names of regions should be capitalised as such Greater Accra Region. When referring to two or more regions however, regions must not be capitalised. An example is shown below:
+
+`The Northern Region (14,031) has the highest number of girls aged 12 to 17 years who have ever been in union, followed distantly by the Ashanti (9,767) and Greater Accra regions (6,063).`
+
+COVID-19 should be capitalised while coronavirus is written in small letters.
+
+<br>
+:::
+
+::: {style="text-align:justify"}
+## [2.2 Writing about Numbers]{.underline}
+
+The following guidelines refer to numbers in text, charts, and tables.
+
+All figures from one to nine should be written in words and those 10 and above should be written in figures. Exceptions include age e.g., persons aged 5 years and currency e.g., GH₵8.
+
+Ordinal numbers from first to ninth must also be spelled out. 10th and above can be written in figures.
+
+Numbers above 999 must be written with commas e.g., 511,622.
+
+When a percentage figure is mentioned in a text, the words 'per cent' should follow the figure. However, if the figure is quoted in brackets, the percentage symbol (%) should be used. An example is:
+
+`Among children engaged in economic activity, almost 80 per cent are involved in agriculture-related activities with the highest proportion in Savannah (89.8%) and the least in Greater Accra (26.2%).`
+
+Sentences beginning with numbers should have the figures written out in words regardless of whether the number is below or above ten. An example is:
+
+`Thirteen per cent of those who have attended school in the past have tertiary education as the highest level attained.`
+
+Fractions (e.g., one-fifth) should be written in words.
+
+Use "to" in text and not hyphens when referring to ranges e.g., 15 to 19 years.
+
+Numbers above 1,000 should be fully written out and abbreviations (such as 1k) should not be used.
+
+Numbers above 1,000,000 can be written in figures and words e.g., 2 million.
+
+<br>
+:::
+
+::: {style="text-align:justify"}
+## [2.3 Spelling]{.underline}
+
+Spellings should follow the British convention. Examples are provided below:
+
+Words ending in the following:
+
+-   -se: e.g., organise and analyse
+
+-   -our: e.g., colour and labour
+
+-   -re: e.g., centre and kilometre
+
+-   -il: e.g., fulfil and enrol
+
+Words containing the following:
+
+-   -mme- e.g., programme
+
+-   -oe- e.g., foetus, diarrhoea
+
+For consistency, writers should follow the conventions below for the following compound words:
+
+-   Baseline and endline
+
+-   Coordinator; coordinate
+
+-   Cooperation, cooperate
+
+-   Dataset Database
+
+-   Decision-maker; decision-making
+
+-   Email
+
+-   Long-term
+
+-   Metadata
+
+-   Multidisciplinary
+
+-   Online
+
+-   Policy maker
+
+-   Self-employment
+
+-   Underperforming
+
+<br>
+:::
+
+::: {style="text-align:justify"}
+## [2.4 Use of Abbreviations]{.underline}
+
+All abbreviations in reports must be fully spelled out when first mentioned.
+
+Abbreviations should be written without full stops e.g., CAPI.
+
+Abbreviated measurements (such as km, kg) are acceptable. When using abbreviated measures, there should be no space between number and measure e.g., 50km.
+
+When using the abbreviated form of GSS, a definite article should not be used as illustrated below:
+
+`The Ghana Statistical Service (GSS) produces census and survey reports per its mandates or GSS produces census and survey reports per its mandates.`
+
+<br>
+:::
+
+::: {style="text-align:justify"}
+## [2.5 Use of Parentheses]{.underline}
+
+As a rule, use round brackets.
+
+However, parentheses within parentheses must be avoided. Square brackets should be used with round brackets to create a double enclosure in the text e.g., the Sustainable Development Goals **(\[SDGs\])**.
+
+Parentheses next to parentheses must also be avoided. Square brackets should be used next to parentheses **(round brackets)** e.g., a third of the population **(32.7%)** **\[Figure 1\]**.
+
+<br>
+:::
+
+::: {style="text-align:justify"}
+## [2.6 References]{.underline}
+
+Publications should utilise the [American Psychological Association]{.underline} (APA) style of referencing.
+
+<br>
+:::
+
+# 3. STRUCTURE OF REPORTS
+
+::: {style="text-align:justify"}
+## 3.1 Outline
+
+The outline of the report should be as follows:
+
+Introductory pages should be numbered i, ii, iii. and so on. Section names in this part of the report must not be numbered.
+
+1.  First page
+
+2.  Administrative Map of Ghana
+
+3.  List of Publications (if applicable)
+
+4.  Foreword
+
+5.  Acknowledgements
+
+6.  Executive summary (if applicable)
+
+7.  Tables of Contents
+
+8.  List of Figures
+
+9.  List of Tables
+
+10. Abbreviations and Acronyms
+
+Main report pages should be numbered 1, 2, 3 and so on). Section names in this part of the report must be numbered e.g., 1. Background, 2. Concepts and Definitions etc.
+
+11. Background
+
+12. Concepts and Definitions
+
+13. Methodology
+
+14. Highlights of Results (if applicable)
+
+15. Main Results
+
+16. Summary of Findings, Conclusions, and Recommendations
+
+17. List of Contributors
+
+Each section of the report must begin on a new page.
+:::
+
+::: {style="text-align:justify"}
+### 3.1.1 First page
+
+The first page of the report should have the name of the project at the top, the name of the report in the centre and the name of the institution with the month and year of the report at the bottom of the page.
+:::
+
+::: {style="text-align:justify"}
+### 3.1.2 Administrative Map
+
+The administrative map of Ghana reflecting the 16 regions and their districts should be inserted on the second page for national-level reports. Regional reports should have map of the region and its districts.
+:::
+
+::: {style="text-align:justify"}
+### 3.1.3 List of Publications (if applicable)
+
+If a report is written in more than one volume, a table containing all the publications in the series should be indicated and the name of the report highlighted. The cell colour highlight should be blue (#0825B8) and the font white and bold as shown below:
+
+![](images/listpu.png){width="522"}\
+:::
+
+::: {style="text-align:justify"}
+### 3.1.4 Foreword
+
+The foreword should provide information on the importance of the census/survey/routine or administrative data report, the contents of the report, the targeted data users, and the relevance of the report for policy and planning. The foreword should not be more than a page in length.
+:::
+
+::: {style="text-align:justify"}
+### 3.1.5 Acknowledgements
+
+The acknowledgements should be structured such that similar institutions -- e.g., public sector -- are grouped together. The ordering should be as follows -- national strategic oversight and technical advisory committees, public sector institutions, development partners, private sector companies, civil society and religious organisations, research, and academia.
+:::
+
+::: {style="text-align:justify"}
+### 3.1.6 Executive Summary
+
+For reports that do not have a highlights section, an executive summary presenting the key findings and conclusions from the report must be included. The executive summary should not exceed 5 pages.
+:::
+
+::: {style="text-align:justify"}
+### 3.1.7 Table of Contents
+
+The table of contents must be written using a numerical and not alphabetical format. The first heading (you may call them chapter headings) must be written in all caps and the headings under them (second headings) in initial caps.
+:::
+
+::: {style="text-align:justify"}
+### 3.1.8 List of Figures
+
+The list should have the figure numbers, figure names and page numbers.
+:::
+
+::: {style="text-align:justify"}
+### 3.1.9 List of Tables
+
+The list should have the table numbers, table names and page numbers.
+:::
+
+::: {style="text-align:justify"}
+### 3.1.10 Abbreviations and Acronyms
+
+All acronyms used in reports should be listed in alphabetical order as illustrated below.
+
+| CAPI | Computer-Assisted Personal Interview |
+|------|--------------------------------------|
+| CCT  | Census Coordinating Team             |
+| CSOs | Civil Society Organisations          |
+:::
+
+::: {style="text-align:justify"}
+### 3.1.11 Overview
+
+The overview section presents information on the implementation of the census or survey that produced the data presented in the report. The overview must include the following sections.
+
+1.  Introduction
+
+2.  Objectives of the census/survey/routine or administrative data report
+
+3.  Organisational structure of the census/survey/routine or administrative data report
+
+4.  Finance and logistics
+
+5.  Publicity, education, and advocacy
+
+6.  Instruments and procedures
+
+7.  IT operations
+
+8.  Mapping
+
+9.  Recruitment and training
+
+10. Data quality assurance
+:::
+
+::: {style="text-align:justify"}
+### 3.1.12 Background
+
+This section should provide information on the rationale and relevance of the report and its contents. The background should provide the following information: Theory or intuition on the importance of the issue and it's relevance to development.
+
+`Specifics of global commitments (cite specific goals, global agreements, frameworks as applicable).`
+
+`Specifics of national Commitments (cite specific policies, goals, frameworks as applicable).`
+
+`History of collecting data on the issue in Ghana.`
+
+`Uniqueness of the current study.`
+
+`What readers should expect in subsequent sections and specifically listing what statistics will be presented in the report.`
+
+`A note on any methodological issues affecting comparability of the statistics in the report if applicable.`
+:::
+
+::: {style="text-align:justify"}
+### 3.1.13 Concepts and Definitions
+
+All concepts and indicators used in the subsequent sections must be defined here.
+:::
+
+::: {style="text-align:justify"}
+### 3.1.14 Methodology
+
+This section presents information on the data collection processes and methodology.
+:::
+
+::: {style="text-align:justify"}
+### 3.1.15 Highlights of Results
+
+Each report should have a highlight section presenting key and striking findings from the results being presented. A minimum of 10 and a maximum of 15 highlights are recommended.
+:::
+
+::: {style="text-align:justify"}
+### 3.1.16 Main Results
+
+This section presents the main results in text and tables.
+:::
+
+::: {style="text-align:justify"}
+### 3.1.17 Summary of Findings, Conclusions and Recommendations
+
+This section summarises the findings and discusses the conclusions and policy recommendations.
+
+The summary of findings should focus on providing an overview of the key findings. The summary should not repeat every result presented but rather present a succinct description of the main takeaways.
+
+The conclusions should provide a synthesis of what has been presented in the report and must be guided by the introduction. The conclusion and can include a call to action based on the findings and a discussion on future research.
+
+The recommendations must emanate from the findings presented in the report and must be clear, specific, realistic, and actionable and must not recommend strategies that are already outlined in existing policy documents and frameworks.
+:::
+
+::: {style="text-align:justify"}
+### 3.1.18 List of Contributors
+
+Each report should have list of all persons that contributed to its production. The title, first name and surname of each person along with their email address, institution and role in the report writing process must be provided as shown below:
+
+| **Name**              | **Email**                                                                      | **Institution**           | **Role**                   |
+|-----------------------|--------------------------------------------------------------------------------|---------------------------|----------------------------|
+| Mr. Owusu Kagya       | [kagya.owusu\@statsghana.gov.gh](mailto:kagya.owusu@statsghana.gov.gh)         | Ghana Statistical Service | Chief Census Methodologist |
+| Mrs. Jacqueline Anum  | [jacqueline.anum\@statsghana.gov.gh](mailto:jacqueline.anum@statsghana.gov.gh) | Ghana Statistical Service | Chief Data Analyst         |
+| Mr. Godwin Odei Gyebi | [godwin.gyebi\@statsghana.gov.gh](mailto:godwin.gyebi@statsghana.gov.gh)       | Ghana Statistical Service | Subject Matter Specialist  |
+| Mr. Felix Adjei       | [felix.adjei\@statsghana.gov.gh](mailto:felix.adjei@statsghana.gov.gh)         | Ghana Statistical Service | Graphic Design             |
+:::
+
+::: {style="text-align:justify"}
+### 3.1.19 Appendices
+
+If needed, an appendix section should be included. Appendices can present supplementary tables or methodological notes.
+:::
+
+::: {style="text-align:justify"}
+### 3.1.19 About the Ghana Statistical Service
+
+On the inside of the inner back cover, reports can provide information on GSS. The standard text below can be used:
+
+`The Ghana Statistical Service (GSS) provides comprehensive, reliable, quality, relevant, accurate and timely statistical information to guide national development as stipulated in Section 3 of the Statistical Service Act, 2019 (Act 1003). The organisation’s vision is to be a trusted provider of official statistics for good governance and its mission being to lead the efficient collection, production, management, and dissemination of quality Official Statistics based on international standards, using competent and motivated staff for evidence-based decision-making, in support of national development.`
+
+`The Statistical Service produces monthly and quarterly data on important economic indicators such as, Consumer Price Index (CPI) and Inflation, Producer Price Index (PPI) and Inflation, and Gross Domestic Product (GDP). GSS also regularly generates periodic population, housing, demographic and economic data at the locality, district, and national levels from routine surveys, censuses, and administrative data. The statistics generated by GSS is utilised by a wide cross-section of users including the public sector, businesses, academia, civil society organisations and development partners. For more information on the statistics generated by GSS visit www.statsghana.gov.gh`
+:::
+
+## [3.2 Length of Reports]{.underline}
+
+::: {style="text-align:justify"}
+The recommended length of reports is 60 pages excluding references and appendices.
+:::
+
+# 4. STRUCTURE OF THEMATIC BRIEFS
+
+## [4.1 Outline]{.underline}
+
+::: {style="text-align:justify"}
+The recommended outline for thematic briefs is provided below: for thematic areas that do not fit into this outline, authors can adapt it as needed.
+
+1.  Table of contents
+
+2.  List of figures and tables
+
+3.  Introduction -- including objectives, rationale, and policy relevance
+
+4.  Definition of concepts
+
+5.  Literature review
+
+6.  Justification for the selection of correlates  
+
+7.  Data sources
+
+8.  Methodology
+
+9.  Results
+
+10. Conclusions
+
+11. List of contributors
+
+12. Appendices
+
+Each section of the thematic brief must begin on a new page.
+:::
+
+::: {style="text-align:justify"}
+### 4.1.1 Table of Contents
+
+The table of contents must be written using a numerical and not alphabetical format. The first heading (you may call them chapter headings) must be written in all caps and the headings under them (second headings) in initial caps.
+:::
+
+::: {style="text-align:justify"}
+### 4.1.2 List of Figures
+
+The list should have the figure numbers, figure names and page numbers.
+:::
+
+::: {style="text-align:justify"}
+### 4.1.3 List of Tables
+
+The list should have the table numbers, table names and page numbers.
+:::
+
+::: {style="text-align:justify"}
+### 4.1.4 Introduction
+
+This section should provide information on the importance of the thematic area for development, the rationale and policy relevance of the thematic brief referencing the relevant policy documents and national commitments (specific policies, programmes, goals, frameworks) to the thematic area. If applicable, the introduction should note any methodological issues affecting comparability of the statistics in the thematic brief.
+:::
+
+::: {style="text-align:justify"}
+### 4.1.5 Definition of Concepts, Data Sources, and Estimation
+
+#### 4.1.5.1 Definition of concepts
+
+All concepts and indicators used in the subsequent sections must be defined here.
+
+#### 4.1.5.2 Data sources
+
+Information on all the data sources used for the analysis must also be provided here.
+
+#### 4.1.5.3 Estimation
+
+For thematic briefs that include a regression analysis, information on the model must be provided here.
+:::
+
+::: {style="text-align:justify"}
+### 4.1.6 Justification for the Selection of Correlates
+
+This section should provide justification for the key correlates of the indicators being studied. Correlates should be selected based on their policy relevance and their potential to be used for targeted interventions. The selection of correlates should be based on a review of academic literature and policy documents.
+:::
+
+::: {style="text-align:justify"}
+### 4.1.7 Key Findings
+
+This section should present the highlights of key and striking findings from the results. The section should be subdivided into:
+
+#### 4.1.7.1 Trends
+
+The section should present trends with data from past censuses, and surveys if needed.
+
+Trends should only be presented for indicators where the methodology is consistent. As a rule, for comparison of trends, censuses should be compared to censuses and surveys to survey. When using both censuses and surveys, it is preferable to have separate charts side by side comparing the census and survey trend
+
+#### 4.1.7.2 Patterns
+
+This section should present patterns by age, sex, type of locality, region, and district.
+
+#### 4.1.7.2 Correlates
+
+This section should present the cross-tabulations of the outcome variable and the correlates, and the regression results.
+:::
+
+::: {style="text-align:justify"}
+### 4.1.8 Conclusions
+
+Policy conclusions guided by the introduction and based on the analyses should be provided. This should be written in non-technical language and should discuss the implications of the findings referencing the policy frameworks in the introduction.
+:::
+
+::: {style="text-align:justify"}
+### 4.1.9 Appendices
+
+All tables should be placed in the appendix. Only tables that are not available in already published reports should be placed here. The links to relevant tables in other reports and the census statistics dashboard should be provided.
+:::
+
+::: {style="text-align:justify"}
+### 4.1.10 List of Contributors
+
+Each report should have list of all persons that contributed to its production. The title, first name and surname of each person along with their email address, institution and role in the report writing process must be provided as shown below:
+
+| **Name**                 | **Email**                                                                | **Institution**           | **Role**     |
+|--------------------------|--------------------------------------------------------------------------|---------------------------|--------------|
+| Prof. Samuel K. Annim    | [samuel.annim\@statsghana.gov.gh](mailto:samuel.annim@statsghana.gov.gh) | Ghana Statistical Service | Lead Author  |
+| Ms. Anointing Yaa Lartey | [annkesh1234\@gmail.com]{.underline}                                     | Ghana Statistical Service | Data Analyst |
+| Dr. Grace Bediako        | [grace.bediako822\@gmail.com](mailto:grace.bediako822@gmail.com)         | Ghana Statistical Service | Reviewer     |
+:::
+
+## [4.2 Length of Thematic Briefs]{.underline}
+
+::: {style="text-align:justify"}
+The complete Thematic Briefs should not exceed 40 pages.
+:::
+
+# 5. FORMATTING OF TABLES, CHARTS AND HIGHLIGHTS
+
+## [5.1 Tables]{.underline}
+
+::: {style="text-align:justify"}
+All figures in tables should be single-spaced and right indented, and headings centred.
+
+Absolute numbers in tables must have a comma separator for numbers that are more than three digits (i.e., 1,123).
+
+Use of decimal points for percentages must be consistent throughout the document. One decimal place is recommended for all tables.
+
+For tables that span more than one page, each page should have the table header repeated but not the table name.
+
+The table heading should include the section/chapter number and the table number under that chapter and separated by (.).
+
+The table name must provide information on the sample, the indicator being presented in the table and the levels of disaggregation in that order. An example is:
+
+`Table 5.1: Population 15 years and older by economic activity status, sex, type of locality and region`
+
+Table names and headers must indicate the units of measurement e.g., percent, GH₵.
+
+Tables should have a top and bottom border but not right and left borders. Within the table only the table headers should have top and bottom borders as shown below:
+
+![](images/tab.png)
+
+Notes can be added under tables as needed, to provide supplementary detail.
+:::
+
+::: {style="text-align:justify"}
+## 5.2 Charts
+
+Numerical numbering should be used for all charts which should reflect the section/chapter number and the figure number.
+
+Use of decimal points must be consistent throughout the document. One decimal place is recommended for all charts. Exceptions to this rule are currency (GH₵14.50) and age (24 years)
+
+The name of the chart must provide information on the sample, the indicator being presented in the table and the levels of disaggregation in that order. An example is:
+
+`Figure 5.1: Proportion of economically active persons 15 years and older by type of locality and sex`
+:::
+
+::: {style="text-align:justify"}
+## 5.3 Highlights
+
+For each highlight, there should be one graph to illustrate the finding and one to three sentences explaining the key finding.
+
+**Century Gothic size 14** in **white colour** should be used for highlights with a blue (**#2E37FF**) background as shown below:
+
+`Figure 2: Example of a highlight`
+
+![](images/highlight.png)
+:::
+
+# 6. DATA VISUALISATION
+
+::: {style="text-align:justify"}
+## [6.1 Graphs]{.underline}
+
+Century Gothic Bold, font size 12 should be used for the labels and values on the graph. All axes should be labelled and where possible, the values for data points should be indicated on the graph.
+
+### 6.1.1 Pie Charts
+
+Pie charts should be used to show the composition of a sample as illustrated below. They should only be used when the sum of the parts is 100%. Pie charts should have a maximum of five categories.
+
+![](images/pie.png){fig-align="center" width="651"}
+
+![](images/donut.png){fig-align="center" width="305"}
+
+### 6.1.2 Bar/Column Charts
+
+Bar/column charts should be used for comparisons as illustrated below. The bars should be sorted with values in ascending order (from largest to smallest). The only exceptions are for the "other" category and "none" which can be placed at the last position.
+
+![](images/bar.png){fig-align="center" width="368"}
+
+![](images/bar1.png){fig-align="center" width="660"}
+
+![](images/multibar.png){fig-align="center"}
+
+### 6.1.3 Stacked Bar/Column Charts
+
+Stacked bar/column charts should be used to compare the composition of different groups. It is best to utilise percentages so that the heights of all the bars will be equal except in cases, where the absolute numbers are being highlighted.
+
+![](images/stack.png){fig-align="center"}
+
+![](images/stack2.png){fig-align="center" width="663"}
+
+### 6.1.4 Dot/Range Plots
+
+Dot/Range Plots should be used to display differences between two indicators, or a range of values as shown below.
+
+![](images/dot.png){fig-align="center"}
+
+### 6.1.5 Line Graphs
+
+Line graphs should be used to present trends over time or for continuous variables such as age or ordered categories such as educational level.
+
+![](images/line.png){fig-align="center"}
+
+### 6.1.6 Scatter Plots
+
+Scatter plots can be used to compare two variables to illustrate the correlation between the two.
+
+![](images/scatter.png)
+
+### 6.1.7 Other Charts
+
+Other types of data visualisations can be used as determined by the data.
+
+![](images/other.png){fig-align="center"}
+:::
+
+## [6.2 Colours]{.underline}
+
+The following colour schemes must be used for all graphs.
+
+### 6.1.1 Charts
+
+#### Sex
+
+
