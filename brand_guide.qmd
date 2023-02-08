@@ -66,8 +66,10 @@ The recommended primary colours utilised in report designs should be inspired by
 
 </div>
 
+
 <br>
 ```
+
 ::: {style="text-align:justify"}
 ## [1.2 Page Margins]{.underline}
 
