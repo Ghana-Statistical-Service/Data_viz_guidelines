@@ -56,8 +56,8 @@ showtext_auto()
 showtext::showtext_opts(dpi = 300)
 
 # set default colour for plots with multiple categories
-options(ggplot2.discrete.colour= c("#210D69", "#DB2E76", "#586889", "#227C42"))
-options(ggplot2.discrete.fill= c("#210D69", "#DB2E76", "#586889", "#227C42"))
+options(ggplot2.discrete.colour = c("#210D69", "#DB2E76", "#586889", "#227C42"))
+options(ggplot2.discrete.fill   = c("#210D69", "#DB2E76", "#586889", "#227C42"))
 
 # set default colour for plots with a single category
 update_geom_defaults("bar",   list(fill = "#27A0CC"))
@@ -95,6 +95,12 @@ gssthemes<-function(){
       legend.background=element_rect(fill="white", color=NA)
     )
 }
+
+# this will make the labels of the bar chart a bit nicer, by ending above the highest data point
+nicelimits <- function(x) {
+  range(scales::extended_breaks(only.loose = TRUE)(x))
+}
+
 ```
 
 
@@ -105,12 +111,16 @@ gssthemes<-function(){
 ### One Color
 
 ```{r barplots}
+
 mtcars %>%
   count(cyl) %>%
   ggplot(mapping = aes(x = factor(cyl), y = n)) +
   geom_col(width = 0.8) +
   geom_text(mapping = aes(label = n), vjust = -1) +
   gssthemes() +
+  scale_y_continuous( expand = c( 0, 0 ),
+                      limits = nicelimits,
+                      breaks = scales::extended_breaks(only.loose = TRUE)) +
   coord_cartesian(clip = "off")
 ```
 
@@ -127,8 +137,8 @@ mtcars %>%
   gssthemes() +
 	# use coord_flip() instead of coord_cartesian()
   coord_flip(clip = "off") +
-	theme(panel.grid.major.x=element_line(color="gray", size=0.25),
-				panel.grid.major.y=element_blank(),)
+	theme(panel.grid.major.x=element_line(color = "gray", size=0.25),
+				panel.grid.major.y=element_blank())
 ```
 
 ### Three Colors

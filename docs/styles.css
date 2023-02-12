@@ -157,6 +157,29 @@ a[role=tab] {
 
 }
 
+/*chart styles*/
+.color{
+ float: left;
+    display: inline-block;
+    margin-bottom: 20px;
+        min-width: 90px;
+
+}
+.swatch{
+    -webkit-print-color-adjust: exact;
+    
+}
+.color-code{
+    font-size: 0.9em;
+    text-align: center;
+    min-height: 60px;
+}
+.color-group{
+ margin-bottom: 30px; 
+    height: auto;
+    display: block;
+}
+
 /*containter*/
 .main-container {
   max-width: 940px;
@@ -412,6 +435,11 @@ hr:after {
     top: -13px;
 }
 
+
+/*Add on styling*/
+
+
+
 /*COLORS*/
 
 .statsblue{background-color:#210D69;}
@@ -453,6 +481,7 @@ hr:after {
 .inci4{background-color:#FF3333;}
 .inci5{background-color:#CC0000;}
 .inci6{background-color:#990000;}
+
 
 .blue{background-color:#1696d2;}
 .yellow{background-color:#FDBF11;}
