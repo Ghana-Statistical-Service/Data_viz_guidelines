@@ -5,6 +5,7 @@ title: "Data Visualisation Guide"
 
 
 <div style="text-align:justify">
+
 The **Ghana Statistical Service (GSS)** produces census and survey reports per its mandates to provide comprehensive, reliable, quality, relevant, accurate and timely statistical information to guide national development as stipulated in Section 3 of the Statistical Service Act, 2019 (Act 1003). 
 
 This document is a guide for staff and collaborators that analyse data and write reports. Its use will ensure that all GSS publications conform with its professional standards. The contents include instructions on design, formatting, writing style and data visualisation. 

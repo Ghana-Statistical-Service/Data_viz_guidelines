@@ -4,7 +4,6 @@ title: "Data visualization handbook"
 
 <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Lato" />
 
-
 # Graphic style guide
 
 ```{r setup, include=FALSE}
@@ -25,16 +24,13 @@ opts_chunk$set(fig.retina = 3)
 options(scipen = 999)
 ```
 
-This guide sets out a distinct style for reports from the Ghana Statistical Service (GSS). A consistent style of publishing reports is necessary to deliver this mandate. It will also support the institutional vision to be a trusted provider of statistics. The code on this page shows the a variety example of plots that can be used to display statistical outputs. These plost all follow the GSS brand styleguide. For now, the plots shown here use the R `ggplot2` package to make the various plots.  
+This guide sets out a distinct style for reports from the Ghana Statistical Service (GSS). A consistent style of publishing reports is necessary to deliver this mandate. It will also support the institutional vision to be a trusted provider of statistics. The code on this page shows the a variety example of plots that can be used to display statistical outputs. These plost all follow the GSS brand styleguide. For now, the plots shown here use the R `ggplot2` package to make the various plots.
 
-
-
-### Installing the right fonts 
+### Installing the right fonts
 
 ### Using GSS theme.
 
 In the future, GSS will release it is own package for data visualizations. For now it suffices to run this code to load the all the R code to set the right defaults (colours, fonts, etc.) to create plots in the GGS theme.
-
 
 ```{r}
 # load packages
@@ -102,7 +98,6 @@ nicelimits <- function(x) {
 }
 
 ```
-
 
 ## Bar Plots
 
@@ -364,7 +359,6 @@ mpg %>%
 ### Scatter Plots with Varying Point Size
 
 Weights and populations can be mapped in scatter plots to the size of the points. Here, the number of households in each state is mapped to the size of each point using `aes(size = hhpop)`. Note: `ggplot2::geom_point()` is used instead of `geom_point()`.
-
 
 ### Scatter Plots with Fill
 
