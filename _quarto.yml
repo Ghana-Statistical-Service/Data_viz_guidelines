@@ -10,6 +10,7 @@ website:
         text: Home
       - brand_guide.qmd
       - graphics-guide.qmd
+      - about.qmd
       
 format:
   html:
