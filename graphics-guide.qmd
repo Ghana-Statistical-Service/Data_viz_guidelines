@@ -1,5 +1,5 @@
 ---
-title: "Data visualization handbook"
+title: "R visualization"
 ---
 
 <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Lato" />
