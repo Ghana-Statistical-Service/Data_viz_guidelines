@@ -2,7 +2,6 @@ project:
   type: website
   output-dir: docs
 
-
 website:
   title: "Ghana Statistical Service"
   navbar:
@@ -12,7 +11,6 @@ website:
       - brand_guide.qmd
       - graphics-guide.qmd
       
-
 format:
   html:
     css: styles.css
