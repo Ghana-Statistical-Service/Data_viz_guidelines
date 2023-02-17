@@ -1198,6 +1198,7 @@ The following colour schemes must be used for all graphs.
                     
     </div>
 ```
+
 ### Sex
 
 To show the difference between male and female, please use these colours

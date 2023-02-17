@@ -158,7 +158,7 @@
     "href": "graphics-guide.html#use-of-fonts",
     "title": "Data visualization handbook",
     "section": "Use of Fonts",
-    "text": "Use of Fonts\nCentury Gothic Bold, font size 12 should be used for the labels and values on the graph. All axes should be labelled and where possible, the values for data points should be indicated on the graph."
+    "text": "Use of Fonts\n\nCentury Gothic Bold, font size 12 should be used for the labels and values on the graph."
   },
   {
     "objectID": "graphics-guide.html#use-of-colours",
@@ -264,5 +264,12 @@
     "title": "About",
     "section": "",
     "text": "1 + 1\n\n[1] 2"
+  },
+  {
+    "objectID": "graphics-guide.html#general-rules",
+    "href": "graphics-guide.html#general-rules",
+    "title": "Data visualization handbook",
+    "section": "General Rules",
+    "text": "General Rules\n\nAll axes should be labelled and where possible, the values for data points should be indicated on the graph."
   }
 ]
