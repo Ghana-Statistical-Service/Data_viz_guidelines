@@ -180,8 +180,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   <ul>
   <li><a href="#graphic-style-guide" id="toc-graphic-style-guide" class="nav-link active" data-scroll-target="#graphic-style-guide">Graphic style guide</a>
   <ul class="collapse">
-  <li><a href="#installing-the-right-fonts" id="toc-installing-the-right-fonts" class="nav-link" data-scroll-target="#installing-the-right-fonts">Installing the right fonts</a></li>
+  <li><a href="#use-of-fonts" id="toc-use-of-fonts" class="nav-link" data-scroll-target="#use-of-fonts">Use of Fonts</a></li>
+  <li><a href="#general-rules" id="toc-general-rules" class="nav-link" data-scroll-target="#general-rules">General Rules</a></li>
+  <li><a href="#use-of-colours" id="toc-use-of-colours" class="nav-link" data-scroll-target="#use-of-colours">Use of Colours</a>
+  <ul class="collapse">
   <li><a href="#using-gss-theme." id="toc-using-gss-theme." class="nav-link" data-scroll-target="#using-gss-theme.">Using GSS theme.</a></li>
+  </ul></li>
   <li><a href="#bar-plots" id="toc-bar-plots" class="nav-link" data-scroll-target="#bar-plots">Bar Plots</a>
   <ul class="collapse">
   <li><a href="#one-color" id="toc-one-color" class="nav-link" data-scroll-target="#one-color">One Color</a></li>
@@ -283,9 +287,227 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p><link rel="stylesheet" href="//fonts.googleapis.com/css?family=Lato"></p>
 <section id="graphic-style-guide" class="level1">
 <h1>Graphic style guide</h1>
-<p>This guide sets out a distinct style for reports from the Ghana Statistical Service (GSS). A consistent style of publishing reports is necessary to deliver this mandate. It will also support the institutional vision to be a trusted provider of statistics. The code on this page shows the a variety example of plots that can be used to display statistical outputs. These plost all follow the GSS brand styleguide. For now, the plots shown here use the R <code>ggplot2</code> package to make the various plots.</p>
-<section id="installing-the-right-fonts" class="level3">
-<h3 class="anchored" data-anchor-id="installing-the-right-fonts">Installing the right fonts</h3>
+<p>This guide sets out a distinct style for reports from the Ghana Statistical Service (GSS). A consistent style of publishing reports is necessary to deliver this mandate. It will also support the institutional vision to be a trusted provider of statistics. The code on this page shows the a variety example of plots that can be used to display statistical outputs. These plots all follow the GSS brand styleguide. For now, the plots shown here use the R <code>ggplot2</code> package to make the various plots.</p>
+<section id="use-of-fonts" class="level2">
+<h2 class="anchored" data-anchor-id="use-of-fonts">Use of Fonts</h2>
+<ul>
+<li>Century Gothic Bold, font size 12 should be used for the labels and values on the graph.</li>
+</ul>
+</section>
+<section id="general-rules" class="level2">
+<h2 class="anchored" data-anchor-id="general-rules">General Rules</h2>
+<ul>
+<li>All axes should be labelled and where possible, the values for data points should be indicated on the graph.</li>
+</ul>
+</section>
+<section id="use-of-colours" class="level2">
+<h2 class="anchored" data-anchor-id="use-of-colours">Use of Colours</h2>
+<p>Please use the following colour schemes for different types of disaggregation</p>
+<section id="sex" class="level4">
+<h4 class="anchored" data-anchor-id="sex">Sex</h4>
+<div class="multi-group-container">
+                    <div class="color two">
+                    <p style="text-align:center">Male</p>
+                        <div class="swatch groupcolor male dark">
+                            <div class="color-code"><br><br>Hex: #206095 <br>rgb(32, 96, 149)<br>.</div>
+                        </div>
+                    <svg width="30" height="30" class="print-swatch"><rect width="30" height="30" fill="#1696d2"></rect></svg></div>
+                    <div class="color two">
+                        <p style="text-align: center">Female</p>
+                        <div class="swatch groupcolor female dark">
+                            <div class="color-code"><br><br>Hex: #F66068 <br>rgb(246, 96,104)<br>.</div>
+                        </div>
+                    <svg width="30" height="30" class="print-swatch"><rect width="30" height="30" fill="#000000"></rect></svg></div>
+                </div>
+<br>
+<br>
+</section>
+<section id="locality-type" class="level4">
+<h4 class="anchored" data-anchor-id="locality-type">Locality Type</h4>
+<div class="multi-group-container">
+                    <div class="color three">
+                         <p style="text-align: center">National</p>  
+                        <div class="swatch groupcolor national dark">
+                         <div class="color-code"><br><br>Hex: #27A0CC <br>.</div>
+                        </div>
+                    <svg width="30" height="30" class="print-swatch"><rect width="30" height="30" fill="#1696d2"></rect></svg></div>
+                    <div class="color three">
+                        <p style="text-align: center">Urban</p>
+                        <div class="swatch groupcolor urban dark">
+                            <div class="color-code"><br><br>Hex: #871A5B <br>.</div>
+                        </div>
+                    <svg width="30" height="30" class="print-swatch"><rect width="30" height="30" fill="#000000"></rect></svg></div>
+                            <div class="color three">
+                                <p style="text-align: center">Rural</p>
+                        <div class="swatch groupcolor rural">
+                            
+                            <div class="color-code"><br><br>Hex: #22D0B6 <br>.</div>
+                        </div>
+                    <svg width="30" height="30" class="print-swatch"><rect width="30" height="30" fill="#000000"></rect></svg></div>
+                </div>
+                
+             <br>
+<p><br></p>
+</section>
+<section id="neutral" class="level4">
+<h4 class="anchored" data-anchor-id="neutral">Neutral</h4>
+<div class="multi-group-container">
+
+                    <div class="colour six">
+                        <div class="swatch groupcolor Neutral1 dark">
+                            <div class="color-code"><br>Hex: #002060</div>
+                        </div>
+                    <svg width="30" height="30" class="print-swatch"><rect width="30" height="30" fill="#1696d2"></rect></svg></div>
+                    <div class="colour six">
+                        <div class="swatch groupcolor Neutral2 dark">
+                            <div class="color-code"><br>Hex: #0070C0</div>
+                        </div>
+                    <svg width="30" height="30" class="print-swatch"><rect width="30" height="30" fill="#d2d2d2"></rect></svg></div>
+                    <div class="colour six">
+                        <div class="swatch groupcolor Neutral3 dark">
+                            <div class="color-code"><br>Hex: #00B0F0</div>
+                        </div>
+                    <svg width="30" height="30" class="print-swatch"><rect width="30" height="30" fill="#000000"></rect></svg></div>
+                    <div class="colour six">
+                        <div class="swatch groupcolor Neutral4">
+                            <div class="color-code"><br>Hex: #8EA9DB</div>
+                        </div>
+                    <svg width="30" height="30" class="print-swatch"><rect width="30" height="30" fill="#fdbf11"></rect></svg></div>
+                    <div class="colour six">
+                        <div class="swatch groupcolor Neutral5">
+                            <div class="color-code"><br>Hex: #9BC2E6</div>
+                        </div>
+                    <svg width="30" height="30" class="print-swatch"><rect width="30" height="30" fill="#ec008b"></rect></svg></div>
+                    <div class="colour six">
+                        <div class="swatch groupcolor pop1">
+                            <div class="color-code"><br>Hex: #2C7FB8</div>
+                        </div>
+                    <svg width="30" height="30" class="print-swatch"><rect width="30" height="30" fill="#55b748"></rect></svg></div>
+                    
+    </div>
+    
+    <br>
+    <br>
+<p><br></p>
+</section>
+<section id="positive-negative" class="level4">
+<h4 class="anchored" data-anchor-id="positive-negative">Positive ~ Negative</h4>
+<div class="multi-group-container">
+
+                    <div class="colour six">
+                        <div class="swatch groupcolor Positive1 dark">
+                            <div class="color-code"><br>Hex: #38761D</div>
+                        </div>
+                    <svg width="30" height="30" class="print-swatch"><rect width="30" height="30" fill="#1696d2"></rect></svg></div>
+                    <div class="colour six">
+                        <div class="swatch groupcolor Positive2 dark">
+                            <div class="color-code"><br>#6AA84F</div>
+                        </div>
+                    <svg width="30" height="30" class="print-swatch"><rect width="30" height="30" fill="#d2d2d2"></rect></svg></div>
+                    <div class="colour six">
+                        <div class="swatch groupcolor Positive3">
+                            <div class="color-code"><br>Hex: #93C47D</div>
+                        </div>
+                    <svg width="30" height="30" class="print-swatch"><rect width="30" height="30" fill="#000000"></rect></svg></div>
+                    <div class="colour six">
+                        <div class="swatch groupcolor Negative3">
+                            <div class="color-code"><br>Hex: #F4CCCC</div>
+                        </div>
+                    <svg width="30" height="30" class="print-swatch"><rect width="30" height="30" fill="#fdbf11"></rect></svg></div>
+                    <div class="colour six">
+                        <div class="swatch groupcolor Negative2 dark">
+                            <div class="color-code"><br>Hex: #E06666</div>
+                        </div>
+                    <svg width="30" height="30" class="print-swatch"><rect width="30" height="30" fill="#ec008b"></rect></svg></div>
+                    <div class="colour six">
+                        <div class="swatch groupcolor Negative1 dark">
+                            <div class="color-code"><br>Hex: #990000</div>
+                        </div>
+                    <svg width="30" height="30" class="print-swatch"><rect width="30" height="30" fill="#55b748"></rect></svg></div>
+                    
+    </div>
+    
+    <br>
+    <br>
+<p><br></p>
+</section>
+<section id="population-density" class="level4">
+<h4 class="anchored" data-anchor-id="population-density">Population &amp; Density</h4>
+<div class="multi-group-container">
+
+                    <div class="colour five">
+                        <div class="swatch groupcolor pop1">
+                            <div class="color-code"><br>#FFFFCC</div>
+                        </div>
+                    <svg width="30" height="30" class="print-swatch"><rect width="30" height="30" fill="#d2d2d2"></rect></svg></div>
+                    <div class="colour five">
+                        <div class="swatch groupcolor pop2">
+                            <div class="color-code"><br>Hex: #C7E9B4</div>
+                        </div>
+                    <svg width="30" height="30" class="print-swatch"><rect width="30" height="30" fill="#000000"></rect></svg></div>
+                    <div class="colour five">
+                        <div class="swatch groupcolor pop3">
+                            <div class="color-code"><br>Hex: #7FCDBB</div>
+                        </div>
+                    <svg width="30" height="30" class="print-swatch"><rect width="30" height="30" fill="#fdbf11"></rect></svg></div>
+                    <div class="colour five">
+                        <div class="swatch groupcolor pop4 dark">
+                            <div class="color-code"><br>Hex: #41B6C4</div>
+                        </div>
+                    <svg width="30" height="30" class="print-swatch"><rect width="30" height="30" fill="#ec008b"></rect></svg></div>
+                    <div class="colour five">
+                        <div class="swatch groupcolor pop5 dark">
+                            <div class="color-code"><br>Hex: #2C7FB8</div>
+                        </div>
+                    <svg width="30" height="30" class="print-swatch"><rect width="30" height="30" fill="#55b748"></rect></svg></div>
+                    
+    </div>
+    
+    <br>
+    <br>
+<p><br></p>
+</section>
+<section id="incidence" class="level4">
+<h4 class="anchored" data-anchor-id="incidence">Incidence</h4>
+<div class="multi-group-container">
+
+                    <div class="colour six">
+                        <div class="swatch groupcolor inci1">
+                            <div class="color-code"><br>#FECCCC</div>
+                        </div>
+                    <svg width="30" height="30" class="print-swatch"><rect width="30" height="30" fill="#d2d2d2"></rect></svg></div>
+                    
+     <div class="colour six">
+                        <div class="swatch groupcolor inci2">
+                            <div class="color-code"><br>Hex: #FF9999</div>
+                        </div>
+                    <svg width="30" height="30" class="print-swatch"><rect width="30" height="30" fill="#000000"></rect></svg></div>
+                    
+     <div class="colour six">
+                        <div class="swatch groupcolor inci3 dark">
+                            <div class="color-code"><br>Hex: #FF6666</div>
+                        </div>
+                    <svg width="30" height="30" class="print-swatch"><rect width="30" height="30" fill="#fdbf11"></rect></svg></div>
+                   
+     <div class="colour six">
+                        <div class="swatch groupcolor inci4 dark">
+                            <div class="color-code"><br>Hex: #FF3333</div>
+                        </div>
+                    <svg width="30" height="30" class="print-swatch"><rect width="30" height="30" fill="#ec008b"></rect></svg></div>
+                   
+     <div class="colour six">
+                        <div class="swatch groupcolor inci5 dark">
+                            <div class="color-code"><br>Hex: #CC0000</div>
+                        </div>
+                    <svg width="30" height="30" class="print-swatch"><rect width="30" height="30" fill="#55b748"></rect></svg></div>
+     
+     <div class="colour six">
+                        <div class="swatch groupcolor inci6 dark">
+                            <div class="color-code"><br>Hex: #990000</div>
+                        </div>
+                    <svg width="30" height="30" class="print-swatch"><rect width="30" height="30" fill="#55b748"></rect></svg></div>
+                    
+    </div>
 </section>
 <section id="using-gss-theme." class="level3">
 <h3 class="anchored" data-anchor-id="using-gss-theme.">Using GSS theme.</h3>
@@ -355,6 +577,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb1-62"><a href="#cb1-62" aria-hidden="true" tabindex="-1"></a>  <span class="fu">range</span>(scales<span class="sc">::</span><span class="fu">extended_breaks</span>(<span class="at">only.loose =</span> <span class="cn">TRUE</span>)(x))</span>
 <span id="cb1-63"><a href="#cb1-63" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
+</section>
 </section>
 <section id="bar-plots" class="level2">
 <h2 class="anchored" data-anchor-id="bar-plots">Bar Plots</h2>
