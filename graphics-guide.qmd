@@ -249,6 +249,8 @@ Please use the following colour schemes for different types of disaggregation
     </div>
 ```
 
+<br>
+<br>
 
 ### Using GSS theme.
 
