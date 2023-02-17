@@ -928,52 +928,52 @@ For each highlight, there should be one graph to illustrate the finding and one 
 
 Century Gothic Bold, font size 12 should be used for the labels and values on the graph. All axes should be labelled and where possible, the values for data points should be indicated on the graph.
 
-### 6.1.1 Pie Charts
+<!-- ### 6.1.1 Pie Charts -->
 
-Pie charts should be used to show the composition of a sample as illustrated below. They should only be used when the sum of the parts is 100%. Pie charts should have a maximum of five categories.
+<!-- Pie charts should be used to show the composition of a sample as illustrated below. They should only be used when the sum of the parts is 100%. Pie charts should have a maximum of five categories. -->
 
-![](images/donut.png){fig-align="center" width="305"}
+<!-- ![](images/donut.png){fig-align="center" width="305"} -->
 
-### 6.1.2 Bar/Column Charts
+<!-- ### 6.1.2 Bar/Column Charts -->
 
-Bar/column charts should be used for comparisons as illustrated below. The bars should be sorted with values in ascending order (from largest to smallest). The only exceptions are for the "other" category and "none" which can be placed at the last position.
+<!-- Bar/column charts should be used for comparisons as illustrated below. The bars should be sorted with values in ascending order (from largest to smallest). The only exceptions are for the "other" category and "none" which can be placed at the last position. -->
 
-![](images/bar1.png){fig-align="center" width="660"}
+<!-- ![](images/bar1.png){fig-align="center" width="660"} -->
 
-![](images/multibar.png){fig-align="center"}
+<!-- ![](images/multibar.png){fig-align="center"} -->
 
-### 6.1.3 Stacked Bar/Column Charts
+<!-- ### 6.1.3 Stacked Bar/Column Charts -->
 
-Stacked bar/column charts should be used to compare the composition of different groups. It is best to utilise percentages so that the heights of all the bars will be equal except in cases, where the absolute numbers are being highlighted.
+<!-- Stacked bar/column charts should be used to compare the composition of different groups. It is best to utilise percentages so that the heights of all the bars will be equal except in cases, where the absolute numbers are being highlighted. -->
 
-![](images/stack.png){fig-align="center"}
+<!-- ![](images/stack.png){fig-align="center"} -->
 
-![](images/stack2.png){fig-align="center" width="663"}
+<!-- ![](images/stack2.png){fig-align="center" width="663"} -->
 
-### 6.1.4 Dot/Range Plots
+<!-- ### 6.1.4 Dot/Range Plots -->
 
-Dot/Range Plots should be used to display differences between two indicators, or a range of values as shown below.
+<!-- Dot/Range Plots should be used to display differences between two indicators, or a range of values as shown below. -->
 
-![](images/dot.png){fig-align="center"}
+<!-- ![](images/dot.png){fig-align="center"} -->
 
-### 6.1.5 Line Graphs
+<!-- ### 6.1.5 Line Graphs -->
 
-Line graphs should be used to present trends over time or for continuous variables such as age or ordered categories such as educational level.
+<!-- Line graphs should be used to present trends over time or for continuous variables such as age or ordered categories such as educational level. -->
 
-![](images/line.png){fig-align="center"}
+<!-- ![](images/line.png){fig-align="center"} -->
 
-### 6.1.6 Scatter Plots
+<!-- ### 6.1.6 Scatter Plots -->
 
-Scatter plots can be used to compare two variables to illustrate the correlation between the two.
+<!-- Scatter plots can be used to compare two variables to illustrate the correlation between the two. -->
 
-![](images/scatter.png)
+<!-- ![](images/scatter.png) -->
 
-### 6.1.7 Other Charts
+<!-- ### 6.1.7 Other Charts -->
 
-Other types of data visualisations can be used as determined by the data.
+<!-- Other types of data visualisations can be used as determined by the data. -->
 
-![](images/other.png){fig-align="center"}
-:::
+<!-- ![](images/other.png){fig-align="center"} -->
+<!-- ::: -->
 
 ## [6.2 Colours]{.underline}
 
