@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.2.269">
+<meta name="generator" content="quarto-1.1.189">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -82,20 +82,16 @@ ul.task-list li input[type="checkbox"] {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link active" href="./index.html" aria-current="page">
- <span class="menu-text">Home</span></a>
+    <a class="nav-link active" href="./index.html" aria-current="page">Home</a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./brand_guide.html">
- <span class="menu-text">Brand Guide</span></a>
+    <a class="nav-link" href="./brand_guide.html">Brand Guide</a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./graphics-guide.html">
- <span class="menu-text">Data visualization handbook</span></a>
+    <a class="nav-link" href="./graphics-guide.html">R visualization</a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./about.html">
- <span class="menu-text">About</span></a>
+    <a class="nav-link" href="./about.html">About</a>
   </li>  
 </ul>
               <div class="quarto-toggle-container">
@@ -133,21 +129,17 @@ ul.task-list li input[type="checkbox"] {
 <div class="quarto-title-meta">
 
     
-  
     
   </div>
   
 
 </header>
 
-<div style="text-align:justify">
 <p>The <strong>Ghana Statistical Service (GSS)</strong> produces census and survey reports per its mandates to provide comprehensive, reliable, quality, relevant, accurate and timely statistical information to guide national development as stipulated in Section 3 of the Statistical Service Act, 2019 (Act 1003).</p>
 <p>This document is a guide for staff and collaborators that analyse data and write reports. Its use will ensure that all GSS publications conform with its professional standards. The contents include instructions on design, formatting, writing style and data visualisation.</p>
 <p>The guide sets out a distinct style for reports from the Statistical Service. A consistent style of publishing reports is necessary to deliver this mandate. It will also support the institutional vision to be a trusted provider of official statistics.</p>
-</div>
 <section id="functions-of-data" class="level3">
 <h3 class="anchored" data-anchor-id="functions-of-data">Functions of Data</h3>
-<div style="text-align:justify">
 <p>Data when ready for visualization can have the following functions as relation between variables</p>
 <ul>
 <li><pre><code>  Compassion</code></pre></li>
@@ -157,13 +149,10 @@ ul.task-list li input[type="checkbox"] {
 <li><pre><code>  Part of a whole</code></pre></li>
 <li><pre><code>  Geolocation</code></pre></li>
 </ul>
-</div>
 </section>
 <section id="number-of-variables" class="level3">
 <h3 class="anchored" data-anchor-id="number-of-variables">Number of variables</h3>
-<div style="text-align:justify">
 <p>Data can be represented on large number of variables but for easy comprehension it is advised to present a maximum of <strong>five (5)</strong> variables or categories of variables at a time</p>
-</div>
 
 
 </section>
@@ -301,9 +290,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   // Switch to dark mode if need be
   if (hasAlternateSentinel()) {
     toggleColorMode(true);
-  } else {
-    toggleColorMode(false);
-  }
+  } 
   const icon = "";
   const anchorJS = new window.AnchorJS();
   anchorJS.options = {
@@ -325,24 +312,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     button.classList.add('code-copy-button-checked');
     var currentTitle = button.getAttribute("title");
     button.setAttribute("title", "Copied!");
-    let tooltip;
-    if (window.bootstrap) {
-      button.setAttribute("data-bs-toggle", "tooltip");
-      button.setAttribute("data-bs-placement", "left");
-      button.setAttribute("data-bs-title", "Copied!");
-      tooltip = new bootstrap.Tooltip(button, 
-        { trigger: "manual", 
-          customClass: "code-copy-button-tooltip",
-          offset: [0, -8]});
-      tooltip.show();    
-    }
     setTimeout(function() {
-      if (tooltip) {
-        tooltip.hide();
-        button.removeAttribute("data-bs-title");
-        button.removeAttribute("data-bs-toggle");
-        button.removeAttribute("data-bs-placement");
-      }
       button.setAttribute("title", currentTitle);
       button.classList.remove('code-copy-button-checked');
     }, 1000);
@@ -378,42 +348,24 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       return note.innerHTML;
     });
   }
-  const findCites = (el) => {
-    const parentEl = el.parentElement;
-    if (parentEl) {
-      const cites = parentEl.dataset.cites;
-      if (cites) {
-        return {
-          el,
-          cites: cites.split(' ')
-        };
-      } else {
-        return findCites(el.parentElement)
-      }
-    } else {
-      return undefined;
-    }
-  };
   var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
   for (var i=0; i<bibliorefs.length; i++) {
     const ref = bibliorefs[i];
-    const citeInfo = findCites(ref);
-    if (citeInfo) {
-      tippyHover(citeInfo.el, function() {
-        var popup = window.document.createElement('div');
-        citeInfo.cites.forEach(function(cite) {
-          var citeDiv = window.document.createElement('div');
-          citeDiv.classList.add('hanging-indent');
-          citeDiv.classList.add('csl-entry');
-          var biblioDiv = window.document.getElementById('ref-' + cite);
-          if (biblioDiv) {
-            citeDiv.innerHTML = biblioDiv.innerHTML;
-          }
-          popup.appendChild(citeDiv);
-        });
-        return popup.innerHTML;
+    const cites = ref.parentNode.getAttribute('data-cites').split(' ');
+    tippyHover(ref, function() {
+      var popup = window.document.createElement('div');
+      cites.forEach(function(cite) {
+        var citeDiv = window.document.createElement('div');
+        citeDiv.classList.add('hanging-indent');
+        citeDiv.classList.add('csl-entry');
+        var biblioDiv = window.document.getElementById('ref-' + cite);
+        if (biblioDiv) {
+          citeDiv.innerHTML = biblioDiv.innerHTML;
+        }
+        popup.appendChild(citeDiv);
       });
-    }
+      return popup.innerHTML;
+    });
   }
 });
 </script>

@@ -57,7 +57,6 @@ Please use the following colour schemes for different types of disaggregation
                     <svg width="30" height="30" class="print-swatch"><rect width="30" height="30" fill="#000000"></rect></svg></div>
                 </div>
 <br>
-<br>
 ```
 
 #### Locality Type
@@ -87,7 +86,6 @@ Please use the following colour schemes for different types of disaggregation
                 
              <br>
 ```
-<br>
 
 #### Neutral
 
@@ -128,9 +126,7 @@ Please use the following colour schemes for different types of disaggregation
     </div>
     
     <br>
-    <br>
 ```
-<br>
 
 #### Positive \~ Negative
 
@@ -171,9 +167,7 @@ Please use the following colour schemes for different types of disaggregation
     </div>
     
     <br>
-    <br>
 ```
-<br>
 
 #### Population & Density
 
@@ -209,9 +203,7 @@ Please use the following colour schemes for different types of disaggregation
     </div>
     
     <br>
-    <br>
 ```
-<br>
 
 #### Incidence
 

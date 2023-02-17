@@ -910,6 +910,7 @@ The name of the chart must provide information on the sample, the indicator bein
 :::
 
 ::: {style="text-align:justify"}
+
 ## 5.3 Highlights
 
 For each highlight, there should be one graph to illustrate the finding and one to three sentences explaining the key finding.
@@ -924,6 +925,7 @@ For each highlight, there should be one graph to illustrate the finding and one 
 # 6. DATA VISUALISATION
 
 ::: {style="text-align:justify"}
+
 ## [6.1 Graphs]{.underline}
 
 Century Gothic Bold, font size 12 should be used for the labels and values on the graph. All axes should be labelled and where possible, the values for data points should be indicated on the graph.
