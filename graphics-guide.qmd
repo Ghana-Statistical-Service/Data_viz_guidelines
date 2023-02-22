@@ -2,14 +2,17 @@
 title: "R visualization"
 ---
 
+
+
 <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Lato" />
 
-# Graphic style guide
 
 ```{r setup, include=FALSE}
 library(knitr)
 library(datasets)
 library(tidyverse)
+library(ggplot2)
+
 #library(urbnthemes)
 
 #set_urbn_defaults(style = "print")
@@ -24,7 +27,8 @@ opts_chunk$set(fig.retina = 3)
 options(scipen = 999)
 ```
 
-This guide sets out a distinct style for reports from the Ghana Statistical Service (GSS). A consistent style of publishing reports is necessary to deliver this mandate. It will also support the institutional vision to be a trusted provider of statistics. The code on this page shows the a variety example of plots that can be used to display statistical outputs. These plots all follow the GSS brand styleguide. For now, the plots shown here use the R `ggplot2` package to make the various plots.
+R is an amazing tool for data analysis and visualization. The code on this page shows the a variety of plots using the R `ggplot2` package to display statistical outputs.
+
 
 ## Use of Fonts 
 
@@ -37,7 +41,8 @@ This guide sets out a distinct style for reports from the Ghana Statistical Serv
 
 ## Use of Colours
 
-Please use the following colour schemes for different types of disaggregation
+Please use the following colour schemes for different types of disaggregation.
+
 
 #### Sex
 
@@ -57,8 +62,8 @@ Please use the following colour schemes for different types of disaggregation
                     <svg width="30" height="30" class="print-swatch"><rect width="30" height="30" fill="#000000"></rect></svg></div>
                 </div>
 <br>
+<br>
 ```
-
 #### Locality Type
 
 ```{=html}
@@ -86,6 +91,7 @@ Please use the following colour schemes for different types of disaggregation
                 
              <br>
 ```
+<br>
 
 #### Neutral
 
@@ -126,7 +132,9 @@ Please use the following colour schemes for different types of disaggregation
     </div>
     
     <br>
+    <br>
 ```
+<br>
 
 #### Positive \~ Negative
 
@@ -167,7 +175,9 @@ Please use the following colour schemes for different types of disaggregation
     </div>
     
     <br>
+    <br>
 ```
+<br>
 
 #### Population & Density
 
@@ -203,7 +213,9 @@ Please use the following colour schemes for different types of disaggregation
     </div>
     
     <br>
+    <br>
 ```
+<br>
 
 #### Incidence
 
@@ -248,11 +260,10 @@ Please use the following colour schemes for different types of disaggregation
                     
     </div>
     <br>
-
 ```
 
 
-## Using GSS theme.
+# Using GSS theme.
 
 In the future, GSS will release it is own package for data visualizations. For now it suffices to run this code to load the all the R code to set the right defaults (colours, fonts, etc.) to create plots in the GGS theme.
 
