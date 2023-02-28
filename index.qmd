@@ -2,7 +2,11 @@
 title: "Data Visualisation Guide"
 ---
 
+Welcome to the Data Visualisation Guide of GSS. On this page you will find:
 
+-
+- 
+- 
 
 
 The **Ghana Statistical Service (GSS)** produces census and survey reports per its mandates to provide comprehensive, reliable, quality, relevant, accurate and timely statistical information to guide national development as stipulated in Section 3 of the Statistical Service Act, 2019 (Act 1003). 
