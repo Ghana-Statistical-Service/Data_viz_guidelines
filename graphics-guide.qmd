@@ -13,10 +13,6 @@ library(datasets)
 library(tidyverse)
 library(ggplot2)
 
-#library(urbnthemes)
-
-#set_urbn_defaults(style = "print")
-
 opts_chunk$set(fig.path = "graphics-guide/www/images/")
 opts_chunk$set(echo = TRUE)
 opts_chunk$set(warning = FALSE)
@@ -27,7 +23,7 @@ opts_chunk$set(fig.retina = 3)
 options(scipen = 999)
 ```
 
-R is an amazing tool for data analysis and visualization. The code on this page shows the a variety of plots using the R `ggplot2` package to display statistical outputs.
+R is an amazing tool for data analysis and visualization. The code on this page shows the a variety of plots using the R `ggplot2` package to display statistical outputs. All the data shown on the page is fictitious and only meant for illustrative purposes.
 
 
 ## Use of Fonts 
@@ -37,6 +33,10 @@ R is an amazing tool for data analysis and visualization. The code on this page 
 ## General Rules
 
 - All axes should be labelled and where possible, the values for data points should be indicated on the graph.
+- Prevent use of grid lines whenever possible to not clutter plots
+- Use line breaks in long labels
+- Be conscious about the way axis are ordered. For example, order regions either from the lowest to the highest value or using the serpentine order.
+- label axis appropiately
 
 
 ## Use of Colours
@@ -263,7 +263,7 @@ Please use the following colour schemes for different types of disaggregation.
 ```
 
 
-# Using GSS theme.
+# Using GSS theme
 
 In the future, GSS will release it is own package for data visualizations. For now it suffices to run this code to load the all the R code to set the right defaults (colours, fonts, etc.) to create plots in the GGS theme.
 
@@ -315,8 +315,8 @@ gssthemes<-function(){
       plot.caption.position="plot",
       axis.title.y=element_text(color="black", angle=90, size = 10),
       axis.title.x=element_text(color="black",size = 10),
-      axis.text.x=element_text(color="black", size = 10),
-      axis.text.y=element_text(color="black", size = 10),
+      axis.text.x=element_text(color="black", size = 10, vjust = 0),
+      axis.text.y=element_text(color="black", size = 10, hjust = 1),
       legend.text=element_text(color="black",  size = 10),
       panel.grid.major.y=element_line(color="gray", size=0.25),
       panel.grid.major.x=element_blank(),
@@ -334,42 +334,133 @@ nicelimits <- function(x) {
 
 ```
 
-## Bar Plots
+## Bar charts
 
-------------------------------------------------------------------------
+A bar chart is an effective way to visually represent data that is categorical or discrete in nature for example different regions in Ghana). It is particularly useful when comparing values across different categories or groups. Bar charts are ideal for showing the distribution or frequency of data, as well as identifying trends or patterns over time. They can be used to display numerical data such as quantities, percentages, and proportions. Overall, a bar chart is appropriate when you want to easily compare different categories or groups and understand the relative differences between them.
+
+
+
+
+```{r}
+n_chopbars_df  <- tribble(~region_number, ~region, ~number_of_chop_bars,
+                            1,"Western", 567,
+                            2, "Central", 907,
+                            3, "Greater Accra", 6990,
+                            4, "Volta", 278,
+                            5, "Eastern", 787,
+                            6, "Ashanti",5621,
+                            7, "Western North", 345,
+                            8,	"Ahafo", 678,
+                            9, "Bono",1268,
+                            10,"Bono East", 1268,
+                            11,"Oti",773,
+                            12,"Northern", 112,
+                            13,"Savannah", 1289,
+                            14,"North East",378,
+                            15,"Upper East",1279,
+                            16,	"Upper West", 3782) 
+
+n_chopbars_df %>%
+	kable()
+
+```
+
 
 ### One Color
 
-```{r barplots}
+```{r barplot-normal}
 
-mtcars %>%
-  count(cyl) %>%
-  ggplot(mapping = aes(x = factor(cyl), y = n)) +
+# Pipe operator to pass data frame to the next line
+n_chopbars_df %>% 
+  # Create a ggplot object and set the aesthetic mappings
+  ggplot(mapping = aes(x = region, y = number_of_chop_bars)) +
+  # Add a column chart with bars of equal width
   geom_col(width = 0.8) +
-  geom_text(mapping = aes(label = n), vjust = -1) +
+  # Apply a custom theme to the plot
   gssthemes() +
+# The expand argument controls whether the range of the y-axis is expanded to include a small margin around the data. The limits argument sets the upper and lower limits of the y-axis to nicelimits, which is a function that makes sure the limits are always above the largest data point. he breaks argument sets the tick marks on the y-axis to use extended_breaks from the scales package, which generates a sequence of evenly spaced values with loose spacing.
   scale_y_continuous( expand = c( 0, 0 ),
                       limits = nicelimits,
                       breaks = scales::extended_breaks(only.loose = TRUE)) +
+	# Set the scale for the x-axis with tick labels rotated by 90 degrees
+  scale_x_discrete(guide = guide_axis(angle = 90)) +
+	 # Add axis labels to the plot
+	labs(x = NULL,
+			 y = "number of chop bars")+
+	# Set the coordinate system for the plot, allowing data points to be partially displayed outside of the plot area.
   coord_cartesian(clip = "off")
 ```
 
-### One Color (Rotated)
+### One Color (Rotated) with labels 
 
-This example introduces `coord_flip()` instead of `coord_cartesian()` and bring back some theme elements to draw vertical instead of horizontal grid lines
+This example introduces `coord_flip()` instead of `coord_cartesian()` and bring back some theme elements to draw vertical instead of horizontal grid lines. 
 
-```{r barplot-rotated, eval = TRUE}
-mtcars %>%
-  count(cyl) %>%
-  ggplot(mapping = aes(x = factor(cyl), y = n)) +
+```{r}
+
+
+# Pipe operator to pass data frame to the next line
+n_chopbars_df %>% 
+  # Create a ggplot object and set the aesthetic mappings
+  ggplot(mapping = aes(x = region, y = number_of_chop_bars)) +
+  # Add a column chart with bars of equal width
   geom_col(width = 0.8) +
-  geom_text(mapping = aes(label = n), hjust = -1) +
+	# add text to the end of the plot
+	 geom_text(mapping = aes(label = number_of_chop_bars), hjust = 0) +
+  # Apply a custom theme to the plot
   gssthemes() +
-	# use coord_flip() instead of coord_cartesian()
+	# The expand argument controls whether the range of the y-axis is expanded to include a small margin around the data. 
+	# The limits argument sets the upper and lower limits of the y-axis to nicelimits, which is a function that makes sure 
+	# the limits are always above the largest data point. he breaks argument sets the tick marks on the y-axis to use
+	# extended_breaks from the scales package, which generates a sequence of evenly spaced values with loose spacing.
+  scale_y_continuous( expand = c( 0, 0 ),
+                      limits = nicelimits,
+                      breaks = scales::extended_breaks(only.loose = TRUE)) +
+	# Add axis labels to the plot
+	labs(x = NULL,
+			 y = "number of chop bars")+
+	# Set the coordinate system for the plot, allowing data points to be partially displayed outside of the plot area.
   coord_flip(clip = "off") +
+	# change the theme a bit so that 1) the axis lines are vertical and 2) the labels are right alligend
 	theme(panel.grid.major.x=element_line(color = "gray", size=0.25),
-				panel.grid.major.y=element_blank())
+				panel.grid.major.y=element_blank(),
+				axis.text.x = element_text(vjust = 0.5))
 ```
+
+### One Color (Rotated) with labels and ordered
+
+```{r barplot-rotated-ordered}
+
+# Pipe operator to pass data frame to the next line
+n_chopbars_df %>% 
+  # Create a ggplot object and set the aesthetic mappings
+	# use the reorder function to reorder the the bars
+  ggplot(mapping = aes(x = reorder(region,number_of_chop_bars), y = number_of_chop_bars)) +
+  # Add a column chart with bars of equal width
+  geom_col(width = 0.8) +
+	# add text to the end of the plot
+	 geom_text(mapping = aes(label = number_of_chop_bars), hjust = 0) +
+  # Apply a custom theme to the plot
+  gssthemes() +
+	# The expand argument controls whether the range of the y-axis is expanded to include a small margin around the data. 
+	# The limits argument sets the upper and lower limits of the y-axis to nicelimits, which is a function that makes sure 
+	# the limits are always above the largest data point. he breaks argument sets the tick marks on the y-axis to use
+	# extended_breaks from the scales package, which generates a sequence of evenly spaced values with loose spacing.
+  scale_y_continuous( expand = c( 0, 0 ),
+                      limits = nicelimits,
+                      breaks = scales::extended_breaks(only.loose = TRUE)) +
+	# Add axis labels to the plot
+	labs(x = NULL,
+			 y = "number of chop bars")+
+	# Set the coordinate system for the plot, allowing data points to be partially displayed outside of the plot area.
+  coord_flip(clip = "off") +
+	# change the theme a bit so that 1) the axis lines are vertical and 2) the labels are right alligend
+	theme(panel.grid.major.x=element_line(color = "gray", size=0.25),
+				panel.grid.major.y=element_blank(),
+				axis.text.x = element_text(vjust = 0.5))
+```
+
+
+
 
 ### Three Colors
 
