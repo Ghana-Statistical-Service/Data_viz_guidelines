@@ -1,5 +1,16 @@
 ---
 title: "R visualization"
+format: 
+  html:
+    fig-width: 8
+    fig-height: 6
+    fig.retina: 3
+    message: false
+    warning: false
+    echo: true
+    code-fold: true
+    code-summary: "Show the code"
+    code-tools: true
 ---
 
 
@@ -7,20 +18,28 @@ title: "R visualization"
 <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Lato" />
 
 
-```{r setup, include=FALSE}
+```{r setup}
+#| context: setup
+#| include: false
+
 library(knitr)
 library(datasets)
 library(tidyverse)
 library(ggplot2)
+library(glue)
 
 opts_chunk$set(fig.path = "graphics-guide/www/images/")
-opts_chunk$set(echo = TRUE)
-opts_chunk$set(warning = FALSE)
-opts_chunk$set(message = FALSE)
-opts_chunk$set(fig.width = 6.5)
-opts_chunk$set(fig.height = 4)
+# opts_chunk$set(echo = TRUE)
+# opts_chunk$set(warning = FALSE)
+# opts_chunk$set(message = FALSE)
+# opts_chunk$set(fig.width = 7.5)
+# opts_chunk$set(fig.height = 5)
 opts_chunk$set(fig.retina = 3)
 options(scipen = 999)
+
+bs_style <- c("striped", "hover", "condensed", "responsive")
+
+options(kable_styling_bootstrap_options = bs_style)
 ```
 
 R is an amazing tool for data analysis and visualization. The code on this page shows the a variety of plots using the R `ggplot2` package to display statistical outputs. All the data shown on the page is fictitious and only meant for illustrative purposes.
@@ -64,6 +83,7 @@ Please use the following colour schemes for different types of disaggregation.
 <br>
 <br>
 ```
+
 #### Locality Type
 
 ```{=html}
@@ -271,12 +291,16 @@ In the future, GSS will release it is own package for data visualizations. For n
 # load packages
 library(ggplot2)
 library(tidyverse)
-library(showtext)
 library(ggtext)
 library(gghighlight)
 library(sysfonts)
 library(showtextdb)
 library(showtext)
+library(glue)
+library(scales)
+library(kableExtra)
+library(patchwork)
+
 
 # load the font
 font_add("century gothic bold", "Font/CenturyGothic.ttf")
@@ -305,25 +329,27 @@ gssthemes<-function(){
                         colour="black",
                         size=10),
       plot.margin = margin(0.5,0.3, 0.3, 0.3, "cm"),
-      plot.title =element_textbox_simple(family="century gothic bold", size=16,
-                                         lineheight=1,
-                                         margin=margin(b=10)),
-      plot.title.position="plot",
+      # plot.title =element_textbox_simple(family="century gothic bold", size=16,
+      #                                    lineheight=1,
+      #                                    margin=margin(b=10)),
+      # plot.title.position="plot",
       plot.caption=element_markdown(hjust=0, color="gray",
                                     lineheight=1.5,
                                     margin =margin(t=10)),
       plot.caption.position="plot",
       axis.title.y=element_text(color="black", angle=90, size = 10),
       axis.title.x=element_text(color="black",size = 10),
-      axis.text.x=element_text(color="black", size = 10, vjust = 0),
-      axis.text.y=element_text(color="black", size = 10, hjust = 1),
+      axis.text.x=element_text(color="black", size = 10, vjust = 0, margin = margin(t = 5, r = 5, b = 0, l = 0, unit = "pt")),
+      axis.text.y=element_text(color="black", size = 10, hjust = 1, margin = margin(t = 5, r = 5, b = 0, l = 0, unit = "pt")),
       legend.text=element_text(color="black",  size = 10),
       panel.grid.major.y=element_line(color="gray", size=0.25),
       panel.grid.major.x=element_blank(),
       panel.grid.minor=element_blank(),
       panel.background=element_rect(fill="white", color=NA),
       plot.background=element_rect(fill="white", color=NA),
-      legend.background=element_rect(fill="white", color=NA)
+      legend.background=element_rect(fill="white", color=NA),
+     strip.background =element_rect(fill="white",  color=NA),
+     strip.text = element_text( size = 20,  margin = margin(t = 5, r = 0, b = 10, l = 0, unit = "pt"))
     )
 }
 
@@ -332,6 +358,23 @@ nicelimits <- function(x) {
   range(scales::extended_breaks(only.loose = TRUE)(x))
 }
 
+
+# Define color palette
+national_color <- "#27A0CC"
+urban_color <- "#871A5B"
+rural_color <- "#22D0B6"
+male_color <- "#206095"
+female_color <- "#F66068"
+negative_color <- "#cc3333"
+positive_color <- "#33cccc"
+neutral_color_scheme  <- c("#002060", "#0070C0", "#00B0F0", "#8EA9DB", "#9BC2E6", "#2C7FB8")
+posneg_color_scheme  <- c("#38761D","#6AA84F","#93C47D","#F4CCCC","#E06666","#990000")
+posneutralneg_color_scheme  <- c("#38761D","#6AA84F","#FFFFCC","#E06666","#990000")
+population_color_scheme  <- c("#FFFFCC","#C7E9B4","#7FCDBB","#41B6C4","#2C7FB8")
+incidence_color_scheme  <- c("#FECCCC","#FF9999","#FF6666","#FF3333","#CC0000","#990000")
+statscolours_color_scheme  <- c("#382873", "#0168C8", "#00B050")
+malefemale_color_scheme <- c("#27A0CC", "#206095", "#F66068")
+urbanrural_color_scheme  <- c("#27A0CC", "#871A5B", "#22D0B6")
 ```
 
 ## Bar charts
@@ -339,30 +382,31 @@ nicelimits <- function(x) {
 A bar chart is an effective way to visually represent data that is categorical or discrete in nature for example different regions in Ghana). It is particularly useful when comparing values across different categories or groups. Bar charts are ideal for showing the distribution or frequency of data, as well as identifying trends or patterns over time. They can be used to display numerical data such as quantities, percentages, and proportions. Overall, a bar chart is appropriate when you want to easily compare different categories or groups and understand the relative differences between them.
 
 
-
+### example data
 
 ```{r}
-n_chopbars_df  <- tribble(~region_number, ~region, ~number_of_chop_bars,
-                            1,"Western", 567,
-                            2, "Central", 907,
-                            3, "Greater Accra", 6990,
-                            4, "Volta", 278,
-                            5, "Eastern", 787,
-                            6, "Ashanti",5621,
-                            7, "Western North", 345,
-                            8,	"Ahafo", 678,
-                            9, "Bono",1268,
-                            10,"Bono East", 1268,
-                            11,"Oti",773,
-                            12,"Northern", 112,
-                            13,"Savannah", 1289,
-                            14,"North East",378,
-                            15,"Upper East",1279,
-                            16,	"Upper West", 3782) 
+n_chopbars_df  <- tribble(~region_number, ~region, ~number_of_chop_bars, ~urban, ~rural,
+                            1,"Western", 567, 300, 267,
+                            2, "Central", 907, 600, 307,
+                            3, "Greater Accra", 6990, 4792, 2198, 
+                            4, "Volta", 278, 78, 200, 
+                            5, "Eastern", 787, 287, 500,
+                            6, "Ashanti",5621, 621, 5000,
+                            7, "Western North", 345, 145, 200,
+                            8,	"Ahafo", 678, 339, 339,
+                            9, "Bono",1268, 600, 668, 
+                            10,"Bono East", 1268,1048, 220,
+                            11,"Oti",773, 500, 273, 
+                            12,"Northern", 112, 12, 100,
+                            13,"Savannah", 1289,503, 786, 
+                            14,"North East",378, 142, 236,
+                            15,"Upper East",1279,326, 953, 
+                            16,	"Upper West", 3782, 3456, 326) 
 
 n_chopbars_df %>%
-	kable()
-
+	kable() %>%
+	kable_styling() %>% 
+  scroll_box(height = "400px")
 ```
 
 
@@ -379,8 +423,9 @@ n_chopbars_df %>%
   # Apply a custom theme to the plot
   gssthemes() +
 # The expand argument controls whether the range of the y-axis is expanded to include a small margin around the data. The limits argument sets the upper and lower limits of the y-axis to nicelimits, which is a function that makes sure the limits are always above the largest data point. he breaks argument sets the tick marks on the y-axis to use extended_breaks from the scales package, which generates a sequence of evenly spaced values with loose spacing.
-  scale_y_continuous( expand = c( 0, 0 ),
+  scale_y_continuous( expand = c( 0, 1 ),
                       limits = nicelimits,
+  										labels = scales::comma,
                       breaks = scales::extended_breaks(only.loose = TRUE)) +
 	# Set the scale for the x-axis with tick labels rotated by 90 degrees
   scale_x_discrete(guide = guide_axis(angle = 90)) +
@@ -396,8 +441,6 @@ n_chopbars_df %>%
 This example introduces `coord_flip()` instead of `coord_cartesian()` and bring back some theme elements to draw vertical instead of horizontal grid lines. 
 
 ```{r}
-
-
 # Pipe operator to pass data frame to the next line
 n_chopbars_df %>% 
   # Create a ggplot object and set the aesthetic mappings
@@ -412,8 +455,9 @@ n_chopbars_df %>%
 	# The limits argument sets the upper and lower limits of the y-axis to nicelimits, which is a function that makes sure 
 	# the limits are always above the largest data point. he breaks argument sets the tick marks on the y-axis to use
 	# extended_breaks from the scales package, which generates a sequence of evenly spaced values with loose spacing.
-  scale_y_continuous( expand = c( 0, 0 ),
+  scale_y_continuous( expand = c( 0, 1 ),
                       limits = nicelimits,
+  										labels = scales::comma,
                       breaks = scales::extended_breaks(only.loose = TRUE)) +
 	# Add axis labels to the plot
 	labs(x = NULL,
@@ -428,7 +472,9 @@ n_chopbars_df %>%
 
 ### One Color (Rotated) with labels and ordered
 
-```{r barplot-rotated-ordered}
+You can use the `reorder()` function to order the axis labels.
+
+```{r barplot-rotated-ordered, fig.height= 8}
 
 # Pipe operator to pass data frame to the next line
 n_chopbars_df %>% 
@@ -437,16 +483,17 @@ n_chopbars_df %>%
   ggplot(mapping = aes(x = reorder(region,number_of_chop_bars), y = number_of_chop_bars)) +
   # Add a column chart with bars of equal width
   geom_col(width = 0.8) +
-	# add text to the end of the plot
-	 geom_text(mapping = aes(label = number_of_chop_bars), hjust = 0) +
+	# add text to the end of the plot, and comma at all thousands
+	 geom_text(mapping = aes(label = scales::comma(number_of_chop_bars)), hjust = 0,) +
   # Apply a custom theme to the plot
   gssthemes() +
 	# The expand argument controls whether the range of the y-axis is expanded to include a small margin around the data. 
 	# The limits argument sets the upper and lower limits of the y-axis to nicelimits, which is a function that makes sure 
 	# the limits are always above the largest data point. he breaks argument sets the tick marks on the y-axis to use
 	# extended_breaks from the scales package, which generates a sequence of evenly spaced values with loose spacing.
-  scale_y_continuous( expand = c( 0, 0 ),
+  scale_y_continuous( expand = c( 0, 1 ),
                       limits = nicelimits,
+  										labels = scales::comma,
                       breaks = scales::extended_breaks(only.loose = TRUE)) +
 	# Add axis labels to the plot
 	labs(x = NULL,
@@ -461,362 +508,520 @@ n_chopbars_df %>%
 
 
 
+### Show different categories using color palettes (stacked)
 
-### Three Colors
+If you want to show different categories, you can use the `fill = categorical variable` argument inside the aesthetics mapping. To do this, the data needs to be in a long format
 
-This is identical to the previous plot except colors and a legend are added with `fill = cyl`. Turning `x` into a factor with `factor(cyl)` skips 5 and 7 on the `x-axis`. Adding `fill = cyl` without `factor()` would have created a continuous color scheme and legend.
+#### example data (long format)
 
-```{r 3-color-barplot, eval = FALSE}
-mtcars %>%
-  mutate(cyl = factor(cyl)) %>%
-  count(cyl) %>%
-  ggplot(mapping = aes(x = cyl, y = n, fill = cyl)) +
+```{r}
+n_chopbars_df_longformat <- n_chopbars_df %>% 
+	select(-number_of_chop_bars ) %>% 
+	pivot_longer(-c(region_number, region), names_to = "locality", values_to = "number_of_chop_bars")
+
+n_chopbars_df_longformat %>%
+	kable() %>%
+	kable_styling() %>% 
+  scroll_box(height = "400px")
+```
+
+
+
+```{r, fig.height= 8}
+n_chopbars_df_longformat %>% 
+  ggplot(mapping = aes(x = reorder(region,number_of_chop_bars), fill = locality ,  y = number_of_chop_bars)) +
+  geom_col(width = 0.8) +
+  gssthemes() +
+  scale_y_continuous( expand = c( 0, 1 ),
+                      limits = nicelimits,
+  										labels = scales::comma,
+                      breaks = scales::extended_breaks(only.loose = TRUE)) +
+	labs(x = NULL,
+			 y = "number of chop bars")+
+  coord_flip(clip = "off") +
+	scale_fill_manual(values = c(urban = urban_color,
+															 rural = rural_color))+
+	theme(panel.grid.major.x=element_line(color = "gray", size=0.25),
+				panel.grid.major.y=element_blank(),
+				axis.text.x = element_text(vjust = 0.5))
+
+```
+
+
+### Show different categories using color palettes (dodged)
+
+Instead of having the categories stacked, you can put them next to each other (stacked)
+
+```{r, fig.height= 8}
+n_chopbars_df_longformat %>% 
+  ggplot(mapping = aes(x = reorder(region,number_of_chop_bars), fill = locality ,  y = number_of_chop_bars)) +
+  geom_col(width = 0.8, position = "dodge") +
+	geom_text(mapping = aes(label = scales::comma(number_of_chop_bars)), hjust = 0, 
+						position = position_dodge(width = 0.8)) +
+  gssthemes() +
+  scale_y_continuous( expand = c( 0, 0 ),
+                      limits = nicelimits,
+  										labels = scales::comma,
+                      breaks = scales::extended_breaks(only.loose = TRUE)) +
+	labs(x = NULL,
+			 y = "number of chop bars")+
+  coord_flip(clip = "off") +
+	scale_fill_manual(values = c(urban = urban_color,
+															 rural = rural_color))+
+	theme(panel.grid.major.x=element_line(color = "gray", size=0.25),
+				panel.grid.major.y=element_blank(),
+				axis.text.x = element_text(vjust = 0.5))
+```
+
+
+
+### Bar chart with highlighted category
+
+Sometimes you might want to highlight a single category in a bar chart (for example the National/Ghana average). To highlight also the axis label you need to use the `showtext` package. It is recommended to put highlight is a similar hue than the other colours. This can be done, using the `muted()` function from the `scales` package
+
+```{r}
+# this code add the Ghana average
+n_chopbars_df_with_national <- n_chopbars_df %>% 
+	add_row( region_number = 0,
+						 region  = "Ghana",
+						 number_of_chop_bars = mean(n_chopbars_df$number_of_chop_bars),
+						 urban = mean(n_chopbars_df$urban ),
+						 rural= mean(n_chopbars_df$rural) )
+```
+
+```{r, fig.height= 8}
+highlight = function(x, pat, color="black", family="") {
+	ifelse(grepl(pat, x), glue("<b style='font-family:{family}; color:{color}'>{x}</b>"), x)
+}
+
+# Pipe operator to pass data frame to the next line
+n_chopbars_df_with_national %>% 
+	mutate(highlight = region == "Ghana") %>% 
+  # Create a ggplot object and set the aesthetic mappings
+	# use the reorder function to reorder the the bars
+  ggplot(mapping = aes(x = reorder(region,number_of_chop_bars), 
+  										 y = number_of_chop_bars,
+  										  fill = highlight)) +
+  geom_col(width = 0.8) +
+	geom_text(mapping = aes(label = scales::comma(number_of_chop_bars)), hjust = 0) +
+  gssthemes() +
+  scale_y_continuous( expand = c( 0, 0 ),
+                      limits = nicelimits,
+  										labels = scales::comma,
+                      breaks = scales::extended_breaks(only.loose = TRUE)) +
+	scale_x_discrete(labels= function(x) highlight(x, "Ghana", "black")) +
+	scale_fill_manual(values = c(`FALSE` = national_color, 
+															 `TRUE` = scales::muted(national_color)),
+										guide = "none") +
+	labs(x = NULL,
+			 y = "number of chop bars" )+
+  coord_flip(clip = "off") +
+	theme(panel.grid.major.x = element_line(color = "gray", size=0.25),
+				panel.grid.major.y = element_blank(),
+				axis.text.x = element_text(vjust = 0.5),
+				axis.text.y = element_markdown()) # to make this work you need to make the y axis a markdown format
+```
+
+### Bar chart with long labels
+
+To allow for sufficient plotting space, it is a good idea to add line break to long value labels on the axes. You can use the `str_wrap()` function to add line breaks
+
+#### example data (long labels)
+
+```{r}
+n_chopbars_df_long_labels  <- tribble(~question, ~count, 
+																			"number of households eating at chopbars every day", 678,
+																			"number of male headed households eating at chopbars once a week", 1267,
+																			"number of female headed households eating at chop bars once a week", 1876)
+n_chopbars_df_long_labels %>%
+	kable() %>%
+	kable_styling()
+```
+
+
+```{r}
+n_chopbars_df_long_labels %>% 
+  ggplot(mapping = aes(x = str_wrap(question, 20), y = count)) +
+  geom_col(width = 0.8) +
+	 geom_text(mapping = aes(label = count), hjust = 0) +
+  gssthemes() +
+  scale_y_continuous( expand = c( 0, 1 ),
+                      limits = nicelimits,
+  										labels = scales::comma,
+                      breaks = scales::extended_breaks(only.loose = TRUE)) +
+	labs(x = NULL,
+			 y = "number of chop bars")+
+  coord_flip(clip = "off") +
+	theme(panel.grid.major.x=element_line(color = "gray", size=0.25),
+				panel.grid.major.y=element_blank())
+```
+
+
+### Diverging Bar chart
+
+A diverging bar chart is a type of data visualization that displays values of a quantitative variable across two or more categories, where the bars are centered on a common baseline or a central axis. This type of chart is particularly useful for comparing differences in values that can have both positive and negative magnitudes, or when illustrating a relationship between two opposing factors or sentiments.
+
+In a diverging bar chart, the bars extend in opposite directions from the central axis, creating a symmetrical pattern. This layout makes it easy to see the differences between categories and to identify patterns and trends within the data.
+
+When choosing a diverging bar chart, make sure it is appropriate for your dataset and the type of information you want to convey. It is important to note that diverging bar charts may not be suitable for all types of data, especially if the differences between categories are not symmetrical or if the data has no clear central point. In such cases, other visualization methods, like standard bar charts or line charts, might be more suitable.
+
+
+#### example data (positive and negative values)
+
+```{r}
+change_in_chop_bars_df <- tribble(~region_number, ~region, ~change,
+                            1,"Western", -.35, 
+                            2, "Central", -.26, 
+                            3, "Greater Accra", .67,
+                            4, "Volta", -.18, 
+                            5, "Eastern", .47, 
+                            6, "Ashanti",.56, 
+                            7, "Western North", -.2,
+                            8,	"Ahafo", .61, 
+                            9, "Bono",.12,
+                            10,"Bono East", 0.01,
+                            11,"Oti",.07,
+                            12,"Northern", .11,
+                            13,"Savannah", .12,
+                            14,"North East",-.31,
+                            15,"Upper East",0,
+                            16,	"Upper West", .265)
+
+change_in_chop_bars_df %>% 
+	kable() %>%
+	kable_styling() %>% 
+  scroll_box(height = "400px")
+```
+
+```{r}
+change_in_chop_bars_df %>% 
+	mutate(pos_neg = ifelse(change >0, "positive", "negative")) %>% 
+	ggplot(aes(x = reorder(region, change),
+						 y = change,
+						 fill =pos_neg)) +
   geom_col() +
-  geom_text(mapping = aes(label = n), vjust = -1) +    
-  scale_y_continuous(expand = expand_scale(mult = c(0, 0.1))) +
-  labs(x = "Cylinders",
-       y = NULL) +
-  remove_ticks() +
-  remove_axis() +
+  gssthemes() +
+		scale_fill_manual(values = c(positive = positive_color,
+															 negative = negative_color))+ 
+  scale_y_continuous(labels = scales::percent) +
+	labs(x = NULL,
+			 y = "change in number\nof chop bars")+
+  coord_flip(clip = "off") +
+	theme(panel.grid.major.x=element_line(color = "gray", size=0.25),
+				panel.grid.major.y=element_blank(),
+				axis.text.x = element_text(vjust = 0.5),
+				legend.position = "none") +
+	  geom_hline(yintercept = 0, linetype = "dashed", color = "black")
 ```
 
-### Stacked Bar Plot
 
-An additional aesthetic can easily be added to bar plots by adding `fill = categorical variable` to the mapping. Here, transmission type subsets each bar showing the count of cars with different numbers of cylinders.
+### Filled bar chart with from positive to negative
 
-```{r stacked-bar-plot, eval = FALSE}
-mtcars %>%
-  mutate(am = factor(am, labels = c("Automatic", "Manual")),
-         cyl = factor(cyl)) %>%  
-  group_by(am) %>%
-  count(cyl) %>%
-  group_by(cyl) %>%
-  arrange(desc(am)) %>%
-  mutate(label_height = cumsum(n)) %>%
-  ggplot() +
-  geom_col(mapping = aes(x = cyl, y = n, fill = am)) +
-  geom_text(aes(x = cyl, y = label_height - 0.5, label = n, color = am)) +
-  scale_color_manual(values = c("white", "black")) +
-  scale_y_continuous(expand = expand_scale(mult = c(0, 0.1))) +
-  labs(x = "Cylinders",
-       y = NULL) +  
-  remove_ticks() +
-  remove_axis() +
-  guides(color = FALSE)
-```
+You can use a filled bar chart to show relative shares within a group. This example shows the percentage of different opininions.
 
-### Stacked Bar Plot With Position = Fill
+#### example data (sentiment data)
 
-The previous examples used `geom_col()`, which takes a y value for bar height. This example uses `geom_bar()` which sums the values and generates a value for bar heights. In this example, `position = "fill"` in `geom_bar()` changes the y-axis from count to the proportion of each bar.
 
-```{r stacked-bar-plot-fill, eval = FALSE}
-mtcars %>%
-  mutate(am = factor(am, labels = c("Automatic", "Manual")),
-         cyl = factor(cyl)) %>%  
-  ggplot() +
-  geom_bar(mapping = aes(x = cyl, fill = am), position = "fill") +
-  scale_y_continuous(expand = expand_scale(mult = c(0, 0.1)), labels = scales::percent) +
-  labs(x = "Cylinders",
-       y = NULL) +  
-  remove_ticks() +
-  guides(color = FALSE)
+```{r}
+sentiment_chop_bars <- tribble(~location, ~ `very positive`, ~ `positive`, ~  `neutral`,  ~ `negative`, ~"very negative",
+				"urban", 15.2, 17.3, 50.2, 8, 9.3,
+				"rural"	, 25.2,34.2,31.2,6,3.4,
+				"national", 20.2,25.75, 40.7,7,6.35)
+
+sentiment_chop_bars %>% 
+		kable() %>%
+	kable_styling() 
 ```
 
 
 
-#### Lollipop plot
-
-```{r lollipop-plot, fig.height = 5, eval = FALSE}
-mtcars %>%
-	rownames_to_column("model") %>%
-	arrange(mpg) %>%
-	mutate(model = factor(model, levels = .$model)) %>%
-	ggplot(aes(mpg, model)) +
-		geom_segment(aes(x = 0, xend = mpg, y = model, yend = model)) +	
-		geom_point() +
-		scale_x_continuous(expand = expand_scale(mult = c(0, 0)), limits = c(0, 40)) +
-		labs(x = NULL, 
-				 y = "Miles Per Gallon")
-```
-
-### Dumbell plot
-
-
-
-
-## Scatter Plots
-
-------------------------------------------------------------------------
-
-### One Color Scatter Plot
-
-Scatter plots are useful for showing relationships between two or more variables. Use `scatter_grid()` from `library(urbnthemes)` to easily add vertical grid lines for scatter plots.
-
-```{r one-color-scatter-plot, eval = FALSE}
-mtcars %>%
-  ggplot(mapping = aes(x = wt, y = mpg)) +
-  geom_point() +
-  scale_x_continuous(expand = expand_scale(mult = c(0.002, 0)), 
-                     limits = c(0, 6),
-                     breaks = 0:6) +
-  scale_y_continuous(expand = expand_scale(mult = c(0, 0.002)), 
-                     limits = c(0, 40),
-                     breaks = 0:8 * 5) +
-  labs(x = "Weight (thousands of pounds)",
-       y = "City MPG") +
-  scatter_grid()
+```{r}
+sentiment_chop_bars %>%
+	pivot_longer(-location, names_to = "sentiment") %>%
+	mutate(percent = value / 100) %>%
+	# make sure the sentiment labels are factors so that they can be ordered correctly
+	mutate(sentiment = factor(
+		sentiment,
+		levels = c(
+			"very positive",
+			"positive",
+			"neutral",
+			"negative",
+			"very negative"
+		)
+	)) %>%
+	ggplot(aes(x = location, y = percent, fill = sentiment)) +
+	geom_col(width = 0.8, position = "stack") +
+	gssthemes() +
+	scale_y_continuous(labels = scales::percent,
+										 expand = c(0, 0)) +
+	labs(x = NULL,
+			 y = "percentage",
+			 fill = "opinion on chop bars") +
+	coord_flip(clip = "off") +
+	scale_fill_manual(values = posneutralneg_color_scheme) +
+	theme(
+		panel.grid.major.x = element_line(color = "gray", size = 0.25),
+		panel.grid.major.y = element_blank(),
+		legend.position = "top"
+	) +
+	guides(fill = guide_legend(
+		nrow = 2,
+		byrow = TRUE,
+		title.position = "top"
+	))
 ```
 
 
-### Multi Color Scatter Plot
+### multiple plots next to each other using `facet_wrap()`
 
-Sometimes transparency isn't enough to bring clarity to a scatter plot with many observations. As n increases into the hundreds of thousands and even millions, `geom_hex` can be one of the best ways to display relationships between two variables.
+R's faceting system is a powerful way to make "small multiples". 
 
+```{r}
+n_chopbars_df_longformat %>% 
+  ggplot(mapping = aes(x = reorder(region,number_of_chop_bars), fill = locality ,  y = number_of_chop_bars)) +
+  geom_col(width = 0.8, position = "dodge") +
+	geom_text(mapping = aes(label = scales::comma(number_of_chop_bars)), hjust = 0, 
+						position = position_dodge(width = 0.8)) +
 
+  gssthemes() +
+  scale_y_continuous( expand =c(0,NA),
+  										limits = c(0, 7000),
+  										labels = scales::comma,
+                      breaks = scales::extended_breaks(only.loose = TRUE)) +
+	labs(x = NULL,
+			 y = "number of chop bars")+
+  coord_flip(clip = "off") +
+	scale_fill_manual(values = c(urban = urban_color,
+															 rural = rural_color))+
+	theme(panel.grid.major.x=element_line(color = "gray", size=0.25),
+				panel.grid.major.y=element_blank(),
+				legend.position = "none") +
+	# use the facet_wrap function to make small multiples
+	facet_wrap(~locality)
 
-### Scatter Plots with Varying Point Size
-
-Weights and populations can be mapped in scatter plots to the size of the points. Here, the number of households in each state is mapped to the size of each point using `aes(size = hhpop)`. Note: `ggplot2::geom_point()` is used instead of `geom_point()`.
-
-### Scatter Plots with Fill
-
-A third aesthetic can be added to scatter plots. Here, color signifies the number of cylinders in each car. Before `ggplot()` is called, Cylinders is created using `library(dplyr)` and the piping operator `%>%`.
-
-```{r filled-scatter-plot, eval = FALSE}
-mtcars %>%
-  mutate(cyl = paste(cyl, "cylinders")) %>%
-  ggplot(aes(x = wt, y = mpg, color = cyl)) +
-  geom_point() +
-  scale_x_continuous(expand = expand_scale(mult = c(0.002, 0)), 
-                     limits = c(0, 6),
-                     breaks = 0:6) +
-  scale_y_continuous(expand = expand_scale(mult = c(0, 0.002)), 
-                     limits = c(0, 40),
-                     breaks = 0:8 * 5) +
-  labs(x = "Weight (thousands of pounds)",
-       y = "City MPG") +
-  scatter_grid()
 ```
 
 
-## Line Plots
+### multiple plots next to each other with separate bar legends
 
-------------------------------------------------------------------------
 
-```{r line-plots, eval = FALSE}
-economics %>%
-  ggplot(mapping = aes(x = date, y = unemploy)) +
-  geom_line() +
-  scale_x_date(expand = expand_scale(mult = c(0.002, 0)), 
-               breaks = "10 years",
-               limits = c(as.Date("1961-01-01"), as.Date("2020-01-01")),
-               date_labels = "%Y") +
-  scale_y_continuous(expand = expand_scale(mult = c(0, 0.002)), 
-                     breaks = 0:4 * 4000,
-                     limits = c(0, 16000),
-                     labels = scales::comma) +
-  labs(x = "Year", 
-       y = "Number Unemployed (1,000s)")
-```
+Sometimes using facet_wrap is not sufficient, especially if you want to add different legends to sub-plots, but still want to align different axis of plots into a single plots. To do this you can create 3 seperate plots and merge them using the `patchwork` package
 
-### Lines Plots With Multiple Lines
+#### example data (long format with quarters)
 
-```{r multiple-line-charts1, eval = FALSE}
-library(gapminder)
+```{r}
+n_chopbars_df_region_quarters  <- tribble(~region_number, ~region, ~national, ~urban, ~rural, ~quarter,
+1,"Western", 567, 300, 267, "Q1",
+2, "Central", 907, 600, 307,"Q1",
+3, "Greater Accra", 6990, 4792, 2198, "Q1",
+4, "Volta", 278, 78, 200, "Q1",
+5, "Eastern", 787, 287, 500,"Q1",
+6, "Ashanti",5621, 621, 5000,"Q1",
+7, "Western North", 345, 145, 200,"Q1",
+8,	"Ahafo", 678, 339, 339,"Q1",
+9, "Bono",1268, 600, 668, "Q1",
+10,"Bono East", 1268,1048, 220,"Q1",
+11,"Oti",773, 500, 273, "Q1",
+12,"Northern", 112, 12, 100,"Q1",
+13,"Savannah", 1289,503, 786, "Q1",
+14,"North East",378, 142, 236,"Q1",
+15,"Upper East",1279,326, 953, "Q1",
+16,	"Upper West", 3782, 3456, 326, "Q1",
+1,"Western", 602, 302, 300, "Q2",
+2, "Central", 1000, 600, 400,"Q2",
+3, "Greater Accra", 7990, 4792, 3198, "Q2",
+4, "Volta", 346, 93, 253, "Q2",
+5, "Eastern", 887, 387, 500,"Q2",
+6, "Ashanti",6000, 2000, 4000,"Q2",
+7, "Western North", 445, 195, 250,"Q2",
+8,	"Ahafo", 701, 339, 362,"Q2",
+9, "Bono",1444, 722, 722, "Q2",
+10,"Bono East", 1368,1048, 290,"Q2",
+11,"Oti",912, 534, 378, "Q2",
+12,"Northern", 122, 17, 105,"Q2",
+13,"Savannah", 1289,503, 786, "Q2",
+14,"North East",534, 182, 352,"Q2",
+15,"Upper East",1510,400, 1110, "Q2",
+16,	"Upper West", 3991, 3496, 495, "Q2")
 
-gapminder %>%
-  filter(country %in% c("Australia", "Canada", "New Zealand")) %>%
-  mutate(country = factor(country, levels = c("Canada", "Australia", "New Zealand"))) %>%
-  ggplot(aes(year, gdpPercap, color = country)) +
-  geom_line() +
-  scale_x_continuous(expand = expand_scale(mult = c(0.002, 0)), 
-                     breaks = c(1952 + 0:12 * 5), 
-                     limits = c(1952, 2007)) +
-  scale_y_continuous(expand = expand_scale(mult = c(0, 0.002)), 
-                     breaks = 0:8 * 5000,
-                     labels = scales::dollar, 
-                     limits = c(0, 40000)) +
-  labs(x = "Year",
-       y = "Per capita GDP (US dollars)")
-```
 
-Plotting more than one variable can be useful for seeing the relationship of variables over time, but it takes a small amount of data munging.
-
-This is because `ggplot2` wants data in a "long" format instead of a "wide" format for line plots with multiple lines. `gather()` and `spread()` from the `tidyr` package make switching back-and-forth between "long" and "wide" painless. Essentially, variable titles go into "key" and variable values go into "value". Then ggplot2, turns the different levels of the key variable (population, unemployment) into colors.
-
-```{r multiple-line-charts2, eval = FALSE}
-as_tibble(EuStockMarkets) %>%
-	mutate(date = time(EuStockMarkets)) %>%
-	gather(key = "key", value = "value", -date) %>%
-	ggplot(mapping = aes(x = date, y = value, color = key)) +
-	geom_line() +
-  scale_x_continuous(expand = expand_scale(mult = c(0.002, 0)), 
-                     limits = c(1991, 1999), 
-                     breaks = c(1991, 1993, 1995, 1997, 1999)) +
-  scale_y_continuous(expand = expand_scale(mult = c(0, 0.002)), 
-                     breaks = 0:4 * 2500,
-                     labels = scales::dollar, 
-                     limits = c(0, 10000)) +  
-	labs(x = "Date",
-			 y = "Value")
+n_chopbars_df_region_quarters %>% 
+	kable() %>%
+	kable_styling() %>% 
+  scroll_box(height = "400px")
 ```
 
 
 
-### Histograms
-
-Histograms divide the distribution of a variable into n equal-sized bins and then count and display the number of observations in each bin. Histograms are sensitive to bin width. As `?geom_histogram` notes, "You should always override \[the default binwidth\] value, exploring multiple widths to find the best to illustrate the stories in your data."
-
-```{r histogram, eval = FALSE, eval = FALSE}
-ggplot(data = diamonds, mapping = aes(x = depth)) + 
-  geom_histogram(bins = 100) +
-  scale_x_continuous(expand = expand_scale(mult = c(0.002, 0)), 
-                     limits = c(0, 100)) +  
-  scale_y_continuous(expand = expand_scale(mult = c(0, 0.2)), labels = scales::comma) +
-  labs(x = "Depth",
-       y = "Count")
-```
-
-### Boxplots
-
-Boxplots were invented in the 1970s by John Tukey[^1]. Instead of showing the underlying data or binned counts of the underlying data, they focus on important values like the 25th percentile, median, and 75th percentile.
-
-[^1]: Wickham, H., & Stryjewski, L. (2011). 40 years of boxplots.
-
-```{r box-plot, eval = FALSE}
-InsectSprays %>%
-  ggplot(mapping =  aes(x = spray, y = count)) +
-  geom_boxplot() +
-  scale_y_continuous(expand = expand_scale(mult = c(0, 0.2))) +
-  labs(x = "Type of insect spray",
-       y = "Number of dead insects") +
-  remove_ticks()
-```
+```{r}
+#| fig-height: 9
+#| fig-width: 9
+ 
+n_chopbars_df_region_quarters_longformat <- n_chopbars_df_region_quarters %>% 
+	pivot_longer(-c(region_number, region, quarter),
+							 names_to = "locality",
+							 values_to = "number_of_chop_bars"
+							 )
 
 
-## Area Plot
+p_national <- n_chopbars_df_region_quarters_longformat %>% 
+	filter(locality == "national") %>% 
+	ggplot(mapping = aes(x     = reorder(region,desc(region_number)),
+											 y     = number_of_chop_bars)) +
+	geom_col(width = 0.8,
+					 aes( alpha = reorder(quarter, desc(quarter))),
+					 position =  position_dodge(width = 0.8),
+					 fill = national_color)+
+	geom_text(mapping = aes(label = scales::comma(number_of_chop_bars),
+													group = reorder(quarter, desc(quarter))),
+						hjust = 0,
+						position = position_dodge(width = 0.8)
+	) +
+	gssthemes() +
+	scale_y_continuous( limits = c(0, 10000),
+											labels = scales::comma) +
+	scale_alpha_manual(values = seq(
+		from = 0.5,
+		to = 1,
+		length.out = 2
+	),
+	guide = guide_legend(reverse = TRUE))+
+	labs(x = NULL,
+			 alpha = NULL,
+			 y = "number of chop bars",
+			 title = "National")+
+	coord_flip(clip = "off") +
+	theme(panel.grid.major.x = element_line(color = "gray", size=0.25),
+				panel.grid.major.y = element_blank(),
+				legend.position = "top",
+				axis.text.x = element_text(vjust = 0.5),
+				plot.title=element_text(hjust=0.5),
+        plot.subtitle=element_text(hjust=0.5))
 
-------------------------------------------------------------------------
 
-### Stacked Area
 
-```{r area-plot-stack, eval = FALSE}
-txhousing %>%
-  filter(city %in% c("Austin","Houston","Dallas","San Antonio","Fort Worth")) %>%
-  group_by(city, year) %>%
-  summarize(sales = sum(sales)) %>%
-  ggplot(aes(x = year, y = sales, fill = city)) +
-  geom_area(position = "stack") +
-  scale_x_continuous(expand = expand_scale(mult = c(0, 0)),
-                     limits = c(2000, 2015),
-                     breaks = 2000 + 0:15) +  
-  scale_y_continuous(expand = expand_scale(mult = c(0, 0.2)), 
-                     labels = scales::comma) +
-  labs(x = "Year",
-       y = "Home sales")
-```
+p_urban <- n_chopbars_df_region_quarters_longformat %>% 
+	filter(locality == "urban") %>% 
+	ggplot(mapping = aes(x     = reorder(region,desc(region_number)),
+											 y     = number_of_chop_bars,
+											 group = reorder(quarter, desc(quarter)))) +
+	geom_col(width = 0.8,
+					 aes( alpha = reorder(quarter, desc(quarter))),
+					 position = "dodge",
+					 fill = urban_color) +
+	geom_text(mapping = aes(label = scales::comma(number_of_chop_bars)), hjust = 0, 
+						position = position_dodge(width = 0.8)) +
+	gssthemes() +
+	scale_y_continuous(	limits = c(0, 8000),
+											labels = scales::comma) +
+	scale_alpha_manual(values = seq(
+		from = 0.5,
+		to = 1,
+		length.out = 2
+	),
+	guide = guide_legend(reverse = TRUE))+
+	labs(x = NULL,
+			 alpha = NULL,
+			 y = "number of chop bars",
+			 title = "Urban")+
+	coord_flip(clip = "off") +
+  # move the title text and subtitle text to the middle
+  theme(plot.title=element_text(hjust=0.5),
+        plot.subtitle=element_text(hjust=0.5),
+  			panel.grid.major.x = element_line(color = "gray", size=0.25),
+				panel.grid.major.y = element_blank(),
+				axis.ticks.y= element_blank(),				
+				legend.position = "top",
+				axis.text.y = element_blank())
 
-### Filled Area
+p_rural <- n_chopbars_df_region_quarters_longformat %>% 
+	filter(locality == "rural") %>% 
+	ggplot(mapping = aes(x     = reorder(region,desc(region_number)),
+											 y     = number_of_chop_bars,
+											 group = reorder(quarter, desc(quarter)))) +
+	geom_col(width = 0.8,
+					 aes( alpha = reorder(quarter, desc(quarter))),
+					 position = "dodge",
+					 fill = rural_color) +
+	geom_text(mapping = aes(label = scales::comma(number_of_chop_bars)), hjust = 0, 
+						position = position_dodge(width = 0.8)) +
+	gssthemes() +
+	scale_y_continuous(	limits = c(0, 8000),
+											labels = scales::comma) +
+	scale_alpha_manual(values = seq(
+		from = 0.5,
+		to = 1,
+		length.out = 2
+	),
+	guide = guide_legend(reverse = TRUE))+
+	labs(x = NULL,
+			 alpha = NULL,
+			 y = "number of chop bars",
+			 title = "Rural")+
+	coord_flip(clip = "off") +
+  # move the title text and subtitle text to the middle
+  theme(plot.title=element_text(hjust=0.5),
+        plot.subtitle=element_text(hjust=0.5),
+  			panel.grid.major.x = element_line(color = "gray", size=0.25),
+				panel.grid.major.y = element_blank(),
+				axis.ticks.y= element_blank(),				
+				legend.position = "top",
+				axis.text.y = element_blank())
 
-```{r area-plot-fill, eval = FALSE}
-txhousing %>%
-  filter(city %in% c("Austin","Houston","Dallas","San Antonio","Fort Worth")) %>%
-  group_by(city, year) %>%
-  summarize(sales = sum(sales)) %>%
-  ggplot(aes(x = year, y = sales, fill = city)) +
-  geom_area(position = "fill") +
-  scale_x_continuous(expand = expand_scale(mult = c(0, 0)),
-                     limits = c(2000, 2015),
-                     breaks = 2000 + 0:15) +  
-  scale_y_continuous(expand = expand_scale(mult = c(0, 0.02)),
-                     breaks = c(0, 0.25, 0.5, 0.75, 1),
-                     labels = scales::percent) +
-  labs(x = "Year",
-       y = "Home sales")
-```
 
-## Heat map
+p_national + p_urban + p_rural
 
-------------------------------------------------------------------------
-
-```{r heat-map, eval = FALSE}
-library(fivethirtyeight)
-
-bad_drivers %>%
-  filter(state %in% c("Maine", "New Hampshire", "Vermont", "Massachusetts", "Connecticut", "New York")) %>%
-  mutate(`Number of\nDrivers` = scale(num_drivers),
-         `Percent\nSpeeding` = scale(perc_speeding),
-         `Percent\nAlcohol` = scale(perc_alcohol),
-         `Percent Not\nDistracted` = scale(perc_not_distracted),
-         `Percent No\nPrevious` = scale(perc_no_previous),
-         state = factor(state, levels = rev(state))
-         ) %>%
-  select(-insurance_premiums, -losses, -(num_drivers:losses)) %>%
-  gather(`Number of\nDrivers`:`Percent No\nPrevious`, key = "variable", value = "SD's from Mean") %>%
-  ggplot(aes(variable, state)) +
-    geom_tile(aes(fill = `SD's from Mean`)) +
-    labs(x = NULL,
-         y = NULL) + 
-    scale_fill_gradientn() +
-    theme(legend.position = "right",
-          legend.direction = "vertical",
-          axis.line.x = element_blank(),
-          panel.grid.major.y = element_blank()) +
-  remove_ticks()
-#https://learnr.wordpress.com/2010/01/26/ggplot2-quick-heatmap-plotting/
-```
-
-## Faceting and Small Multiples
-
-------------------------------------------------------------------------
-
-### facet_wrap()
-
-R's faceting system is a powerful way to make "small multiples".
-
-Some edits to the theme may be necessary depending upon how many rows and columns are in the plot.
-
-```{r small-multiples, fig.height=2, eval = FALSE}
-diamonds %>%
-  ggplot(mapping = aes(x = carat, y = price)) +
-  geom_point(alpha = 0.05) +
-  facet_wrap(~cut, ncol = 5) +
-  scale_x_continuous(expand = expand_scale(mult = c(0, 0)),
-                     limits = c(0, 6)) +
-  scale_y_continuous(expand = expand_scale(mult = c(0, 0)),
-                     limits = c(0, 20000), 
-                     labels = scales::dollar) +
-  labs(x = "Carat",
-       y = "Price") +
-  scatter_grid()
-```
-
-### facet_grid()
-
-```{r faceting, fig.height=7, eval = FALSE}
-diamonds %>%
-  filter(color %in% c("D", "E", "F", "G")) %>%
-  ggplot(mapping = aes(x = carat, y = price)) +
-  geom_point(alpha = 0.05) +
-  facet_grid(color ~ cut) +
-  scale_x_continuous(expand = expand_scale(mult = c(0, 0)),
-                     limits = c(0, 4)) +  
-  scale_y_continuous(expand = expand_scale(mult = c(0, 0)),
-                     limits = c(0, 20000), 
-                     labels = scales::dollar) +
-  labs(x = "Carat",
-       y = "Price") +
-  theme(panel.spacing = unit(20L, "pt")) +
-  scatter_grid()
 ```
 
 
+### bar chart with a singe category hightlighted on top
 
-## References and Resources
+with a bit of effor, a variable can also be shown on its own. In this case you can use `facet_grid()`
 
-------------------------------------------------------------------------
+```{r}
+n_chopbars_df_with_national   %>% 
+	mutate(highlight = region == "Ghana") %>% 
+	# Create a ggplot object and set the aesthetic mappings
+	# use the reorder function to reorder the the bars
+	ggplot(mapping = aes(x = reorder(region,number_of_chop_bars), 
+											 y = number_of_chop_bars,
+											 fill = highlight)) +
+	geom_col(width = 0.8) +
+	geom_text(mapping = aes(label = scales::comma(number_of_chop_bars)), hjust = 0) +
+	gssthemes() +
+	scale_y_continuous( expand = c( 0, 0 ),
+											limits = nicelimits,
+											labels = scales::comma,
+											breaks = scales::extended_breaks(only.loose = TRUE)) +
+	scale_x_discrete(labels= function(x) highlight(x, "Ghana", "black")) +
+	scale_fill_manual(values = c(`FALSE` = national_color, 
+															 `TRUE` = scales::muted(national_color)),
+										guide = "none") +
+	labs(x = NULL,
+			 y = "number of chop bars" )+
+	coord_flip(clip = "off") +
+	theme(panel.grid.major.x = element_line(color = "gray", size=0.25),
+				panel.grid.major.y = element_blank(),
+				axis.text.x = element_text(vjust = 0.5),
+				strip.text = element_blank(),
+				axis.text.y = element_markdown()) +
+	facet_grid(fct_rev(as.factor(highlight))~.,scales = "free",
+						 space = "free_y")# to make this work you need to make the y axis a markdown format
 
-*Note:* Examples present in [this document](https://awunderground.github.io/ggplot2-themes/) by Aaron Williams were created during personal time.
+```
+
+
+## lollipop chart
+
+## line chart
+
+## area chart
+
+## Dumbell chart
+
+## Bumb chart
+
 
 
 ```{r System Info and Package Versioning}
