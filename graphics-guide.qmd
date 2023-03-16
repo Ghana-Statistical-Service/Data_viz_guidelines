@@ -1040,31 +1040,7 @@ n_chopbars_df_with_national   %>%
 A lollipop chart is used visually represent time series data where magnitude of occurrence is to be communicated. It shows the relationship between a numeric and a categorical variable, as well as identifying trends or patterns over time. They can be used to display numerical data such as quantities and magnitude.
 
 
-```{r}
-lollipop_df<-tribble(~year, ~elder,"1960",213477, "1984",493359, "2000",1363410, "2010",1640220, "2021", 1993300)
 
-lollipop_df %>%
-kable()
-```
-
-```{r}
-# Create lollipop plot
-lollipop_df %>%
-ggplot(mapping=aes(x = year, y = elder)) + 
-  geom_segment(aes(xend = year, yend = 0), size = 1) +
-  geom_point(aes(size = elder),colour="#27A0CC") +
-  geom_text(aes(label =scales::comma(elder)), vjust= ifelse(lollipop_df$elder<500000, -1.5,-4))+
-  scale_size(range=c(2,24)) +
-  labs(x = "Census Year", y = "Population") +
-  gssthemes() +
-  theme(legend.position = "none") +
-  scale_y_continuous( expand = c( 0, 0 ),
-  										# due to bubble size scale limit has to be manually set
-                      limits = c(0,2500000),
-                      breaks = scales::extended_breaks(only.loose = TRUE),
-  										labels = scales::comma)
-
-```
 
 
 ## line chart
