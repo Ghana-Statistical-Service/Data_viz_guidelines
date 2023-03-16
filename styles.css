@@ -451,23 +451,30 @@ hr:after {
 .male{background-color:#206095;}
 .female{background-color:#F66068;}
 
+.food{background-color:#3ECDB9;}
+.nonfood{background-color:#04BCFC;}
+
+.imported{background-color:#851D1A;}
+.local{background-color:#FF6E28;}
+
 .national{background-color:#27A0CC;}
 .urban{background-color:#871A5B;}
 .rural{background-color:#22D0B6;}
 
-.Positive1{background-color:#38761D;}
-.Positive2{background-color:#6AA84F;}
-.Positive3{background-color:#93C47D;}
-.Negative3{background-color:#F4CCCC;}
-.Negative2{background-color:#E06666;}
-.Negative1{background-color:#990000;}
+
+.Positive1{background-color:#6AA84F;}
+.Positive2{background-color:#93C47D;}
+.Neutral{background-color:#FFFFCC;}
+.Negative2{background-color:#F4CCCC;}
+.Negative1{background-color:#E06666;}
+
 
 .Neutral1{background-color:#002060;}
 .Neutral2{background-color:#0070C0;}
 .Neutral3{background-color:#00B0F0;}
 .Neutral4{background-color:#8EA9DB;}
 .Neutral5{background-color:#9BC2E6;}
-.Neutral6{background-color:#DDEBF7;}
+.Neutral6{background-color:#FFFFCC;}
 
 .pop1{background-color:#FFFFCC;}
 .pop2{background-color:#C7E9B4;}
@@ -503,6 +510,7 @@ hr:after {
 .blue-3{background-color:#73BFE2;}
 .blue-2{background-color:#A2D4EC;}
 .blue-1{background-color:#CFE8F3;}
+
 .yellow-9{background-color:#000000;}
 .yellow-8{background-color:#843215;}
 .yellow-7{background-color:#ca5800;}
@@ -512,6 +520,7 @@ hr:after {
 .yellow-3{background-color:#FDD870;}
 .yellow-2{background-color:#FCE39E;}
 .yellow-1{background-color:#FFF2CF;}
+
 .gray-9{background-color:#000000;}
 .gray-8{background-color:#353535;}
 .gray-7{background-color:#696969;}
@@ -521,6 +530,7 @@ hr:after {
 .gray-3{background-color:#E3E3E3;}
 .gray-2{background-color:#ECECEC;}
 .gray-1{background-color:#F5F5F5;}
+
 .magenta-9{background-color:#000000;}
 .magenta-8{background-color:#351123;}
 .magenta-7{background-color:#761548;}
@@ -530,6 +540,7 @@ hr:after {
 .magenta-3{background-color:#E46AA7;}
 .magenta-2{background-color:#EB99C2;}
 .magenta-1{background-color:#F5CBDF;}
+
 .green-9{background-color:#000000;}
 .green-8{background-color:#1A2E19;}
 .green-7{background-color:#2C5C2D;}
@@ -539,6 +550,7 @@ hr:after {
 .green-3{background-color:#98CF90;}
 .green-2{background-color:#BCDEB4;}
 .green-1{background-color:#DCEDD9;}
+
 .space-gray-9{background-color:#000000;}
 .space-gray-8{background-color:#0E0C0D;}
 .space-gray-7{background-color:#1A1717;}
@@ -548,6 +560,7 @@ hr:after {
 .space-gray-3{background-color:#848081;}
 .space-gray-2{background-color:#ADABAC;}
 .space-gray-1{background-color:#D5D5D4;}
+
 .red-9{background-color:#000000;}
 .red-8{background-color:#370B0A;}
 .red-7{background-color:#6E1614;}
