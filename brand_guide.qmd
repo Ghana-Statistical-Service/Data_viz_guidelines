@@ -1,5 +1,5 @@
 ---
-title: "Brand Guide"
+title: "Report Writing Guide"
 ---
 
 ![](images/cover.png)
@@ -1011,20 +1011,20 @@ The following colour schemes must be used for all graphs.
                     <div class="color three">
                          <p style="text-align: center">National</p>  
                         <div class="swatch groupcolor national dark">
-                         <div class="color-code"><br><br>Hex: #27A0CC <br>.</div>
+                         <div class="color-code"><br><br>#27A0CC <br>.</div>
                         </div>
                     <svg width="30" height="30" class="print-swatch"><rect width="30" height="30" fill="#1696d2"></rect></svg></div>
                     <div class="color three">
                         <p style="text-align: center">Urban</p>
                         <div class="swatch groupcolor urban dark">
-                            <div class="color-code"><br><br>Hex: #871A5B <br>.</div>
+                            <div class="color-code"><br><br>#871A5B <br>.</div>
                         </div>
                     <svg width="30" height="30" class="print-swatch"><rect width="30" height="30" fill="#000000"></rect></svg></div>
                             <div class="color three">
                                 <p style="text-align: center">Rural</p>
                         <div class="swatch groupcolor rural">
                             
-                            <div class="color-code"><br><br>Hex: #22D0B6 <br>.</div>
+                            <div class="color-code"><br><br>#22D0B6 <br>.</div>
                         </div>
                     <svg width="30" height="30" class="print-swatch"><rect width="30" height="30" fill="#000000"></rect></svg></div>
                 </div>
@@ -1040,32 +1040,32 @@ The following colour schemes must be used for all graphs.
 
                     <div class="colour six">
                         <div class="swatch groupcolor Neutral1 dark">
-                            <div class="color-code"><br>Hex: #002060</div>
+                            <div class="color-code"><br>#002060</div>
                         </div>
                     <svg width="30" height="30" class="print-swatch"><rect width="30" height="30" fill="#1696d2"></rect></svg></div>
                     <div class="colour six">
                         <div class="swatch groupcolor Neutral2 dark">
-                            <div class="color-code"><br>Hex: #0070C0</div>
+                            <div class="color-code"><br>#0070C0</div>
                         </div>
                     <svg width="30" height="30" class="print-swatch"><rect width="30" height="30" fill="#d2d2d2"></rect></svg></div>
                     <div class="colour six">
                         <div class="swatch groupcolor Neutral3 dark">
-                            <div class="color-code"><br>Hex: #00B0F0</div>
+                            <div class="color-code"><br>#00B0F0</div>
                         </div>
                     <svg width="30" height="30" class="print-swatch"><rect width="30" height="30" fill="#000000"></rect></svg></div>
                     <div class="colour six">
                         <div class="swatch groupcolor Neutral4">
-                            <div class="color-code"><br>Hex: #8EA9DB</div>
+                            <div class="color-code"><br>#8EA9DB</div>
                         </div>
                     <svg width="30" height="30" class="print-swatch"><rect width="30" height="30" fill="#fdbf11"></rect></svg></div>
                     <div class="colour six">
                         <div class="swatch groupcolor Neutral5">
-                            <div class="color-code"><br>Hex: #9BC2E6</div>
+                            <div class="color-code"><br>#9BC2E6</div>
                         </div>
                     <svg width="30" height="30" class="print-swatch"><rect width="30" height="30" fill="#ec008b"></rect></svg></div>
                     <div class="colour six">
-                        <div class="swatch groupcolor pop1">
-                            <div class="color-code"><br>Hex: #2C7FB8</div>
+                        <div class="swatch groupcolor Neutral6">
+                            <div class="color-code"><br>#FFFFCC</div>
                         </div>
                     <svg width="30" height="30" class="print-swatch"><rect width="30" height="30" fill="#55b748"></rect></svg></div>
                     
@@ -1081,36 +1081,32 @@ The following colour schemes must be used for all graphs.
 ```{=html}
 <div class="multi-group-container">
 
-                    <div class="colour six">
-                        <div class="swatch groupcolor Positive1 dark">
-                            <div class="color-code"><br>Hex: #38761D</div>
-                        </div>
-                    <svg width="30" height="30" class="print-swatch"><rect width="30" height="30" fill="#1696d2"></rect></svg></div>
-                    <div class="colour six">
-                        <div class="swatch groupcolor Positive2 dark">
+                    <div class="colour five">
+                        <div class="swatch groupcolor Positive1">
                             <div class="color-code"><br>#6AA84F</div>
                         </div>
+                    <svg width="30" height="30" class="print-swatch"><rect width="30" height="30" fill="#1696d2"></rect></svg></div>
+                    <div class="colour five">
+                        <div class="swatch groupcolor Positive2">
+                            <div class="color-code"><br>#93C47D</div>
+                        </div>
                     <svg width="30" height="30" class="print-swatch"><rect width="30" height="30" fill="#d2d2d2"></rect></svg></div>
-                    <div class="colour six">
-                        <div class="swatch groupcolor Positive3">
-                            <div class="color-code"><br>Hex: #93C47D</div>
+                    <div class="colour five">
+                        <div class="swatch groupcolor Neutral">
+                            <div class="color-code"><br>#FFFFCC</div>
                         </div>
                     <svg width="30" height="30" class="print-swatch"><rect width="30" height="30" fill="#000000"></rect></svg></div>
-                    <div class="colour six">
-                        <div class="swatch groupcolor Negative3">
-                            <div class="color-code"><br>Hex: #F4CCCC</div>
+                    <div class="colour five">
+                        <div class="swatch groupcolor Negative2">
+                            <div class="color-code"><br>#F4CCCC</div>
                         </div>
                     <svg width="30" height="30" class="print-swatch"><rect width="30" height="30" fill="#fdbf11"></rect></svg></div>
                     <div class="colour six">
-                        <div class="swatch groupcolor Negative2 dark">
-                            <div class="color-code"><br>Hex: #E06666</div>
+                        <div class="swatch groupcolor Negative1">
+                            <div class="color-code"><br>#E06666</div>
                         </div>
                     <svg width="30" height="30" class="print-swatch"><rect width="30" height="30" fill="#ec008b"></rect></svg></div>
-                    <div class="colour six">
-                        <div class="swatch groupcolor Negative1 dark">
-                            <div class="color-code"><br>Hex: #990000</div>
-                        </div>
-                    <svg width="30" height="30" class="print-swatch"><rect width="30" height="30" fill="#55b748"></rect></svg></div>
+                    
                     
     </div>
     
@@ -1131,22 +1127,22 @@ The following colour schemes must be used for all graphs.
                     <svg width="30" height="30" class="print-swatch"><rect width="30" height="30" fill="#d2d2d2"></rect></svg></div>
                     <div class="colour five">
                         <div class="swatch groupcolor pop2">
-                            <div class="color-code"><br>Hex: #C7E9B4</div>
+                            <div class="color-code"><br>#C7E9B4</div>
                         </div>
                     <svg width="30" height="30" class="print-swatch"><rect width="30" height="30" fill="#000000"></rect></svg></div>
                     <div class="colour five">
                         <div class="swatch groupcolor pop3">
-                            <div class="color-code"><br>Hex: #7FCDBB</div>
+                            <div class="color-code"><br>#7FCDBB</div>
                         </div>
                     <svg width="30" height="30" class="print-swatch"><rect width="30" height="30" fill="#fdbf11"></rect></svg></div>
                     <div class="colour five">
                         <div class="swatch groupcolor pop4 dark">
-                            <div class="color-code"><br>Hex: #41B6C4</div>
+                            <div class="color-code"><br>#41B6C4</div>
                         </div>
                     <svg width="30" height="30" class="print-swatch"><rect width="30" height="30" fill="#ec008b"></rect></svg></div>
                     <div class="colour five">
                         <div class="swatch groupcolor pop5 dark">
-                            <div class="color-code"><br>Hex: #2C7FB8</div>
+                            <div class="color-code"><br>#2C7FB8</div>
                         </div>
                     <svg width="30" height="30" class="print-swatch"><rect width="30" height="30" fill="#55b748"></rect></svg></div>
                     
@@ -1170,34 +1166,56 @@ The following colour schemes must be used for all graphs.
                     
      <div class="colour six">
                         <div class="swatch groupcolor inci2">
-                            <div class="color-code"><br>Hex: #FF9999</div>
+                            <div class="color-code"><br>#FF9999</div>
                         </div>
                     <svg width="30" height="30" class="print-swatch"><rect width="30" height="30" fill="#000000"></rect></svg></div>
                     
      <div class="colour six">
                         <div class="swatch groupcolor inci3 dark">
-                            <div class="color-code"><br>Hex: #FF6666</div>
+                            <div class="color-code"><br>#FF6666</div>
                         </div>
                     <svg width="30" height="30" class="print-swatch"><rect width="30" height="30" fill="#fdbf11"></rect></svg></div>
                    
      <div class="colour six">
                         <div class="swatch groupcolor inci4 dark">
-                            <div class="color-code"><br>Hex: #FF3333</div>
+                            <div class="color-code"><br>#FF3333</div>
                         </div>
                     <svg width="30" height="30" class="print-swatch"><rect width="30" height="30" fill="#ec008b"></rect></svg></div>
                    
      <div class="colour six">
                         <div class="swatch groupcolor inci5 dark">
-                            <div class="color-code"><br>Hex: #CC0000</div>
+                            <div class="color-code"><br>#CC0000</div>
                         </div>
                     <svg width="30" height="30" class="print-swatch"><rect width="30" height="30" fill="#55b748"></rect></svg></div>
      
      <div class="colour six">
                         <div class="swatch groupcolor inci6 dark">
-                            <div class="color-code"><br>Hex: #990000</div>
+                            <div class="color-code"><br>#990000</div>
                         </div>
                     <svg width="30" height="30" class="print-swatch"><rect width="30" height="30" fill="#55b748"></rect></svg></div>
                     
     </div>
+```
+<br>
+
+#### Food / Non-food
+
+```{=html}
+<div class="multi-group-container">
+                    <div class="color two">
+                    <p style="text-align:center">Food</p>
+                        <div class="swatch groupcolor food">
+                            <div class="color-code"><br>#3ECDB9 <br></div>
+                        </div>
+                    <svg width="30" height="30" class="print-swatch"><rect width="30" height="30" fill="#1696d2"></rect></svg></div>
+                    <div class="color two">
+                        <p style="text-align: center">Non-food</p>
+                        <div class="swatch groupcolor nonfood">
+                            <div class="color-code"><br>#04BCFC<br></div>
+                        </div>
+                    <svg width="30" height="30" class="print-swatch"><rect width="30" height="30" fill="#000000"></rect></svg></div>
+                </div>
+<br>
+<br>
 ```
 
