@@ -471,7 +471,7 @@ n_chopbars_df %>%
   # Add a column chart with bars of equal width
   geom_col(width = 0.8) +
 	# add text to the end of the plot
-	 geom_text(mapping = aes(label = number_of_chop_bars), hjust = 1) +
+	 geom_text(mapping = aes(label = number_of_chop_bars), hjust = -1) +
   # Apply a custom theme to the plot
   gssthemes() +
 	# The expand argument controls whether the range of the y-axis is expanded to include a small margin around the data. 
@@ -507,7 +507,7 @@ n_chopbars_df %>%
   # Add a column chart with bars of equal width
   geom_col(width = 0.8) +
 	# add text to the end of the plot, and comma at all thousands
-	 geom_text(mapping = aes(label = scales::comma(number_of_chop_bars)), hjust = 1,) +
+	 geom_text(mapping = aes(label = scales::comma(number_of_chop_bars)), hjust = -1,) +
   # Apply a custom theme to the plot
   gssthemes() +
 	# The expand argument controls whether the range of the y-axis is expanded to include a small margin around the data. 
@@ -579,7 +579,7 @@ Instead of having the categories stacked, you can put them next to each other (s
 n_chopbars_df_longformat %>% 
   ggplot(mapping = aes(x = reorder(region,number_of_chop_bars), fill = locality ,  y = number_of_chop_bars)) +
   geom_col(width = 0.8, position = "dodge") +
-	geom_text(mapping = aes(label = scales::comma(number_of_chop_bars)), hjust = 1, 
+	geom_text(mapping = aes(label = scales::comma(number_of_chop_bars)), hjust = -1, 
 						position = position_dodge(width = 0.8)) +
   gssthemes() +
   scale_y_continuous( expand = c( 0, 0 ),
@@ -626,7 +626,7 @@ n_chopbars_df_with_national %>%
   										 y = number_of_chop_bars,
   										  fill = highlight)) +
   geom_col(width = 0.8) +
-	geom_text(mapping = aes(label = scales::comma(number_of_chop_bars)), hjust = 1) +
+	geom_text(mapping = aes(label = scales::comma(number_of_chop_bars)), hjust = -1) +
   gssthemes() +
   scale_y_continuous( expand = c( 0, 0 ),
                       limits = nicelimits,
@@ -666,7 +666,7 @@ n_chopbars_df_long_labels %>%
 n_chopbars_df_long_labels %>% 
   ggplot(mapping = aes(x = str_wrap(question, 20), y = count)) +
   geom_col(width = 0.8) +
-	 geom_text(mapping = aes(label = count), hjust = 1) +
+	 geom_text(mapping = aes(label = count), hjust = -1) +
   gssthemes() +
   scale_y_continuous( expand = c( 0, 1 ),
                       limits = nicelimits,
@@ -804,7 +804,7 @@ R's faceting system is a powerful way to make "small multiples".
 n_chopbars_df_longformat %>% 
   ggplot(mapping = aes(x = reorder(region,number_of_chop_bars), fill = locality ,  y = number_of_chop_bars)) +
   geom_col(width = 0.8, position = "dodge") +
-	geom_text(mapping = aes(label = scales::comma(number_of_chop_bars)), hjust = 1, 
+	geom_text(mapping = aes(label = scales::comma(number_of_chop_bars)), hjust = -1, 
 						position = position_dodge(width = 0.8)) +
 
   gssthemes() +
@@ -898,7 +898,7 @@ p_national <- n_chopbars_df_region_quarters_longformat %>%
 					 fill = national_color)+
 	geom_text(mapping = aes(label = scales::comma(number_of_chop_bars),
 													group = reorder(quarter, desc(quarter))),
-						hjust = 1,
+						hjust = -1,
 						position = position_dodge(width = 0.8)
 	) +
 	gssthemes() +
@@ -933,7 +933,7 @@ p_urban <- n_chopbars_df_region_quarters_longformat %>%
 					 aes( alpha = reorder(quarter, desc(quarter))),
 					 position = "dodge",
 					 fill = urban_color) +
-	geom_text(mapping = aes(label = scales::comma(number_of_chop_bars)), hjust = 1, 
+	geom_text(mapping = aes(label = scales::comma(number_of_chop_bars)), hjust = -1, 
 						position = position_dodge(width = 0.8)) +
 	gssthemes() +
 	scale_y_continuous(	limits = c(0, 8000),
@@ -967,7 +967,7 @@ p_rural <- n_chopbars_df_region_quarters_longformat %>%
 					 aes( alpha = reorder(quarter, desc(quarter))),
 					 position = "dodge",
 					 fill = rural_color) +
-	geom_text(mapping = aes(label = scales::comma(number_of_chop_bars)), hjust = 1, 
+	geom_text(mapping = aes(label = scales::comma(number_of_chop_bars)), hjust = -1, 
 						position = position_dodge(width = 0.8)) +
 	gssthemes() +
 	scale_y_continuous(	limits = c(0, 8000),
@@ -1041,6 +1041,17 @@ A lollipop chart is used visually represent time series data where magnitude of 
 
 
 
+<<<<<<< Updated upstream
+=======
+lollipop_df %>%
+kable()
+```
+
+```{r}
+# Create lollipop plot
+
+```
+>>>>>>> Stashed changes
 
 
 ## line chart
