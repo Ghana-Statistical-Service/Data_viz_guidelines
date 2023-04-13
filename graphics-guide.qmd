@@ -324,6 +324,8 @@ library(scales)
 library(kableExtra)
 library(patchwork)
 library(forcats)
+library(tidyverse)
+library(ggbump)
 
 
 # load the font
@@ -1038,6 +1040,32 @@ n_chopbars_df_with_national   %>%
 ```
 
 
+## Population pyramid 
+
+An illustration of the age and gender distribution of a population is called a population pyramid. It is widely used to illustrate both the current trend in population growth and a population's makeup. In most cases, the chart is divided into two equal parts, one for males and the other for women. The age groups are frequently displayed along a vertical axis, with the youngest age group at the bottom and the oldest at the top.
+
+```{r}
+# Sample data
+df <- data.frame(
+  age_group = rep(c("0-4", "5-9", "10-14", "15-19", "20-24", "25-29", "30-34", "35-39", "40-44", "45-49", "50-54", "55-59", "60-64", "65-69", "70-74", "75+"), 2),
+  gender = rep(c("Male", "Female"), each = 16),
+  count = c(100, 95, 90, 85, 80, 75, 70, 65, 60, 55, 50, 45, 40, 35, 30, 25,
+            105, 100, 95, 90, 85, 80, 75, 70, 65, 60, 55, 50, 45, 40, 35, 30)
+)
+
+# Population pyramid
+ggplot(df) +
+  geom_bar(aes(x = age_group, y = ifelse(gender == "Male", -count, count), fill = gender), stat = "identity") +
+  scale_y_continuous(labels = abs) +
+  coord_flip() +
+  theme(axis.text.y = element_blank())+
+	gssthemes()
+```
+
+
+
+
+
 ## lollipop chart
 
 A lollipop chart is used visually represent time series data where magnitude of occurrence is to be communicated. It shows the relationship between a numeric and a categorical variable, as well as identifying trends or patterns over time. They can be used to display numerical data such as quantities and magnitude.
@@ -1106,10 +1134,119 @@ ggplot(area_df, aes(x = year, y = urban_growth)) +
 	gssthemes()
 ```
 
+## Line chart
+## Line chart with multiple lines
+## Smoothed line chart
+## Line chart with multiple lines with a few highlighted lines
+## Line chart with multiple lines with labels at the end of the line
+## Step line chart (geom_step)
+
+## Pie chart
+
+A pie chart is a circular statistical picture that divides into slices to represent numerical quantities. Each pie slice symbolizes a certain category, and the size of each slice is inversely proportionate to the amount it represents. Pie charts are used to show how several categories are spread within a whole.
+
+Pie charts are the most effective for comparing parts of an entire. They do not show changes over time or relationships between variables. When there are many categories or not many differences between the groupings, pie charts might be difficult to read and comprehend.
+
+```{r}
+# Sample data
+df <- data.frame(
+  country = c("US", "UK", "Australia", "Germany", "France"),
+  value = c(10, 12, 4, 16, 8)
+)
+
+# Pie chart
+ggplot(df) +
+  geom_col(aes(x = "", y = value, fill = country)) +
+  coord_polar(theta = "y")+
+	gssthemes()
+```
+
+## Donut chart
+A donut chart is a type of chart that is similar to a pie chart, but with a hole in the center. Like a pie chart, a donut chart displays the relative proportions of different categories within a whole. Each slice of the donut represents a category and the size of the slice is proportional to the quantity it represents.
+
+Donut charts are used in similar situations as pie charts, to show the relative proportions of different categories within a whole. They can be useful when you want to compare parts of a whole or when you want to display multiple pie charts with the same scale in a small space. The hole in the center of the donut chart can also be used to display additional information or to label the chart.
+The hole in the center of the donut chart can also be used to display additional information or to label the chart.
+
+```{r}
+# # Sample data
+# df <- data.frame(
+#   group = c("A", "B", "C", "D"),
+#   value = c(40, 10, 15, 35)
+# )
+# 
+# # Donut chart
+# ggplot(df) +
+#   geom_col(aes(x = "", y = value, fill = group)) +
+#   coord_polar(theta = "y") +
+#   theme_void() +
+#   xlim(-1.5, 1.5) +
+#   annotation_custom(grob = grid::rectGrob(gp = grid::gpar(col = NA, fill = "white")), xmin = -1, xmax = 1, ymin = -1, ymax = 1)+
+# 	gssthemes()
+```
+
+## Waffle chart
+A waffle chart, also known as a square pie chart or a mosaic plot, is a type of chart that displays parts of a whole for categorical quantities. It is similar to a pie chart but uses squares instead of wedges to represent the proportions. Each square in the chart represents a fixed quantity and the total number of squares represents the total quantity.
+
+Waffle charts are used in similar situations as pie charts, to show the relative proportions of different categories within a whole. They can be useful when you want to compare parts of a whole or when you want to display multiple pie charts with the same scale in a small space. Waffle charts can also be easier to read and interpret than pie charts when there are many categories or if the differences between the categories are small.
+
+```{r}
+# install.packages("waffle")
+library(waffle)
+
+# Sample data
+parts <- c(50, 30, 15, 5)
+names(parts) <- c("First", "Second", "Third", "Fourth")
+
+# Waffle chart
+waffle(parts)+gssthemes()
+```
+
+
+## Area chart
+
+
+# Point Plots
+
 
 ## Dumbell chart
 
+also known as connected dot plot, it shows the changes in a variable between two different conditions or points in time. It is frequently employed to contrast two connected variables across various categories. Each dot on the graph, which is made up of two dots connected by a line or bar, reflects the value of one of the variables for a certain category.
+
+Dumbbell charts are helpful for comparing the range of a variable across various groups or for displaying change over time for multiple groups. 
+
 ```{r}
+# Sample data
+df <- data.frame(
+  company = LETTERS[1:10],
+  customers = sample(50:150, 10),
+  potential_customers = sample(150:500, 10)
+)
+
+# Dumbbell chart
+ggplot(df) +
+  geom_segment(aes(x = customers, xend = potential_customers, y = company, yend = company), color = "gray") +
+  geom_point(aes(x = customers, y = company), size = 3, color = "#3ECDB9") +
+  geom_point(aes(x = potential_customers, y = company), size = 3, color = "#04BCFC")+
+	gssthemes()
+
+```
+
+## Scatterplot
+A scatter plot is a type of chart that displays the relationship between two numerical variables. Each data point is represented as a dot on the chart, with the position of the dot determined by the values of the two variables. Scatter plots are used to visually explore and analyze the relationship between two variables.
+
+Scatter plots are useful for identifying trends, patterns, and correlations in the data. They can also be used to detect outliers or to assess the strength and direction of the relationship between the two variables. Scatter plots are commonly used in many fields, including finance, economics, social sciences, and engineering.
+
+```{r}
+# Sample data
+df <- data.frame(
+  x = rnorm(100),
+  y = rnorm(100)
+)
+
+# Scatter plot
+ggplot(df) +
+  geom_point(aes(x = x, y = y))+
+	gssthemes()
 
 ```
 
@@ -1117,6 +1254,33 @@ ggplot(area_df, aes(x = year, y = urban_growth)) +
 
 ## Bumb chart
 
+A bump chart is a type of chart that is used to visualize changes in rank over time. It is similar to a line chart, but instead of plotting a measure on the y-axis, it shows the rank of the values. When a line crosses another line, it indicates a change in rank.
+
+Bump charts are useful for comparing the position, performance, or rankings of multiple observations over time. They can be used to explore changes in rank for different categories or to draw attention to changes in rankings rather than the actual values themselves. Bump charts are commonly used in many fields, including finance, economics, sports, and social sciences.
+```{r}
+
+
+# Sample data
+df <- data.frame(
+  year = rep(2019:2021, 4),
+  position = c(4, 2, 2, 3, 1, 4, 2, 3, 1, 1, 4, 3),
+  player = c("A", "A", "A", "B", "B", "B", "C", "C", "C", "D", "D", "D")
+)
+
+# Bump chart
+ggplot(df, aes(x = year, y = position, color = player)) +
+  geom_bump(size = 1.5) +
+  geom_point(size = 6)+
+	gssthemes()
+
+```
+
+
+
+## Heatmap
+```{r}
+
+```
 
 
 ```{r System Info and Package Versioning}
