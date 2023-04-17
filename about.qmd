@@ -1,0 +1,21 @@
+---
+title: "About"
+---
+
+<h1>Ghana Statistical Service</h1>
+
+The **Ghana Statistical Service** has been consistent in performing its legal functions to serve the needs of individuals, organisations, development partners and the government without hindrance. However, the need to improve the legal framework to reflect changes in the statistics landscape worldwide has resulted in the promulgation of a new law- Statistical Service Act, 2019 (Act 1003) to replace the Statistical Service Law, 1985. The New Law establishes the Ghana Statistical Service as the central statistics producing and co-ordinating institution for the National Statistical System and to strengthen the production of quality, relevant, accurate and timely statistical information for the purpose of national development.
+
+The New Law specifically mandates the Service to:
+(a)  Provide leadership and direction for the efficient, consistent and comprehensive collection, processing, analysis, documentation and storage of statistical information within the National Statistical System;
+(b)  Collect, compile, analyse, abstract, publish and disseminate statistical information related to the commercial, industrial, financial, social, demographic, economic and other activities and conditions of the people or this country through the conduct of surveys and national censuses, including population, housing, economic and agricultural censuses;
+(c)  Determine the manner in which the Ministries, Departments, Agencies, District Assemblies and statutory bodies collaborate with the Service in the collection, compilation and publication of statistical information, including statistics derived from the activities of those entities;
+(d)  Develop, create awareness and operationalize the code of ethics and practice for the production and use of data to ensure quality of statistics with respect to relevance, accuracy and reliability, coherence and comparability, sustainability, continuity, timeliness, topicality and integrity;
+(e)  Manage a centrally organized database of
+(i)  Commercial, industrial, financial, social, demographic and economic survey and censuses data sets at the micro and macro levels,
+(ii)  Statistical indicators, and
+(iii)  Metadata on the statistical processes within the National Statistical System;
+(f)  Review, assess, classify and designate as official statistics, data produced by the Service, Ministries, Departments and Agencies, District Assemblies and other institutions within the country and report regularly on the state of official statistics to the Government and the people;
+(g)  Promote and build statistical capacity and professional competencies using diverse interventions including the establishment and operation of a National Statistical Training Centre;
+(h)  Prescribe and direct the pursuance of scientific independence, impartiality, responsibility and transparency in statistical production; and
+(i)  Promote bilateral and multilateral statistics co-operation and partnership to upgrade statistics production systems in the country.

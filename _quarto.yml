@@ -1,0 +1,22 @@
+project:
+  type: website
+  output-dir: docs
+
+website:
+  title: "Ghana Statistical Service"
+  navbar:
+    left:
+      - href: index.qmd
+        text: Home
+      - brand_guide.qmd
+      - graphics-guide.qmd
+      - about.qmd
+      
+format:
+  html:
+    css: styles.css
+    toc: true
+    
+theme:
+  light: flatly
+  dark: darkly
