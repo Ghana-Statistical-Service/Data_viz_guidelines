@@ -1284,6 +1284,7 @@ population_df %>%
 
 
 ## Smoothed line chart embeded on scatter plot
+People might (at times) find it difficult to determine
 ```{r}
 ggplot(scatter_df, aes(x = x, y = y)) +
   geom_point()+
