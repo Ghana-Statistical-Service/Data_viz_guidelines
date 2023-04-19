@@ -47,7 +47,7 @@ R is an amazing tool for data analysis and visualization. The code on this page 
 
 ## Use of Fonts 
 
-- Century Gothic Bold, font size 12 should be used for the labels and values on the graph. 
+- Century Gothic Bold, font size 12 should be used for the labels and values on the graph. -   [**Download here**](https://drive.google.com/file/d/1d4p_kZPfMw2Id0yVK3oOJ_SFPYbzQe-2/view?usp=share_link)
 
 ## General Rules
 
@@ -359,7 +359,7 @@ library(ggbump)
 
 
 # load the font
-font_add("century gothic bold", "Font/CenturyGothic.ttf")
+font_add("century gothic bold", "Font/Century Gothic.ttf")
 
 # make sure ggplot recognizes the font 
 # and set the font to high-res
