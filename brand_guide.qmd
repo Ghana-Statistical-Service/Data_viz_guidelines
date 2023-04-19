@@ -1033,6 +1033,36 @@ The following colour schemes must be used for all graphs.
 ```
 <br>
 
+#### Economic Sectors
+
+```{=html}
+<div class="multi-group-container">
+                    <div class="color three">
+                         <p style="text-align: center">Industry</p>  
+                        <div class="swatch groupcolor industry dark">
+                         <div class="color-code"><br><br>#14607A <br>.</div>
+                        </div>
+                    <svg width="30" height="30" class="print-swatch"><rect width="30" height="30" fill="#1696d2"></rect></svg></div>
+                    <div class="color three">
+                        <p style="text-align: center">Agriculture</p>
+                        <div class="swatch groupcolor agriculture">
+                            <div class="color-code"><br><br>#07BB9E <br>.</div>
+                        </div>
+                    <svg width="30" height="30" class="print-swatch"><rect width="30" height="30" fill="#000000"></rect></svg></div>
+                            <div class="color three">
+                                <p style="text-align: center">Service</p>
+                        <div class="swatch groupcolor service dark">
+                            
+                            <div class="color-code"><br><br>#F98B00 <br>.</div>
+                        </div>
+                    <svg width="30" height="30" class="print-swatch"><rect width="30" height="30" fill="#000000"></rect></svg></div>
+                </div>
+    
+    <br>
+    <br>
+```
+<br>
+
 #### Neutral
 
 ```{=html}

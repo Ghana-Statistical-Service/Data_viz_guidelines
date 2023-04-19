@@ -115,6 +115,36 @@ Please use the following colour schemes for different types of disaggregation.
 ```
 <br>
 
+#### Economic Sectors
+
+```{=html}
+<div class="multi-group-container">
+                    <div class="color three">
+                         <p style="text-align: center">Industry</p>  
+                        <div class="swatch groupcolor industry dark">
+                         <div class="color-code"><br><br>#14607A <br>.</div>
+                        </div>
+                    <svg width="30" height="30" class="print-swatch"><rect width="30" height="30" fill="#1696d2"></rect></svg></div>
+                    <div class="color three">
+                        <p style="text-align: center">Agriculture</p>
+                        <div class="swatch groupcolor agriculture">
+                            <div class="color-code"><br><br>#07BB9E <br>.</div>
+                        </div>
+                    <svg width="30" height="30" class="print-swatch"><rect width="30" height="30" fill="#000000"></rect></svg></div>
+                            <div class="color three">
+                                <p style="text-align: center">Service</p>
+                        <div class="swatch groupcolor service dark">
+                            
+                            <div class="color-code"><br><br>#F98B00 <br>.</div>
+                        </div>
+                    <svg width="30" height="30" class="print-swatch"><rect width="30" height="30" fill="#000000"></rect></svg></div>
+                </div>
+    
+    <br>
+    <br>
+```
+<br>
+
 #### Neutral
 Neutral is used on general variables. It is advise that the maximum number of variables per plot should not be more than 5.
 
@@ -387,21 +417,39 @@ nicelimits <- function(x) {
 
 
 # Define color palette
+
+statscolours_color_scheme  <- c("#382873", "#0168C8", "#00B050")
+
+#locality
 national_color <- "#27A0CC"
 urban_color <- "#871A5B"
 rural_color <- "#22D0B6"
+urbanrural_color_scheme  <- c("#27A0CC", "#871A5B", "#22D0B6")
+
+#Sex
 male_color <- "#206095"
 female_color <- "#F66068"
+malefemale_color_scheme <- c("#27A0CC", "#206095", "#F66068")
+
+#positive/negative
 negative_color <- "#cc3333"
 positive_color <- "#33cccc"
+
+#pallete
 neutral_color_scheme  <- c("#002060", "#0070C0", "#00B0F0", "#8EA9DB", "#9BC2E6", "#FFFFCC")
 posneg_color_scheme  <- c("#38761D","#6AA84F","#93C47D","#F4CCCC","#E06666","#990000")
 posneutralneg_color_scheme  <- c("#38761D","#6AA84F","#FFFFCC","#E06666","#990000")
 population_color_scheme  <- c("#FFFFCC","#C7E9B4","#7FCDBB","#41B6C4","#2C7FB8")
 incidence_color_scheme  <- c("#FECCCC","#FF9999","#FF6666","#FF3333","#CC0000","#990000")
-statscolours_color_scheme  <- c("#382873", "#0168C8", "#00B050")
-malefemale_color_scheme <- c("#27A0CC", "#206095", "#F66068")
-urbanrural_color_scheme  <- c("#27A0CC", "#871A5B", "#22D0B6")
+
+
+#Economic sector colour
+industry_color<-"#14607A"
+agric_color<-"#07BB9E"
+services_color<-"#F98B00"
+economic_sectors<- c("#14607A","#07BB9E","#F98B00")
+
+#food
 food_colour<- "#3ECDB9"
 nonfood_colour<-"#04BCFC"
 ```
