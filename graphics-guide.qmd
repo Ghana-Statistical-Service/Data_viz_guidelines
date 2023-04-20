@@ -1488,10 +1488,6 @@ library(ggplot2)
 densitydf <- data.frame(agriculture = rnorm(1000, mean = 50, sd = 10),
                    industry = rnorm(1000, mean = 75, sd = 15),
                    services = rnorm(1000, mean = 100, sd = 20))
-```
-
-
-```{r}
 # Convert the data frame to a long format using the tidyr package
 library(tidyr)
 densitydf_long <- gather(densitydf, key = "sector", value = "value")
@@ -1508,6 +1504,8 @@ ggplot(densitydf_long, aes(x = value, fill = sector)) +
 ```{r}
 
 ```
+
+
 
 
 # Proportion Charts
