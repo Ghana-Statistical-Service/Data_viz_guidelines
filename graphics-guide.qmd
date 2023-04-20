@@ -356,6 +356,8 @@ library(patchwork)
 library(forcats)
 library(tidyverse)
 library(ggbump)
+library(reshape2)
+library(plotly)
 
 
 # load the font
@@ -1258,6 +1260,64 @@ line_chart_df_by_sex %>%
     theme(legend.key = element_blank())
 ```
 
+### Simple line charts
+As in the case of scatter plots, line charts are also used to display relationships or correlates between two numerical variables. It is also used to show trends of variable over time. As the name connotes, the various data points on the graph are joined by line(s).
+```{r}
+Year <- c(1960, 1970, 1980, 1990, 2000, 2010, 2021)
+Population <- c(6652288, 8801415, 11491261, 14898012, 18781516, 24965816, 31072940)
+ghana_pop <- data.frame(Year, Population)
+
+ggplot(ghana_pop, aes(x = Year, y = Population)) +
+	geom_line(color = national_color, size = 1.5) +
+	geom_point(color = national_color, size = 3) +
+	scale_x_continuous(breaks = Year, 
+										 limits = c(min(Year), max(Year))) +
+	scale_y_continuous(labels = function(y)y/1000000,
+										 limits = c(0,40000000),
+										 name="Population(millions)")+
+	gssthemes()
+```
+
+### Line chart with multiple lines
+This type of plots are used to show differences in relationships or trends for different groups within the data. 
+```{r}
+Sex <- c("Male", "Male", "Male", "Male", "Male", "Male", "Male", "Female", "Female", "Female", "Female", "Female", "Female", "Female")
+Year <- c(1960, 1970, 1980, 1990, 2000, 2010, 2021, 1960, 1970, 1980, 1990, 2000, 2010, 2021)
+Population <- c(66522, 88014, 114912, 148980, 187815, 249658, 310729, 81200, 113013, 164171, 237245, 319645, 420306, 537712)
+population_df <- data.frame(Sex, Year, Population)
+
+ggplot(population_df, aes(x = Year, y = Population, 
+													# The colour argument displays different lines (each with a unique colour) for the different groups (i.e. Sex)
+													color = Sex)) +
+	geom_line(size = 1.5) +
+	geom_point(size = 3) +
+	scale_x_continuous(breaks = Year, 
+										 limits = c(min(Year), max(Year))) +
+	scale_y_continuous(labels = function(y)y/1000000,
+										 limits = nicelimits,
+										 name="Population(millions)")+
+	gssthemes() +
+	theme(legend.key = element_blank())
+```
+
+### Line chart with multiple lines with value labels on each data point
+One might prefer to show the values of one of the numerical variables on each data point on the line. This allows people to easily know the value without tracing it from the axis.
+```{r}
+ggplot(population_df, aes(x = Year, y = Population, color = Sex)) +
+	geom_line(size = 1.5) +
+	geom_point(size = 3) +
+	# The geom_text function displays labels on the plot. Here, the population values are displayed on the data points. The population values are presented in millions and are in 2 decimal places. 
+	geom_text(aes(label = round(Population/1000000, 2)), vjust = ifelse(Sex
+																																			== "Female", -1, 2), show.legend=FALSE) +
+	scale_x_continuous(breaks = Year, 
+										 limits = c(min(Year), max(Year))) +
+	scale_y_continuous(labels = function(y)y/1000000,
+										 limits = nicelimits,
+										 name="Population(millions)")+
+	gssthemes() +
+	theme(legend.key = element_blank())
+```
+
 ## Line chart multiple categories with labels
 
 To add value labels to a line chart, you can use the `geom_text()` function or the `geom_text_repel()` function  from the `ggrepel` package if you want to make sure the labels do not overlap. You can use `show.legend=FALSE` to make sure the legend does not contain text.
@@ -1284,6 +1344,26 @@ line_chart_df_by_sex %>%
 	) +
 	gssthemes() +
 	theme(legend.key = element_blank())
+```
+
+### Line chart with multiple lines with group labels at the end of the line
+By preference, one might prefer to show the group names at the end of each line (in the case of multiple line charts) and do away with the legend. Line charts displayed in this format make it easier for people to know the group for which each line is representing without necessary looking at the legend.
+```{r}
+population_df %>% 
+	# Within the mutate function, the variable country_name is created to be used in the ggplot function to display the country names as labels at the end of each line on the plot.
+	mutate(sex_type = ifelse(Year == max(Year), as.character(Sex), NA_character_)) %>% 
+	ggplot(aes(x = Year, y = Population, color = Sex)) +
+	geom_line(size = 1.5) +
+	geom_point(size = 3) +
+	# The geom_text function display labels on a plot. Here, the labe to be displayed is the country name.
+	geom_text(aes(label = sex_type), hjust = -0.2) +
+	scale_x_continuous(breaks = Year, 
+										 limits = nicelimits) +
+	scale_y_continuous(labels = function(y)y/1000000,
+										 limits = nicelimits,
+										 name="Population(millions)")+
+	gssthemes() +
+	theme(legend.position = "none")
 ```
 
 ## Line chart with group labels showing at end of line
@@ -1355,6 +1435,35 @@ line_chart_df %>%
 	scale_x_continuous(breaks = as.numeric(levels(line_chart_df$year))) +
 	gssthemes()
 
+```
+
+### Smoothed line chart embeded on scatter plot
+People might (at times) find it difficult to determine to clearly see correlates within a scatter plot. The smoothed line chart helps in this regard. It tries to smoothen the points on scatter plots (base on conditional mean values of the y-variable at given values of the x-variable). The shaded area around the line shows the confidence interval.
+```{r}
+# ggplot(n_chopbars_df_region_quarters_scatter, aes(x = urban_births, y = rural_births)) +
+#   geom_point()+
+# 	# The color argument sets the colour of the line
+# 	geom_smooth(color = "black") +
+# 	labs(x = "Urban", y = "Rural") +
+# 	gssthemes() 
+```
+
+### Smoothed line chart embeded on scatter (line of best fit)
+```{r}
+# ggplot(n_chopbars_df_region_quarters_scatter, aes(x = urban_births, y = rural_births)) +
+#   geom_point()+
+# 	geom_smooth(color = "black", method = "lm", se = FALSE) +
+# 	labs(x = "Urban", y = "Rural") +
+# 	gssthemes() 
+```
+
+### Smoothed line chart embeded on scatter plot with shaded area confidence interval removed
+```{r}
+# ggplot(n_chopbars_df_region_quarters_scatter, aes(x = urban_births, y = rural_births)) +
+#   geom_point()+
+# 	geom_smooth(color = "black", se = FALSE) +
+# 	labs(x = "Urban", y = "Rural") +
+# 	gssthemes() 
 ```
 
 
@@ -1501,11 +1610,89 @@ ggplot(densitydf_long, aes(x = value, fill = sector)) +
 
 ## Heatmap
 
-```{r}
+Heatmap is a graphical representation of data that uses colour-coded cells to represent values.Heatmaps are commonly used to visualize the distribution and density of data points within a particular area or to show patterns and correlations in large datasets. Thus, heatmap produces high-quality matrix and offers statistical tools to normalize input data, run clustering algorithms and visualize the result with dendrograms.
 
+In a heatmap, each cell represents a specific data point or group of data points, and the colour of the cell indicates the value of the data.Typically, warmer colours like red and orange are used to indicate high values, while cooler colours like blue and green indicate lower values. Heatmaps are often used in fields such as data analysis and statistics to help identify trends and patterns in complex data sets.
+
+Heatmaps can be used to visualize changes in data over time, display geographic data, such as population density or weather patterns, highlight outliers or anomalies in a dataset, which may indicate errors or unusual pattern among others
+
+### Changes in data overtime
+```{r}
+# Sample data : Changes in data overtime
+heatmap_df_1 <- data.frame(
+  Sector = c("Agriculture", "Manufacturing", "Trade", "Transport", "Services"),
+  Q1 = c(3, 4, 5, 6, 7),
+  Q2 = c(4, 5, 6, 7, 8),
+  Q3 = c(5, 6, 7, 8, 9),
+  Q4 = c(6, 7, 8, 9, 10)
+)
+
+# convert data to long format
+heatmap_df_1 <- melt(heatmap_df_1, id.vars = "Sector", variable.name = "Quarter", value.name = "Value")
+
+# create heatmap using ggplot
+heatmap_df_1 <- ggplot(heatmap_df_1, aes(x = Quarter, y = Sector, fill = Value)) +
+  geom_tile() +
+  #scale_fill_gradient(low = "grey", high = "red3") +
+  scale_fill_viridis_c(option = "magma")+
+  theme_minimal() +
+  labs(title = "Economic Activity by Sector", x = "Quarter", y = "Sector", fill = "Value")+gssthemes()
+
+# For interactive graphs
+
+ggplotly(heatmap_df_1, 
+         text      = ~paste('Value: ', Value, '\value'))
 ```
 
+### Geographic Data :Population Density
+```{r}
+# Sample data: Population Density
+heatmap_df_2 <- data.frame(
+  region = c("Western", "Central", "Greater Accra", "Volta", "Eastern", "Ashanti", "Western North",
+            "Ahafo", "Bono", "Bono East", "Oti", "Northen", "Savannah", "North East", "Upper East", "Upper West"),
+  Density = c(94.65, 1.26, 157.05, 126.10, 150.21, 156.43, 51.30, 49.33, 59.06, 71.64, 67.98,89.97,
+              38.91, 40.01, 46.17, 40.80)
+)
 
+# convert data to long format
+heatmap_df_2 <- melt(heatmap_df_2, id.vars = "region", variable.name = "Measure", value.name = "Value")
+
+# create heatmap using ggplot
+ggplot(heatmap_df_2, aes(x = Measure, y = region, fill = Value)) +
+  geom_tile() +
+  scale_fill_viridis_c(option = "magma")+
+  theme_minimal() +
+  labs(title = "Population Density by Region", x = "Measure", y = "Region",
+       fill = "Density (people/sq mi)")+gssthemes()
+```
+
+### Outliers and Anomalies in a dataset
+
+
+```{r}
+# Sample date : Anomalies
+heatmap_df_3 <- data.frame(
+  Month = c("Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"),
+ Jomoro = c(1, 1, 0, 5, 4, 0, 1, 7, 0, 3, 0, 3),
+ Mpohor = c(4, 0, 1, 0, 1, 0, 1, 2, 2, 5, 9, 1),
+  Osu= c(3, 0, 1, 3, 2, 0, 1, 0, 4, 1, 4, 1),
+  Takoradi = c(1, 3, 0, 0, 0, 1, 9, 0, 1, 0, 1, 0),
+  Achimota = c(3, 2, 0, 1, 2, 0, 1, 0, 1, 0, 5, 9)
+)
+
+# convert data to long format
+heatmap_df_3 <- melt(heatmap_df_3, id.vars = "Month", variable.name = "Location", value.name = "Anomaly")
+
+# create heatmap using ggplot
+heatmap_df_3 <- ggplot(heatmap_df_3, aes(x = Month, y = Location, fill = Anomaly)) +
+  geom_tile() +
+ scale_fill_viridis_c(option = "magma")+ 
+  theme_minimal() +
+  labs(title = "Anomalies by Location and Month", x = "Month", y = "Location", fill = "Anomaly")+gssthemes()
+
+ggplotly(heatmap_df_3, 
+         text      = ~paste('Value: ', Value, '\value'))
+```
 
 
 # Proportion Charts
@@ -1734,10 +1921,171 @@ n_chopbars_df %>%
 
 <!-- Bump charts are useful for comparing the position, performance, or rankings of multiple observations over time. They can be used to explore changes in rank for different categories or to draw attention to changes in rankings rather than the actual values themselves. Bump charts are commonly used in many fields, including finance, economics, sports, and social sciences. -->
 
+### Show different categories using color palettes (stacked)
 
+If you want to show different categories, you can use the `fill = categorical variable` argument inside the aesthetics mapping. To do this, the data needs to be in a long format
+
+#### example data (long format)
+```{r}
+n_chopbars_df  <- tribble(~region_number, ~region, ~number_of_chop_bars, ~urban, ~rural,
+                            1,"Western", 567, 300, 267,
+                            2, "Central", 907, 600, 307,
+                            3, "Greater Accra", 6990, 4792, 2198, 
+                            4, "Volta", 278, 78, 200, 
+                            5, "Eastern", 787, 287, 500,
+                            6, "Ashanti",5621, 601, 5020,
+                            7, "Western North", 345, 145, 200,
+                            8,	"Ahafo", 678, 320, 358,
+                            9, "Bono",1268, 600, 668, 
+                            10,"Bono East", 1068,1048, 20,
+                            11,"Oti",773, 500, 273, 
+                            12,"Northern", 112, 12, 100,
+                            13,"Savannah", 1289,503, 786, 
+                            14,"North East",378, 142, 236,
+                            15,"Upper East",993,40, 953, 
+                            16,	"Upper West", 3506, 3456, 50) 
+n_chopbars_df %>%
+	kable() %>%
+	kable_styling() %>% 
+  scroll_box(height = "400px")
+```
+
+
+```{r, fig.height= 8}
+n_chopbars_df_new <-  n_chopbars_df %>% 
+	mutate(urban_per = 100*urban/number_of_chop_bars,
+				 rural_per = 100*rural/number_of_chop_bars) %>%
+	pivot_longer(cols = c(urban_per, rural_per), names_to = "locality", values_to = "percentage")
+
+n_chopbars_df_new %>% 
+	kable() %>%
+	kable_styling() 
+
+  ggplot(n_chopbars_df_new, aes(x = region,  y = percentage, fill = locality)) +
+  geom_col() +
+	coord_flip() +
+	ylim(0, 100) +
+	geom_text(aes(label = ifelse(percentage<10, "", paste0(round(percentage, 1), "%")),
+								y = ifelse(locality == "urban_per", 6, 87)), size = 2, position = "stack") +
+  gssthemes() +
+	labs(x = "Region",
+			 y = "Number of chop bars")+
+	scale_fill_manual(values = c(urban_per = urban_color,
+															 rural_per = rural_color), labels = c("Rural", "Urban"))+
+  	 guides(fill = guide_legend(reverse=TRUE)) +
+	theme(panel.grid.major.x=element_line(color = "gray", size=0.25),
+				panel.grid.major.y=element_blank(),
+				axis.text.x = element_text(vjust = 0.5))
+```
+
+
+## Pie chart
+
+A pie chart is a circular statistical picture that divides into slices to represent numerical quantities. Each pie slice symbolizes a certain category, and the size of each slice is inversely proportionate to the amount it represents. Pie charts are used to show how several categories are spread within a whole.
+
+Pie charts are the most effective for comparing parts of an entire. They do not show changes over time or relationships between variables. When there are many categories or not many differences between the groupings, pie charts might be difficult to read and comprehend.
+
+```{r}
+# Sample data
+df_pie <- data.frame(locality = c("Urban", "Rural"),
+  deaths = c(4500, 2100))
+
+# Pie chart
+ggplot(df_pie) +
+  geom_col(aes(x = "", y = deaths, fill = locality)) +
+  coord_polar(theta = "y")+
+	scale_fill_manual(values = c(urban_color, rural_color), label = c("Urban", "Rural")) +
+	gssthemes() +
+	theme(axis.text = element_blank(),
+				axis.ticks.y = element_blank(),
+				axis.text.y= element_blank(),
+				panel.grid.major.y = element_blank(),
+				axis.text.x = element_blank(),
+				panel.grid = element_blank()) +
+	labs(x = NULL, y = NULL, fill = "Locality")
+```
+
+
+### Pie chart with percentage value labels showing
+```{r}
+ggplot(df_pie, aes(x = "", y = deaths, fill = locality)) +
+  geom_col() +
+	coord_polar(theta = 'y') +
+		scale_fill_manual(values = c(urban_color, rural_color), label = c("Urban", "Rural")) +
+	geom_text(aes(label = percent(deaths/sum(deaths, na.rm = T))),
+					 color = "white", size = 8, position = position_stack(vjust = 0.5)) +
+	gssthemes() +
+	theme(axis.text = element_blank(),
+				axis.ticks.y = element_blank(),
+				axis.text.y= element_blank(),
+				panel.grid.major.y = element_blank(),
+				axis.text.x = element_blank(),
+				panel.grid = element_blank())  +
+	labs(x = NULL, y = NULL)
+```
+
+### Pie chart with group labels showing on slice and with no legend
+```{r}
+ggplot(df_pie, aes(x = "", y = deaths, fill = locality)) +
+  geom_col() +
+	coord_polar(theta = 'y') +
+	geom_text(aes(label = locality, color = "black"), size = 8, position = position_stack(vjust = 0.5), vjust = -1.5) +
+		scale_fill_manual(values = c(urban_color, rural_color), label = c("Urban", "Rural")) +
+	geom_text(aes(label = percent(deaths/sum(deaths, na.rm = T))),
+					 color = "white", size = 8, position = position_stack(vjust = 0.5)) +
+	gssthemes() +
+	theme(axis.text = element_blank(),
+				axis.ticks.y = element_blank(),
+				axis.text.y= element_blank(),
+				panel.grid.major.y = element_blank(),
+				axis.text.x = element_blank(),
+				panel.grid = element_blank(),
+				legend.position = "none")  +
+	labs(x = NULL, y = NULL)
+```
+
+
+## Scatterplot
+A scatter plot is a type of chart that displays the relationship between two numerical variables. Each data point is represented as a dot on the chart, with the position of the dot determined by the values of the two variables. Scatter plots are used to visually explore and analyze the relationship between two variables.
+
+Scatter plots are useful for identifying trends, patterns, and correlations in the data. They can also be used to detect outliers or to assess the strength and direction of the relationship between the two variables. Scatter plots are commonly used in many fields, including finance, economics, social sciences, and engineering.
+```{r}
+# Sample data
+n_chopbars_df_region_quarters_scatter  <- data.frame(zone = c(rep("Savanna zone", 8), rep("Forest zone", 8)), urban_births = c(158, 26, 180, 147, 102, 121, 140, 191, 59, 121, 23,  43, 133, 107, 132, 41), rural_births =c(89,  84,  94,  94, 146,  73, 150,  69,  79,  71,  43, 164, 123,  75, 161, 169))
+																									
+
+n_chopbars_df_region_quarters_scatter %>% 
+	kable() %>%
+	kable_styling() %>% 
+  scroll_box(height = "400px")
+```
+
+
+```{r}
+# Scatter plot
+ggplot(n_chopbars_df_region_quarters_scatter) +
+  geom_point(aes(x = rural_births, y = urban_births))+
+	labs(x = "Rural", y = "Urban") +
+	gssthemes()
+
+```
+
+### Scatter plots with difference in shape and colour of groups
+Scatter plots are displayed in this form to show differences in correlates for different groups within the data. In such a case, one can decide to show differences using colours of the points or shapes of points or both.
+```{r}
+ggplot(n_chopbars_df_region_quarters_scatter) +
+  geom_point(aes(x = rural_births, y = urban_births, 
+  							 # The color argument shows different colours for points for different groups (i.e. locality)
+  							 color = zone,
+  							 # The shape argument shows different shapes for points for different groups (i.e. locality)
+  							 shape = zone))+
+	labs(x = "Rural", y = "Urban") +
+	gssthemes() +
+	theme(legend.key = element_blank())
+```
 
 
 
 ```{r System Info and Package Versioning}
-sessionInfo()
+#sessionInfo()
 ```
