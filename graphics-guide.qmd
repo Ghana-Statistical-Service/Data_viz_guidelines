@@ -839,6 +839,11 @@ You can use a filled bar chart to show relative shares within a group. This exam
 #### example data (sentiment data)
 
 
+
+
+
+
+
 ```{r}
 sentiment_chop_bars <- tribble(~location, ~ `very positive`, ~ `positive`, ~  `neutral`,  ~ `negative`, ~"very negative",
 				"urban", 15.2, 17.3, 50.2, 8, 9.3,
@@ -1169,12 +1174,20 @@ age_pyramid_df %>%
 ```
 
 
+## Histogram
+
+```{r}
+ggplot(n_chopbars_df, aes(x = number_of_chop_bars)) + 
+  geom_histogram(binwidth = 1000, fill = "#27A0CC", color = "black") +
+  labs(title = "Number of Chopbars by Region",
+       x = "Number of Chopbars",
+       y = "Frequency")+gssthemes()
+```
 
 
 
+# LINE CHARTS
 
-
-# line charts
 
 A line chart is a graphical representation used to display continuous data over a period of time or across one or multiple categories. A user should use a line chart when they want to show trends, patterns, or changes over time, especially for a large number of data points or continuous data.
 
@@ -1347,8 +1360,6 @@ line_chart_df %>%
 
 ## lollipop chart
 
-
-
 A lollipop chart is used visually represent time series data where magnitude of occurrence is to be communicated. It shows the relationship between a numeric and a categorical variable, as well as identifying trends or patterns over time. They can be used to display numerical data such as quantities and magnitude. To make sure that the data is shown above the right year, you can use `as.factor()` to make the numeric value a factor
 
 ```{r}
@@ -1389,9 +1400,6 @@ line_chart_df %>%
 
 ## Area chart (stacked)
 
-
-
-
 ```{r}
 line_chart_df_by_sex %>% 
 	ggplot(aes(x=year, y=number, fill=sex)) + 
@@ -1404,8 +1412,6 @@ line_chart_df_by_sex %>%
 											labels = scales::comma,
 											limits = nicelimits) +
 	gssthemes()
-	
-
 ```
 
 ## Area chart (Proportional)
@@ -1442,8 +1448,10 @@ area_df <- tibble(
 	`rural growth` = c(2.1, 2.5, 2.8, 3.2, 3.5, 3.9),
 	`urban growth` = c(2.8, 3.1, 3.4, 3.7, 4.0, 4.3)
 )
+```
 
 
+```{r}
 area_df_long <- area_df %>%
 	pivot_longer(-year)
 # Create the plot
@@ -1466,7 +1474,45 @@ ggplot() +
 	theme(legend.position = "bottom")
 ```
 
-# Pie charts 
+## Density Chart
+
+A density plot, also known as a kernel density plot, is a sort of graphical data representation that depicts data distribution over a continuous interval or range of values. It is similar to a histogram in that it displays the estimated probability density function of the data rather than the frequency of data points in each bin.
+
+In data analysis and statistics, density plots are often used to show the shape of the data distribution, including information about the mode, skewness, and outliers. They are especially effective for spotting trends in data that other types of plots, such as scatterplots or boxplots, may miss.
+
+```{r}
+# Load the ggplot2 package
+library(ggplot2)
+
+# Create a data frame with three columns for agriculture, industry, and services
+densitydf <- data.frame(agriculture = rnorm(1000, mean = 50, sd = 10),
+                   industry = rnorm(1000, mean = 75, sd = 15),
+                   services = rnorm(1000, mean = 100, sd = 20))
+```
+
+
+```{r}
+# Convert the data frame to a long format using the tidyr package
+library(tidyr)
+densitydf_long <- gather(densitydf, key = "sector", value = "value")
+
+# Create a density plot using geom_density with colors red, blue, and green
+ggplot(densitydf_long, aes(x = value, fill = sector)) +
+  geom_density(alpha = 0.5) +
+  scale_fill_manual(values = c("#14607A", "#07BB9E", "#F98B00")) +
+  labs(title = "Density Plot for Agriculture, Industry, and Services", x = "Value", y = "Density")+gssthemes()
+```
+
+## Heatmap
+
+```{r}
+
+```
+
+
+# Proportion Charts
+
+## Pie charts 
 
 A pie chart is a circular statistical picture that divides into slices to represent numerical quantities. Each pie slice symbolizes a certain category, and the size of each slice is inversely proportionate to the amount it represents. Pie charts are used to show how several categories are spread within a whole.
 
@@ -1692,11 +1738,6 @@ n_chopbars_df %>%
 
 
 
-## Heatmap
-
-```{r}
-
-```
 
 
 ```{r System Info and Package Versioning}
