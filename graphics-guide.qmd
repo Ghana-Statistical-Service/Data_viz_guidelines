@@ -454,6 +454,25 @@ economic_sectors<- c("#14607A","#07BB9E","#F98B00")
 #food
 food_colour<- "#3ECDB9"
 nonfood_colour<-"#04BCFC"
+
+#Region
+Ahafo_color_code <- "#4B644BFF"
+Ashanti_color_code <- "#7D96AFFF"
+Bono_color_code <- "#EBA07EFF"
+Bono_East_color_code <- "#09979BFF"
+Central_color_code <- "#EA879CFF"
+Eastern_color_code <- "#E5B9ADFF"
+Greater_Accra_color_code <- "#CC9B7AFF"
+Northern_color_code <- "#FDD835FF"
+North_East_code <- "#0070C0"
+Oti_color_code <- "#AE2B47FF"
+Savannah_color_code <- "#F94240FF"
+Upper_East_color_code <- "#903000FF"
+Upper_West_color_code <- "#0F3B6CFF"
+Volta_color_code <- "#59A77FFF"
+Western_color_code <- "#FDAE6BFF"
+Western_North_color_code<-"#B173A0FF"
+
 ```
 
 ## Bar charts
