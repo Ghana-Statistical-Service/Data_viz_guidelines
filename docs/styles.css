@@ -465,11 +465,30 @@ hr:after {
 .agriculture{background-color:#07BB9E;}
 .service{background-color:#F98B00;}
 
+
+.ahafo{background-color:#4B644B;}
+.ashanti{background-color:#7D96AF;}
+.bono{background-color:#EBA07E;}
+.bonoeast{background-color:#09979B;}
+.central{background-color:#EA879C;}
+.eastern{background-color:#E5B9AD;}
+.greateraccra{background-color:#CC9B7A;}
+.northern{background-color:#FDD835;}
+.northeast{background-color:#0070C0;}
+.oti{background-color:#AE2B47;}
+.savannah{background-color:#F94240;}
+.uppereast{background-color:#903000;}
+.upperwest{background-color:#0F3B6C;}
+.volta{background-color:#59A77F;}
+.western{background-color:#FDAE6B;}
+.westernnorth{background-color:#B173A0;}
+
 .Positive1{background-color:#6AA84F;}
 .Positive2{background-color:#93C47D;}
 .Neutral{background-color:#FFFFCC;}
 .Negative2{background-color:#F4CCCC;}
 .Negative1{background-color:#E06666;}
+
 
 
 .Neutral1{background-color:#002060;}
@@ -573,6 +592,8 @@ hr:after {
 .red-3{background-color:#E9807D;}
 .red-2{background-color:#F1AAA9;}
 .red-1{background-color:#F8D5D4;}
+
+.missing{background-color:#ADABAC;}
 
 
 .print-swatch{
