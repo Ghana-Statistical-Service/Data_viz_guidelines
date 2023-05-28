@@ -501,7 +501,6 @@ These colour can be used for the 16 different regions or to assign more generic 
     <br>
     <br>
 ```
-<br>
 
 #### Missing value
 
@@ -516,7 +515,8 @@ If you want to assign a colour to missing values, you can use this grey tone.
                         </div>
                     <svg width="30" height="30" class="print-swatch"><rect width="30" height="30" fill="#ADABAC"></rect></svg></div>
                 </div>
-      </div>
+
+
     <br>
 ```
 
